@@ -26,6 +26,9 @@ int main() {
     // call menu
 //    Menu antMenu;
 //    antMenu.showStartMenu();
+//    antMenu.setChoice();
+//    cout << "Selection made was " << antMenu.getChoice() << endl;
+//    antMenu.validateSelection();
 
     bool flag = true;
     string choice;

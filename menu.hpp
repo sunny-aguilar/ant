@@ -17,7 +17,9 @@ private:
 
 public:
     void showStartMenu();
-    void getChoice();
+    void setChoice();
+    string getChoice();
+    void validateSelection();
 };
 
 #endif
