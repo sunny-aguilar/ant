@@ -5,7 +5,10 @@
 **                  of your code
 **                  here.
 **
-*********************************************************************/#ifndef ANT_BOARD_HPP
-#define ANT_BOARD_HPP
+*********************************************************************/
+#ifndef BOARD_HPP
+#define BOARD_HPP
 
-#endif //ANT_BOARD_HPP
+
+
+#endif

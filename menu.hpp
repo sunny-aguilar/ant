@@ -6,7 +6,18 @@
 **                  here.
 **
 *********************************************************************/
-#ifndef ANT_MENU_HPP
-#define ANT_MENU_HPP
+#ifndef MENU_HPP
+#define MENU_HPP
+#include <string>
+using std::string;
 
-#endif //ANT_MENU_HPP
+class Menu {
+private:
+    string choice;
+
+public:
+    void showStartMenu();
+    void getChoice();
+};
+
+#endif
