@@ -8,8 +8,10 @@
 *********************************************************************/
 #include "menu.hpp"
 #include <iostream>
+#include <regex>
 using std::cin;
 using std::cout;
+using std::regex;
 
 void Menu::showStartMenu() {
     cout << "1. Start Langston's Ant Simulation\n"
@@ -26,15 +28,14 @@ string Menu::getChoice() {
 }
 
 void Menu::validateSelection() {
-    bool flag = true;
-    while (flag) {
+    regex validMatch("^[1-2]{1}$");
+    std::smatch m;
+    while (!std::regex_match(choice, m, validMatch)) {
         if (getChoice() == "1") {
             cout << "Option 1\n\n";
-            flag = false;
         }
         else if (getChoice() == "2") {
             cout << "Option 2\n\n";
-            flag = false;
         }
         else if (getChoice() > "2" || getChoice() < "1") {
             cout << "Invalid Input!\n\n"
