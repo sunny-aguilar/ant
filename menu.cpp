@@ -11,6 +11,7 @@
 #include <regex>
 using std::cin;
 using std::cout;
+using std::endl;
 using std::regex;
 
 void Menu::showStartMenu() {
@@ -27,9 +28,14 @@ string Menu::getSelection() {
     return selection;
 }
 
+
+// maybe there is a simpler way to validate? create multiple
+// regex strings and select the one you need based on what
+// is being validated?
 void Menu::validateSelection() {
     regex validMatch("^[1-2]{1}$");
     std::smatch m;
+
     while (!std::regex_match(selection, m, validMatch)) {
         if (getSelection() == "1") {
             cout << "Option 1\n\n";
@@ -49,13 +55,44 @@ void Menu::validateSelection() {
         }
     }
 }
+/*********************************************************************
+** Description:     Validate number of rows for the board
+*********************************************************************/
+void Menu::validateRows() {
+    string choice;
+    getline(cin, choice);
+
+    regex validMatch("^[2-9]$");
+    std::smatch m;
+
+    while (!std::regex_match(choice, m, validMatch)) {
+        cout << "Please enter a valid selection of 2-9 rows\n";
+        getline(cin, choice);
+    }
+    cout << "You have selected " << choice << endl;
+
+
+
+}
 
 void Menu::subMenuRows() {
-    cout << "Enter the number of rows for the board (max 10)\n";
+    cout << "Enter the number of rows for the board (min 2 rows, max 10 rows)\n";
 }
 
 void Menu::subMenuCols() {
-    cout << "Enter the number of rows for the board (max 10)\n";
+    cout << "Enter the number of columns for the board (min 2 columns, max 10 columns)\n";
+}
+
+void Menu::subMenuSteps() {
+    cout << "Enter the number of steps for the simulation\n";
+}
+
+void Menu::subMenuStartRow() {
+    cout << "Enter the start row of the ant\n";
+}
+
+void Menu::subMenuStartCol() {
+    cout << "Enter the start column of the ant\n";
 }
 
 int Menu::getInteger() {

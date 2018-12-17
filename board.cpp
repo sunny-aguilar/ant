@@ -7,3 +7,15 @@
 **
 *********************************************************************/
 #include "board.hpp"
+
+Board::Board() {
+
+}
+
+void Board::setRows(int row) {
+    this->rows = row;
+}
+
+void Board::setCols(int col) {
+    this->cols = col;
+}

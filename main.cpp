@@ -24,14 +24,27 @@ int main() {
     // If the ant is on a white space, turn right 90 degrees and change the space to black.
     // If the ant is on a black space, turn left 90 degrees and change the space to white.
 
-    // create main menu
+    // create menu, board, and ant
     Menu antMenu;
+    Board antBoard;
     // call menu
     antMenu.showStartMenu();
     // get user selection
     antMenu.setSelection();
-    cout << "Selection made was " << antMenu.getSelection() << endl;
+//    cout << "Selection made was " << antMenu.getSelection() << endl;
     antMenu.validateSelection();
+
+    antMenu.subMenuRows();
+    antMenu.validateRows();
+//    antBoard.setRows();
+//
+//    antMenu.subMenuCols();
+//    antBoard.setCols();
+//
+//    antMenu.subMenuStartRow();
+//    antMenu.subMenuStartCol();
+//
+//    antMenu.subMenuSteps();
 
 
 
