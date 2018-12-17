@@ -20,7 +20,7 @@ public:
     void setSelection();
     string getSelection();
     void validateSelection();
-    int validateRows();
+    int validateSize(string dimension);
 
     void subMenuRows();
     void subMenuCols();

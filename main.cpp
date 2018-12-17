@@ -35,12 +35,13 @@ int main() {
     antMenu.validateSelection();
 
     antMenu.subMenuRows();
-    antMenu.validateRows();
-    antBoard.setRows( antMenu.validateRows() );
-//
-//    antMenu.subMenuCols();
-//    antBoard.setCols();
-//
+    antBoard.setRows( antMenu.validateSize("rows.") );
+
+    antMenu.subMenuCols();
+    antBoard.setCols( antMenu.validateSize("columns.") );
+
+    // test board to see if dimensions are correctly applied
+
 //    antMenu.subMenuStartRow();
 //    antMenu.subMenuStartCol();
 //

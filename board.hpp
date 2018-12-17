@@ -20,7 +20,8 @@ public:
     Board();
     void setRows(int row);
     void setCols(int col);
-    int Board::getRows();
+    int getRows();
+    int getCols();
 };
 
 #endif

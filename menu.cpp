@@ -58,7 +58,7 @@ void Menu::validateSelection() {
 /*********************************************************************
 ** Description:     Validate number of rows for the board
 *********************************************************************/
-int Menu::validateRows() {
+int Menu::validateSize(string dimension) {
     string choice;
     getline(cin, choice);
 
@@ -69,7 +69,7 @@ int Menu::validateRows() {
         cout << "Please enter a valid selection of 2-100 rows\n";
         getline(cin, choice);
     }
-    cout << "You have selected " << choice << " rows." << endl;
+    cout << "You have selected " << choice << " " << dimension << endl;
 
     return returnInteger(choice);
 }

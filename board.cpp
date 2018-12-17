@@ -23,3 +23,7 @@ void Board::setCols(int col) {
 int Board::getRows() {
     return rows;
 }
+
+int Board::getCols() {
+    return cols;
+}
