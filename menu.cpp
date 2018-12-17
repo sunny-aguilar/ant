@@ -50,6 +50,20 @@ void Menu::validateSelection() {
     }
 }
 
+void Menu::subMenuRows() {
+    cout << "Enter the number of rows for the board (max 10)\n";
+}
+
+void Menu::subMenuCols() {
+    cout << "Enter the number of rows for the board (max 10)\n";
+}
+
+int Menu::getInteger() {
+    int info;
+    cin >> info;
+    return info;
+}
+
 void Menu::callNext() {
     // use this function to call the next steps
     // after vlidation is completed (i.e., call

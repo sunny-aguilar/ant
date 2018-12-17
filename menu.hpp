@@ -17,9 +17,12 @@ private:
 
 public:
     void showStartMenu();
+    void subMenuRows();
+    void subMenuCols();
     void setSelection();
     string getSelection();
     void validateSelection();
+    int getInteger();
     void callNext();
 };
 
