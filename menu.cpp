@@ -19,33 +19,39 @@ void Menu::showStartMenu() {
          << "Choice: ";
 }
 
-void Menu::setChoice() {
-    getline(cin, choice);
+void Menu::setSelection() {
+    getline(cin, selection);
 }
 
-string Menu::getChoice() {
-    return choice;
+string Menu::getSelection() {
+    return selection;
 }
 
 void Menu::validateSelection() {
     regex validMatch("^[1-2]{1}$");
     std::smatch m;
-    while (!std::regex_match(choice, m, validMatch)) {
-        if (getChoice() == "1") {
+    while (!std::regex_match(selection, m, validMatch)) {
+        if (getSelection() == "1") {
             cout << "Option 1\n\n";
         }
-        else if (getChoice() == "2") {
+        else if (getSelection() == "2") {
             cout << "Option 2\n\n";
         }
-        else if (getChoice() > "2" || getChoice() < "1") {
+        else if (getSelection() > "2" || getSelection() < "1") {
             cout << "Invalid Input!\n\n"
                  << "Enter again: ";
-            getline(cin, choice);
+            getline(cin, selection);
         }
         else {
             cout << "Invalid Input!\n\n"
                  << "Enter again: ";
-            getline(cin, choice);
+            getline(cin, selection);
         }
     }
+}
+
+void Menu::callNext() {
+    // use this function to call the next steps
+    // after vlidation is completed (i.e., call
+    // the next function in different class)
 }

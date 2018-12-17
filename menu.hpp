@@ -13,13 +13,14 @@ using std::string;
 
 class Menu {
 private:
-    string choice;
+    string selection;
 
 public:
     void showStartMenu();
-    void setChoice();
-    string getChoice();
+    void setSelection();
+    string getSelection();
     void validateSelection();
+    void callNext();
 };
 
 #endif

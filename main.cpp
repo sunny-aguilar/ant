@@ -11,12 +11,12 @@
 #include "menu.hpp"
 #include <iostream>
 #include <string>
-#include <regex>
+//#include <regex>
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-using std::regex;
+//using std::regex;
 
 int main() {
 
@@ -24,18 +24,20 @@ int main() {
     // If the ant is on a white space, turn right 90 degrees and change the space to black.
     // If the ant is on a black space, turn left 90 degrees and change the space to white.
 
-    // call menu
+    // create main menu
     Menu antMenu;
+    // call menu
     antMenu.showStartMenu();
-    antMenu.setChoice();
-    cout << "Selection made was " << antMenu.getChoice() << endl;
+    // get user selection
+    antMenu.setSelection();
+    cout << "Selection made was " << antMenu.getSelection() << endl;
     antMenu.validateSelection();
 
 
 
 
 
-    
+
 //    regex validMatch("^[1-2]{1}$");
 //    std::smatch m;
 //
