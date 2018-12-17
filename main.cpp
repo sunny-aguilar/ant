@@ -41,6 +41,7 @@ int main() {
     antBoard.setCols( antMenu.validateSize("columns.") );
 
     // test board to see if dimensions are correctly applied
+    cout << "Your board has " << antBoard.getRows() << " rows and " << antBoard.getCols() << " columns." << endl;
 
 //    antMenu.subMenuStartRow();
 //    antMenu.subMenuStartCol();
