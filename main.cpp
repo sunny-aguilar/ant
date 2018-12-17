@@ -31,12 +31,12 @@ int main() {
     antMenu.showStartMenu();
     // get user selection
     antMenu.setSelection();
-//    cout << "Selection made was " << antMenu.getSelection() << endl;
+//    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
     antMenu.validateSelection();
 
     antMenu.subMenuRows();
     antMenu.validateRows();
-//    antBoard.setRows();
+    antBoard.setRows( antMenu.validateRows() );
 //
 //    antMenu.subMenuCols();
 //    antBoard.setCols();
@@ -45,41 +45,6 @@ int main() {
 //    antMenu.subMenuStartCol();
 //
 //    antMenu.subMenuSteps();
-
-
-
-
-
-
-//    regex validMatch("^[1-2]{1}$");
-//    std::smatch m;
-//
-//    string choice;
-//    cout << "1. Start Langston's Ant Simulation\n"
-//         << "2. Quit\n"
-//         << "Choice: ";
-//    getline(cin, choice);
-//
-//    while (!std::regex_match(choice, m, validMatch)) {
-//        if (choice == "1") {
-//            cout << "Option 1\n\n";
-//        }
-//        else if (choice == "2") {
-//            cout << "Exiting program...\n\n";
-//            return 0;
-//        }
-//        else if (choice > "2" || choice < "1") {
-//            cout << "Invalid Input!\n\n"
-//                 << "Enter again: ";
-//            getline(cin, choice);
-//        }
-//        else {
-//            cout << "Invalid Input!\n\n"
-//                 << "Enter again: ";
-//            getline(cin, choice);
-//        }
-//    }
-
 
     return 0;
 }

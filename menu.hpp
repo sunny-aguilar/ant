@@ -20,13 +20,14 @@ public:
     void setSelection();
     string getSelection();
     void validateSelection();
-    void validateRows();
+    int validateRows();
 
     void subMenuRows();
     void subMenuCols();
     void subMenuSteps();
     void subMenuStartRow();
     void subMenuStartCol();
+    int returnInteger(string str);
     int getInteger();
     void callNext();
 };

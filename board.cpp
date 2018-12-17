@@ -19,3 +19,7 @@ void Board::setRows(int row) {
 void Board::setCols(int col) {
     this->cols = col;
 }
+
+int Board::getRows() {
+    return rows;
+}

@@ -58,21 +58,20 @@ void Menu::validateSelection() {
 /*********************************************************************
 ** Description:     Validate number of rows for the board
 *********************************************************************/
-void Menu::validateRows() {
+int Menu::validateRows() {
     string choice;
     getline(cin, choice);
 
-    regex validMatch("^[2-9]$");
+    regex validMatch("^[2-9]|[1-9][0-9]|100$");
     std::smatch m;
 
     while (!std::regex_match(choice, m, validMatch)) {
-        cout << "Please enter a valid selection of 2-9 rows\n";
+        cout << "Please enter a valid selection of 2-100 rows\n";
         getline(cin, choice);
     }
-    cout << "You have selected " << choice << endl;
+    cout << "You have selected " << choice << " rows." << endl;
 
-
-
+    return returnInteger(choice);
 }
 
 void Menu::subMenuRows() {
@@ -105,4 +104,8 @@ void Menu::callNext() {
     // use this function to call the next steps
     // after vlidation is completed (i.e., call
     // the next function in different class)
+}
+
+int Menu::returnInteger(string str) {
+    return std::stoi(str);
 }
