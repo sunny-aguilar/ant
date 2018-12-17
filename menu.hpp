@@ -6,11 +6,7 @@
 **                  here.
 **
 *********************************************************************/
-#include "ant.hpp"
+#ifndef ANT_MENU_HPP
+#define ANT_MENU_HPP
 
-class Ant {
-private:
-
-public:
-
-};
+#endif //ANT_MENU_HPP

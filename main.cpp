@@ -13,13 +13,6 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-class Ant {
-private:
-    
-public:
-
-};
-
 int main() {
 
     // ant rules

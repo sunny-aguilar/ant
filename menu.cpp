@@ -6,11 +6,4 @@
 **                  here.
 **
 *********************************************************************/
-#include "ant.hpp"
-
-class Ant {
-private:
-
-public:
-
-};
+#include "menu.hpp"

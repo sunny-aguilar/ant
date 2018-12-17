@@ -5,12 +5,7 @@
 **                  of your code
 **                  here.
 **
-*********************************************************************/
-#include "ant.hpp"
+*********************************************************************/#ifndef ANT_BOARD_HPP
+#define ANT_BOARD_HPP
 
-class Ant {
-private:
-
-public:
-
-};
+#endif //ANT_BOARD_HPP
