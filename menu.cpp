@@ -20,8 +20,8 @@ void Menu::showStartMenu() {
          << "Choice: ";
 }
 
-void Menu::setSelection(string slt) {
-    getline(cin, selection);
+void Menu::setSelection(string select) {
+    this->selection = select;
 }
 
 string Menu::getSelection() {
@@ -56,7 +56,6 @@ string Menu::validateSelection() {
             getline(cin, selection);
         }
     }
-
     return selection;
 }
 /*********************************************************************
@@ -91,7 +90,7 @@ int Menu::validateSteps() {
         cout << "Please enter a valid number of steps between 1 and 1000\n";
         getline(cin, steps);
     }
-    cout << "You have selected " << steps << " steps\n";
+    cout << "You have selected " << steps << " steps in the simulation\n";
 
     return returnInteger(steps);
 }

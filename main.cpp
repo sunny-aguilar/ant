@@ -31,7 +31,8 @@ int main() {
     // call menu
     antMenu.showStartMenu();
     // get user selection
-    antMenu.setSelection( antMenu.validateSelection() );
+    antMenu.setSelection(antMenu.validateSelection());
+
 
     // debugging code - test selection variable for main menu in Board
     //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
@@ -42,13 +43,17 @@ int main() {
     antMenu.subMenuCols();
     antBoard.setCols( antMenu.validateSize("columns.") );
 
-    // debugging code - test board to see if dimensions are correctly applied
-    cout << "Your board has " << antBoard.getRows() << " rows and " << antBoard.getCols() << " columns." << endl;
 
     // submenu item - ask user to enter steps and validate
     antMenu.subMenuSteps();
     antBoard.setSteps( antMenu.validateSteps() );
+
+    // submenu item - ask user to enter the start row
     antMenu.subMenuStartRow();
+
+    // submenu item - ask user to enter the start column
+
+    // ask user to select a random start location
 
     // debugging code - test board specs
     cout << "Rows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
