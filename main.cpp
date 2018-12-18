@@ -59,7 +59,8 @@ int main() {
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
         }
         else {
-            // set random starting location
+            // set random starting location for the ant
+            // Extra Credit 5%
             unsigned seed;
             seed = time(0);
             srand(seed);
@@ -74,7 +75,7 @@ int main() {
         cout << "Random column start location " << antBoard.getStartCol() << endl;
 
         //    antMenu.subMenuSteps();
-        
+
     }
     else {
         cout << "Goodbye\n";
