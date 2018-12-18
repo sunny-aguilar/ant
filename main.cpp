@@ -51,7 +51,7 @@ int main() {
 
         // submenu item - ask user to select the starting location method
 
-        if ( antMenu.subMenuStartLocation() == 1) {
+        if ( antMenu.subMenuStartLocation() == 1) { // need to debug
             // set custom user-picked location
             antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
