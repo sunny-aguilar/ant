@@ -96,7 +96,8 @@ int Menu::validateSteps() {
 }
 
 void Menu::subMenuRows() {
-    cout << "Enter the number of rows for the board (min 2 rows, max 10 rows)\n";
+    cout << "Great! Now let's create the board\n"
+         << "Enter the number of rows for the board (min 2 rows, max 10 rows)\n";
 }
 
 void Menu::subMenuCols() {
@@ -105,6 +106,12 @@ void Menu::subMenuCols() {
 
 void Menu::subMenuSteps() {
     cout << "Enter the number of steps for the simulation\n";
+}
+
+void Menu::subMenuStartLocation() {
+    cout << "Starting location of ant\n"
+         << "1. Pick your own starting location\n"
+         << "2. Select a random starting location\n ";
 }
 
 void Menu::subMenuStartRow() {

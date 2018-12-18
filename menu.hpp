@@ -26,6 +26,7 @@ public:
     void subMenuRows();
     void subMenuCols();
     void subMenuSteps();
+    void subMenuStartLocation();
     void subMenuStartRow();
     void subMenuStartCol();
     int returnInteger(string str);

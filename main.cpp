@@ -28,10 +28,10 @@ int main() {
     Menu antMenu;
     Board antBoard;
 
-    // call menu
+    // call main menu
     antMenu.showStartMenu();
-    // get user selection
-    antMenu.setSelection(antMenu.validateSelection());
+    // get user main menu selection
+    antMenu.setSelection( antMenu.validateSelection() );
 
 
     // debugging code - test selection variable for main menu in Board
@@ -49,6 +49,7 @@ int main() {
     antBoard.setSteps( antMenu.validateSteps() );
 
     // submenu item - ask user to enter the start row
+    antMenu.subMenuStartLocation();
     antMenu.subMenuStartRow();
 
     // submenu item - ask user to enter the start column
