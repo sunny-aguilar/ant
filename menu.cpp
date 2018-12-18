@@ -173,7 +173,7 @@ int Menu::setRandomLocation(int boardSize) {
     seed = time(0);
     srand(seed);
     randomSize = rand() % boardSize + 1;
-
+    cout << "Random number generated is " << randomSize << endl;
     return randomSize;
 }
 
