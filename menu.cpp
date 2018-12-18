@@ -45,11 +45,6 @@ string Menu::validateSelection() {
         else if (getSelection() == "2") {
             cout << "Option 2\n\n";
         }
-        else if (getSelection() > "2" || getSelection() < "1") {
-            cout << "Invalid Input!\n\n"
-                 << "Enter again: ";
-            getline(cin, selection);
-        }
         else {
             cout << "Invalid Input!\n\n"
                  << "Enter again: ";
@@ -90,9 +85,35 @@ int Menu::validateSteps() {
         cout << "Please enter a valid number of steps between 1 and 1000\n";
         getline(cin, steps);
     }
-    cout << "You have selected " << steps << " steps in the simulation\n";
+    cout << "You have selected " << steps << " steps in the simulation\n\n";
 
     return returnInteger(steps);
+}
+/*********************************************************************
+** Description:     Validate start location of the ant
+*********************************************************************/
+int Menu::validateStarting() {
+    string start;
+    getline(cin, start);
+
+    regex validMatch("^[1-2]{1}$");
+    std::smatch m;
+
+    while (!std::regex_match(start, m, validMatch)) {
+        if (getSelection() == "1") {
+            cout << "Option 1 - select custom start location chosen\n\n";
+        }
+        else if (getSelection() == "2") {
+            cout << "Option 2 - random starting location chosen\n\n";
+        }
+        else {
+            cout << "Invalid Input!\n\n"
+                 << "Enter again: ";
+            getline(cin, start);
+        }
+    }
+
+    return returnInteger(start);
 }
 
 void Menu::subMenuRows() {
@@ -109,9 +130,10 @@ void Menu::subMenuSteps() {
 }
 
 void Menu::subMenuStartLocation() {
-    cout << "Starting location of ant\n"
+    cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
-         << "2. Select a random starting location\n ";
+         << "2. A random starting location\n ";
+    validateStarting();
 }
 
 void Menu::subMenuStartRow() {

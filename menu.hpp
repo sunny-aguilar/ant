@@ -22,6 +22,7 @@ public:
     string validateSelection();
     int validateSize(string dimension);
     int validateSteps();
+    int validateStarting();
 
     void subMenuRows();
     void subMenuCols();

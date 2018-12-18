@@ -50,14 +50,14 @@ int main() {
 
     // submenu item - ask user to enter the start row
     antMenu.subMenuStartLocation();
-    antMenu.subMenuStartRow();
+
 
     // submenu item - ask user to enter the start column
 
     // ask user to select a random start location
 
     // debugging code - test board specs
-    cout << "Rows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
+    cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
     cout << "Number of Steps is " << antBoard.getSteps() << endl;
 
     //    submenu item - antMenu.subMenuStartCol();
