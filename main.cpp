@@ -34,24 +34,25 @@ int main() {
 //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
     antMenu.validateSelection();
 
+    // submenu items - ask user to enter rows and columns for board and validate
     antMenu.subMenuRows();
     antBoard.setRows( antMenu.validateSize("rows.") );
-
     antMenu.subMenuCols();
     antBoard.setCols( antMenu.validateSize("columns.") );
 
-    // test board to see if dimensions are correctly applied
+    // debugging code - test board to see if dimensions are correctly applied
     cout << "Your board has " << antBoard.getRows() << " rows and " << antBoard.getCols() << " columns." << endl;
 
+    // submenu item - ask user to enter steps and validate
     antMenu.subMenuSteps();
     antBoard.setSteps( antMenu.validateSteps() );
     antMenu.subMenuStartRow();
 
-    // debugging code
+    // debugging code - test board specs
     cout << "Rows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
     cout << "Number of Steps is " << antBoard.getSteps() << endl;
 
-//    antMenu.subMenuStartCol();
+//    submenu item - antMenu.subMenuStartCol();
 //
 //    antMenu.subMenuSteps();
 
