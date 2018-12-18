@@ -138,11 +138,11 @@ int Menu::validateCustomStarting(int boardSize) {
 
 void Menu::subMenuRows() {
     cout << "Great! Now let's create the board\n"
-         << "Enter the number of rows for the board (min 2 rows, max 10 rows)\n";
+         << "Enter the number of rows for the board (min 2 rows, max 100 rows)\n";
 }
 
 void Menu::subMenuCols() {
-    cout << "Enter the number of columns for the board (min 2 columns, max 10 columns)\n";
+    cout << "Enter the number of columns for the board (min 2 columns, max 100 columns)\n";
 }
 
 void Menu::subMenuSteps() {
