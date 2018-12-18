@@ -52,13 +52,15 @@ int main() {
         // submenu item - ask user to select the starting location method
 
         if ( antMenu.subMenuStartLocation() == 1) {
+            // set custom user-picked location
             antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
-
         }
-//        else if ( antMenu.subMenuStartLocation() == 2) {
-//
-//        }
+        else if ( antMenu.subMenuStartLocation() == 2) {
+            // set random starting location
+            antBoard.setStartRow(  );
+            antBoard.setStartCol(  );
+        }
 
 //        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
 
