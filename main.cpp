@@ -53,11 +53,13 @@ int main() {
         antMenu.subMenuStartLocation();
         if ( antMenu.validateStartingSelection() == 1) { // need to debug
             // set custom user-picked location
+            cout << "statement reached\n";
             antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
         }
         else if ( antMenu.validateStartingSelection() == 2) {
             // set random starting location
+            cout << "statement reached\n";
             antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
 //            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
