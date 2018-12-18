@@ -133,7 +133,14 @@ void Menu::subMenuStartLocation() {
     cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
          << "2. A random starting location\n ";
-    validateStarting();
+
+    if (validateStarting() == 1) {
+
+    }
+    else if (validateStarting() == 2) {
+        
+    }
+
 }
 
 void Menu::subMenuStartRow() {
