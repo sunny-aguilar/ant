@@ -20,10 +20,18 @@ void Board::setCols(int col) {
     this->cols = col;
 }
 
+void Board::setSteps(int steps) {
+    this->steps = steps;
+}
+
 int Board::getRows() {
     return rows;
 }
 
 int Board::getCols() {
     return cols;
+}
+
+int Board::getSteps() {
+    return steps;
 }

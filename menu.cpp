@@ -73,6 +73,24 @@ int Menu::validateSize(string dimension) {
 
     return returnInteger(choice);
 }
+/*********************************************************************
+** Description:     Validate number of steps during the simulation
+*********************************************************************/
+int Menu::validateSteps() {
+    string steps;
+    getline(cin, steps);
+
+    regex validMatch("^[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000$");
+    std::smatch m;
+
+    while (!std::regex_match(steps, m, validMatch)) {
+        cout << "Please enter a valid number of steps between 1 and 1000\n";
+        getline(cin, steps);
+    }
+    cout << "You have selected " << steps << " steps\n";
+
+    return returnInteger(steps);
+}
 
 void Menu::subMenuRows() {
     cout << "Enter the number of rows for the board (min 2 rows, max 10 rows)\n";

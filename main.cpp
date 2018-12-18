@@ -43,6 +43,8 @@ int main() {
     // test board to see if dimensions are correctly applied
     cout << "Your board has " << antBoard.getRows() << " rows and " << antBoard.getCols() << " columns." << endl;
 
+    antMenu.subMenuSteps();
+    antBoard.setSteps( antMenu.validateSteps() );
 //    antMenu.subMenuStartRow();
 //    antMenu.subMenuStartCol();
 //
