@@ -59,7 +59,7 @@ int main() {
         else if ( antMenu.subMenuStartLocation() == 2) {
             // set random starting location
             antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
-            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
+//            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
 //        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
