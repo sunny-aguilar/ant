@@ -27,12 +27,14 @@ int main() {
     // create menu, board, and ant
     Menu antMenu;
     Board antBoard;
+
     // call menu
     antMenu.showStartMenu();
     // get user selection
-    antMenu.setSelection();
-//    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
-    antMenu.validateSelection();
+    antMenu.setSelection( antMenu.validateSelection() );
+
+    // debugging code - test selection variable for main menu in Board
+    //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
 
     // submenu items - ask user to enter rows and columns for board and validate
     antMenu.subMenuRows();
@@ -52,9 +54,9 @@ int main() {
     cout << "Rows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
     cout << "Number of Steps is " << antBoard.getSteps() << endl;
 
-//    submenu item - antMenu.subMenuStartCol();
-//
-//    antMenu.subMenuSteps();
+    //    submenu item - antMenu.subMenuStartCol();
+    //
+    //    antMenu.subMenuSteps();
 
     return 0;
 }

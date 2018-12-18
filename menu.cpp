@@ -20,7 +20,7 @@ void Menu::showStartMenu() {
          << "Choice: ";
 }
 
-void Menu::setSelection() {
+void Menu::setSelection(string slt) {
     getline(cin, selection);
 }
 
@@ -28,11 +28,13 @@ string Menu::getSelection() {
     return selection;
 }
 
-
 // maybe there is a simpler way to validate? create multiple
 // regex strings and select the one you need based on what
 // is being validated?
-void Menu::validateSelection() {
+string Menu::validateSelection() {
+    string selection;
+    getline(cin, selection);
+
     regex validMatch("^[1-2]{1}$");
     std::smatch m;
 
@@ -54,6 +56,8 @@ void Menu::validateSelection() {
             getline(cin, selection);
         }
     }
+
+    return selection;
 }
 /*********************************************************************
 ** Description:     Validate number of rows for the board
