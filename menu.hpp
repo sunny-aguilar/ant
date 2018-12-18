@@ -29,7 +29,7 @@ public:
     void subMenuRows();
     void subMenuCols();
     void subMenuSteps();
-    int subMenuStartLocation();
+    void subMenuStartLocation();
     int subMenuRowStartLocation(int boardSize);
     int subMenuColStartLocation(int boardSize);
     int setRandomLocation(int boardSize);

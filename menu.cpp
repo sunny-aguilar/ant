@@ -150,7 +150,7 @@ void Menu::subMenuSteps() {
     cout << "Enter the number of steps for the simulation\n";
 }
 
-int Menu::subMenuStartLocation() {
+void Menu::subMenuStartLocation() {
     cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
          << "2. A random starting location\n ";
