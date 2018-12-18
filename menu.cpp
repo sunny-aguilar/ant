@@ -153,31 +153,18 @@ int Menu::subMenuStartLocation() {
     cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
          << "2. A random starting location\n ";
-//    if (validateStartingSelection() == 1) {
-//        cout << "Enter the start row of the ant\n";
-//        return validateStartingSelection();
-//    }
-//    else if (validateStartingSelection() == 2) {
-//        cout << "A random starting location has been chosen\n";
-//        return validateStartingSelection();
-//    }
+
     return validateStartingSelection();
 }
 
 int Menu::subMenuRowStartLocation(int boardSize) {
-//    if (validateStarting() == 1) {
     cout << "Enter the start row of the ant\n";
-    return validateCustomStarting(boardSize); // enter the board size here
-//    }
-//    else if (validateStarting() == 2) {
-//        cout << "A random starting location has been chosen\n";
-//        return validateStarting();
-//    }
+    return validateCustomStarting(boardSize);
 }
 
 int Menu::subMenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
-    return validateCustomStarting(boardSize); // enter the board size here
+    return validateCustomStarting(boardSize);
 }
 
 int Menu::getInteger() {
