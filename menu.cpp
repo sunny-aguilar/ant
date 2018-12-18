@@ -9,8 +9,6 @@
 #include "menu.hpp"
 #include <iostream>
 #include <regex>
-#include <cstdlib>
-#include <ctime>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -168,10 +166,7 @@ int Menu::subMenuColStartLocation(int boardSize) {
 
 int Menu::setRandomLocation(int boardSize) {
     int randomSize;
-    unsigned seed;
 
-    seed = time(0);
-    srand(seed);
     randomSize = rand() % boardSize + 1;
     cout << "Random number generated is " << randomSize << endl;
     return randomSize;

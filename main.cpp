@@ -11,6 +11,8 @@
 #include "menu.hpp"
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 //#include <regex>
 using std::cin;
 using std::cout;
@@ -53,13 +55,14 @@ int main() {
         antMenu.subMenuStartLocation();
         if ( antMenu.validateStartingSelection() == 1) { // need to debug
             // set custom user-picked location
-            cout << "statement reached\n";
             antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
         }
         else {
             // set random starting location
-            cout << "statement reached\n";
+            unsigned seed;
+            seed = time(0);
+            srand(seed);
             antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
