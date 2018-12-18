@@ -37,32 +37,50 @@ int main() {
     // debugging code - test selection variable for main menu in Board
     //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
 
-    // submenu items - ask user to enter rows and columns for board and validate
-    antMenu.subMenuRows();
-    antBoard.setRows( antMenu.validateSize("rows.") );
-    antMenu.subMenuCols();
-    antBoard.setCols( antMenu.validateSize("columns.") );
+    if (antMenu.getSelection() == "1") {
+        // submenu items - ask user to enter rows and columns for board and validate
+        antMenu.subMenuRows();
+        antBoard.setRows( antMenu.validateSize("rows.") );
+        antMenu.subMenuCols();
+        antBoard.setCols( antMenu.validateSize("columns.") );
 
 
-    // submenu item - ask user to enter steps and validate
-    antMenu.subMenuSteps();
-    antBoard.setSteps( antMenu.validateSteps() );
+        // submenu item - ask user to enter steps and validate
+        antMenu.subMenuSteps();
+        antBoard.setSteps( antMenu.validateSteps() );
 
-    // submenu item - ask user to enter the start row
-    antMenu.subMenuStartLocation();
+        // submenu item - ask user to select the starting location method
+
+        if ( antMenu.subMenuStartLocation() == 1) {
+            antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
+            antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
+
+        }
+//        else if ( antMenu.subMenuStartLocation() == 2) {
+//
+//        }
+
+//        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
 
 
-    // submenu item - ask user to enter the start column
 
-    // ask user to select a random start location
+        // submenu item - ask user to enter the start column
 
-    // debugging code - test board specs
-    cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
-    cout << "Number of Steps is " << antBoard.getSteps() << endl;
+        // ask user to select a random start location
 
-    //    submenu item - antMenu.subMenuStartCol();
-    //
-    //    antMenu.subMenuSteps();
+        // debugging code - test board specs
+        cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
+        cout << "Number of Steps is " << antBoard.getSteps() << endl;
+        cout << "Custom row start location " << antBoard.getStartRow() << endl;
+        cout << "Custom column start location " << antBoard.getStartCol() << endl;
+
+        //    submenu item - antMenu.subMenuStartCol();
+        //
+        //    antMenu.subMenuSteps();
+    }
+    else {
+        cout << "Goodbye\n";
+    }
 
     return 0;
 }

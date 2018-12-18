@@ -24,6 +24,14 @@ void Board::setSteps(int steps) {
     this->steps = steps;
 }
 
+void Board::setStartRow(int startRow) {
+    this->startRow = startRow;
+}
+
+void Board::setStartCol(int startCol) {
+    this->startCol = startCol;
+}
+
 int Board::getRows() {
     return rows;
 }
@@ -34,4 +42,12 @@ int Board::getCols() {
 
 int Board::getSteps() {
     return steps;
+}
+
+int Board::getStartRow() {
+    return startRow;
+}
+
+int Board::getStartCol() {
+    return startCol;
 }

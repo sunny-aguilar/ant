@@ -64,7 +64,7 @@ int Menu::validateSize(string dimension) {
     std::smatch m;
 
     while (!std::regex_match(choice, m, validMatch)) {
-        cout << "Please enter a valid selection of 2-100 rows\n";
+        cout << "Please enter a valid selection between 2-100\n";
         getline(cin, choice);
     }
     cout << "You have selected " << choice << " " << dimension << endl;
@@ -92,7 +92,7 @@ int Menu::validateSteps() {
 /*********************************************************************
 ** Description:     Validate start location of the ant
 *********************************************************************/
-int Menu::validateStarting() {
+int Menu::validateStartingSelection() {
     string start;
     getline(cin, start);
 
@@ -100,21 +100,41 @@ int Menu::validateStarting() {
     std::smatch m;
 
     while (!std::regex_match(start, m, validMatch)) {
-        if (getSelection() == "1") {
-            cout << "Option 1 - select custom start location chosen\n\n";
-        }
-        else if (getSelection() == "2") {
-            cout << "Option 2 - random starting location chosen\n\n";
-        }
-        else {
-            cout << "Invalid Input!\n\n"
-                 << "Enter again: ";
-            getline(cin, start);
-        }
+        cout << "Invalid Input!\n\n"
+             << "Enter again: ";
+        getline(cin, start);
     }
 
     return returnInteger(start);
 }
+/*********************************************************************
+** Description:     Validate start location of the ant
+*********************************************************************/
+int Menu::validateCustomStarting(int boardSize) {
+    string regexPattern;
+
+    if (boardSize < 10)
+        regexPattern = "^[2-9]$";
+    else if (boardSize < 100)
+        regexPattern = "^[2-9]|[1-9][0-9]$";
+    else if (boardSize == 100)
+        regexPattern = "^[2-9]|[1-9][0-9]|100$";
+
+    string start;
+    getline(cin, start);
+
+    regex validMatch(regexPattern);
+    std::smatch m;
+
+    while (!std::regex_match(start, m, validMatch)) {
+        cout << "Invalid Input!\n\n"
+             << "Enter again: ";
+        getline(cin, start);
+    }
+
+    return returnInteger(start);
+}
+
 
 void Menu::subMenuRows() {
     cout << "Great! Now let's create the board\n"
@@ -129,26 +149,35 @@ void Menu::subMenuSteps() {
     cout << "Enter the number of steps for the simulation\n";
 }
 
-void Menu::subMenuStartLocation() {
+int Menu::subMenuStartLocation() {
     cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
          << "2. A random starting location\n ";
-
-    if (validateStarting() == 1) {
-
-    }
-    else if (validateStarting() == 2) {
-        
-    }
-
+//    if (validateStartingSelection() == 1) {
+//        cout << "Enter the start row of the ant\n";
+//        return validateStartingSelection();
+//    }
+//    else if (validateStartingSelection() == 2) {
+//        cout << "A random starting location has been chosen\n";
+//        return validateStartingSelection();
+//    }
+    return validateStartingSelection();
 }
 
-void Menu::subMenuStartRow() {
+int Menu::subMenuRowStartLocation(int boardSize) {
+//    if (validateStarting() == 1) {
     cout << "Enter the start row of the ant\n";
+    return validateCustomStarting(boardSize); // enter the board size here
+//    }
+//    else if (validateStarting() == 2) {
+//        cout << "A random starting location has been chosen\n";
+//        return validateStarting();
+//    }
 }
 
-void Menu::subMenuStartCol() {
+int Menu::subMenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
+    return validateCustomStarting(boardSize); // enter the board size here
 }
 
 int Menu::getInteger() {
