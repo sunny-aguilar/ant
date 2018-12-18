@@ -45,7 +45,12 @@ int main() {
 
     antMenu.subMenuSteps();
     antBoard.setSteps( antMenu.validateSteps() );
-//    antMenu.subMenuStartRow();
+    antMenu.subMenuStartRow();
+
+    // debugging code
+    cout << "Rows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
+    cout << "Number of Steps is " << antBoard.getSteps() << endl;
+
 //    antMenu.subMenuStartCol();
 //
 //    antMenu.subMenuSteps();
