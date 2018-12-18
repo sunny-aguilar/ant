@@ -58,8 +58,8 @@ int main() {
         }
         else if ( antMenu.subMenuStartLocation() == 2) {
             // set random starting location
-            antBoard.setStartRow(  );
-            antBoard.setStartCol(  );
+            antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
+            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
 //        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
@@ -73,8 +73,8 @@ int main() {
         // debugging code - test board specs
         cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
         cout << "Number of Steps is " << antBoard.getSteps() << endl;
-        cout << "Custom row start location " << antBoard.getStartRow() << endl;
-        cout << "Custom column start location " << antBoard.getStartCol() << endl;
+        cout << "Random row start location " << antBoard.getStartRow() << endl;
+        cout << "Random column start location " << antBoard.getStartCol() << endl;
 
         //    submenu item - antMenu.subMenuStartCol();
         //

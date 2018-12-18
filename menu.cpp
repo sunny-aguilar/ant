@@ -136,20 +136,6 @@ int Menu::validateCustomStarting(int boardSize) {
 
     return returnInteger(start);
 }
-/*********************************************************************
-** Description:     Validate random start location of the ant
-*********************************************************************/
-int Menu::validateRandomStart(int boardSize) {
-    int randomSize;
-    unsigned seed;
-
-    seed = time(0);
-    srand(seed);
-
-    randomSize = rand() % boardSize + 1;
-
-    return randomSize;
-}
 
 void Menu::subMenuRows() {
     cout << "Great! Now let's create the board\n"
@@ -188,7 +174,6 @@ int Menu::setRandomLocation(int boardSize) {
 
     seed = time(0);
     srand(seed);
-
     randomSize = rand() % boardSize + 1;
 
     return randomSize;
