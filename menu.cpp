@@ -106,7 +106,7 @@ int Menu::validateStartingSelection() {
              << "Enter again: ";
         getline(cin, start);
     }
- 
+    
     return returnInteger(start);
 }
 /*********************************************************************
