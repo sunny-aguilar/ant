@@ -67,23 +67,14 @@ int main() {
             antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
-//        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
-
-
-
-        // submenu item - ask user to enter the start column
-
-        // ask user to select a random start location
-
         // debugging code - test board specs
         cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
         cout << "Number of Steps is " << antBoard.getSteps() << endl;
         cout << "Random row start location " << antBoard.getStartRow() << endl;
         cout << "Random column start location " << antBoard.getStartCol() << endl;
 
-        //    submenu item - antMenu.subMenuStartCol();
-        //
         //    antMenu.subMenuSteps();
+        
     }
     else {
         cout << "Goodbye\n";
