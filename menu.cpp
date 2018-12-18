@@ -190,5 +190,6 @@ void Menu::callNext() {
 }
 
 int Menu::returnInteger(string str) {
+    cout << "string received by returnInteger is " << str << endl;
     return std::stoi(str);
 }

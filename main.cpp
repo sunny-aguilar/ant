@@ -57,11 +57,11 @@ int main() {
             antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
         }
-        else if ( antMenu.validateStartingSelection() == 2) {
+        else {
             // set random starting location
             cout << "statement reached\n";
             antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
-//            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
+            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
 //        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
