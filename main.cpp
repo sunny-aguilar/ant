@@ -58,8 +58,8 @@ int main() {
         }
         else if ( antMenu.validateStartingSelection() == 2) {
             // set random starting location
-            antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getStartRow()Rows() ) );
-            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getStartCol()Cols() ) );
+            antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
+            antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
 //        antBoard.setStartRow( antMenu.subMenuRowStartLocation() );
