@@ -24,6 +24,7 @@ public:
     int validateSteps();
     int validateStartingSelection();
     int validateCustomStarting(int customLocation);
+    int validateRandomStart(int boardSize);
 
     void subMenuRows();
     void subMenuCols();
@@ -31,6 +32,7 @@ public:
     int subMenuStartLocation();
     int subMenuRowStartLocation(int boardSize);
     int subMenuColStartLocation(int boardSize);
+    int setRandomLocation(int boardSize);
     int returnInteger(string str);
     int getInteger();
     void callNext();

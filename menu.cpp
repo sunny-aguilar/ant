@@ -9,6 +9,8 @@
 #include "menu.hpp"
 #include <iostream>
 #include <regex>
+#include <cstdlib>
+#include <ctime>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -108,7 +110,7 @@ int Menu::validateStartingSelection() {
     return returnInteger(start);
 }
 /*********************************************************************
-** Description:     Validate start location of the ant
+** Description:     Validate custom start location of the ant
 *********************************************************************/
 int Menu::validateCustomStarting(int boardSize) {
     string regexPattern;
@@ -134,7 +136,20 @@ int Menu::validateCustomStarting(int boardSize) {
 
     return returnInteger(start);
 }
+/*********************************************************************
+** Description:     Validate random start location of the ant
+*********************************************************************/
+int Menu::validateRandomStart(int boardSize) {
+    int randomSize;
+    unsigned seed;
 
+    seed = time(0);
+    srand(seed);
+
+    randomSize = rand() % boardSize + 1;
+
+    return randomSize;
+}
 
 void Menu::subMenuRows() {
     cout << "Great! Now let's create the board\n"
@@ -165,6 +180,18 @@ int Menu::subMenuRowStartLocation(int boardSize) {
 int Menu::subMenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
     return validateCustomStarting(boardSize);
+}
+
+int Menu::setRandomLocation(int boardSize) {
+    int randomSize;
+    unsigned seed;
+
+    seed = time(0);
+    srand(seed);
+
+    randomSize = rand() % boardSize + 1;
+
+    return randomSize;
 }
 
 int Menu::getInteger() {
