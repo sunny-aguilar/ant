@@ -29,6 +29,7 @@ int main() {
     // create menu, board, and ant
     Menu antMenu;
     Board antBoard;
+    Ant ant;
 
     // call main menu
     antMenu.showStartMenu();
@@ -71,7 +72,7 @@ int main() {
 
         // submenu item - ask user to set ant's starting orientation
         antMenu.setAntOrientation();
-        
+        antMenu.validateOrientation();
 
         // debugging code - test board specs
         cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;

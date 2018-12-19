@@ -9,10 +9,14 @@
 #ifndef ANT_HPP
 #define ANT_HPP
 
+enum AntOrientation {NORTH, SOUTH, EAST, WEST};
+
 class Ant {
 private:
+    AntOrientation antOrientation;
 
 public:
+    void setAntOrientation();
 
 };
 
