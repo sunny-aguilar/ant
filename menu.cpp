@@ -137,9 +137,20 @@ int Menu::validateCustomStarting(int boardSize) {
 /*********************************************************************
 ** Description:     Validate initial ant orientation
 *********************************************************************/
-int validateOrientation() {
+int Menu::validateOrientation() {
+    string orientation;
+    getline(cin, orientation);
 
-    return 0;
+    regex validMatch("^[0-3]{1}$");
+    std::smatch m;
+
+    while (!std::regex_match(orientation, m, validMatch)) {
+        cout << "Invalid Input!\n\n"
+             << "Enter again: ";
+        getline(cin, orientation);
+    }
+    cout << "Selection made is " << orientation << endl;
+    return returnInteger(orientation);
 }
 
 void Menu::subMenuRows() {

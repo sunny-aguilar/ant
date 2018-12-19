@@ -24,6 +24,7 @@ public:
     int validateSteps();
     int validateStartingSelection();
     int validateCustomStarting(int customLocation);
+    int validateOrientation();
 
     void subMenuRows();
     void subMenuCols();
