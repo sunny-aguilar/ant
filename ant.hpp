@@ -9,7 +9,7 @@
 #ifndef ANT_HPP
 #define ANT_HPP
 
-enum AntOrientation {NORTH, SOUTH, EAST, WEST};
+enum AntOrientation {NORTH = 1, SOUTH, EAST, WEST};
 
 class Ant {
 private:

@@ -141,7 +141,7 @@ int Menu::validateOrientation() {
     string orientation;
     getline(cin, orientation);
 
-    regex validMatch("^[0-3]{1}$");
+    regex validMatch("^[1-4]{1}$");
     std::smatch m;
 
     while (!std::regex_match(orientation, m, validMatch)) {
