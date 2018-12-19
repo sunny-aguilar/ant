@@ -48,6 +48,8 @@ int main() {
         antMenu.subMenuCols();
         antBoard.setCols( antMenu.validateSize("columns.") );
 
+        // initialize board dimensions in a 2-D dynamic array
+        antBoard.setBoardArrayDimensions();
 
         // submenu item - ask user to enter steps and validate
         antMenu.subMenuSteps();
