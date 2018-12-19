@@ -13,26 +13,9 @@ using std::string;
 using std::cout;
 
 void Ant::setAntOrientation(int orientation) {
-    switch (orientation) {
-        case 0:
-            this->antOrientation = NORTH;
-            break;
-        case 1:
-            this->antOrientation = SOUTH;
-            break;
-        case 2:
-            this->antOrientation = EAST;
-            break;
-        case 3:
-            this->antOrientation = WEST;
-            break;
-        default:
-            cout << "Error setting orientation!\n";
-            break;
-    }
+    this->antOrientation = static_cast<AntOrientation>(orientation);
+}
 
-    AntOrientation getAntOrientation() {
-        return antOrientation;
-    }
-
+AntOrientation Ant::getAntOrientation() {
+    return antOrientation;
 }
