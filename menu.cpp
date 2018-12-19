@@ -171,19 +171,19 @@ int Menu::subMenuColStartLocation(int boardSize) {
     return validateCustomStarting(boardSize);
 }
 
-int Menu::setRandomLocation(int boardSize) {
-    int randomSize;
-
-    randomSize = rand() % boardSize + 1;
-    return randomSize;
-}
-
-void Menu::setAntOrientation() {
+void Menu::subMenuSetAntOrientation() {
     cout << "Select 1-4 to set the ant's starting orientation\n"
          << "1. North\n"
          << "2. South\n"
          << "3. East\n"
          << "4. West\n";
+}
+
+int Menu::setRandomLocation(int boardSize) {
+    int randomSize;
+
+    randomSize = rand() % boardSize + 1;
+    return randomSize;
 }
 
 int Menu::getInteger() {

@@ -71,7 +71,7 @@ int main() {
         }
 
         // submenu item - ask user to set ant's starting orientation
-        antMenu.setAntOrientation();
+        antMenu.subMenuSetAntOrientation();
         antMenu.validateOrientation();
 
         // debugging code - test board specs
