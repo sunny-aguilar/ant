@@ -7,6 +7,10 @@
 **
 *********************************************************************/
 #include "ant.hpp"
+#include <iostream>
+#include <string>
+using std::string;
+using std::cout;
 
 void Ant::setAntOrientation(int orientation) {
     switch (orientation) {
@@ -22,7 +26,13 @@ void Ant::setAntOrientation(int orientation) {
         case 3:
             this->antOrientation = WEST;
             break;
+        default:
+            cout << "Error setting orientation!\n";
+            break;
     }
 
+    AntOrientation getAntOrientation() {
+        return antOrientation;
+    }
 
 }

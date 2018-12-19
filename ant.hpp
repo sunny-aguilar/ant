@@ -17,7 +17,7 @@ private:
 
 public:
     void setAntOrientation(int orientation);
-
+    AntOrientation getAntOrientation();
 };
 
 #endif
