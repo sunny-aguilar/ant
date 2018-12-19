@@ -52,9 +52,9 @@ int Board::getStartCol() {
     return startCol;
 }
 
-void Board::setBoardArray() {
+void Board::setBoardArrayDimensions() {
     ptrBoard = new char*[getRows()];
-    for (int col = 0; col < getCols(); col++) {
-        ptrBoard[col] = new char[getCols()];
+    for (int row = 0; row < getRows(); row++) {
+        ptrBoard[row] = new char[getCols()];
     }
 }
