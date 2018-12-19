@@ -171,6 +171,10 @@ int Menu::setRandomLocation(int boardSize) {
     return randomSize;
 }
 
+void Menu::setAntOrientation() {
+    
+}
+
 int Menu::getInteger() {
     int info;
     cin >> info;

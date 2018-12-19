@@ -40,6 +40,7 @@ int main() {
     //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
 
     if (antMenu.getSelection() == "1") {
+        // User picked start simulation option
         // submenu items - ask user to enter rows and columns for board and validate
         antMenu.subMenuRows();
         antBoard.setRows( antMenu.validateSize("rows.") );
@@ -78,6 +79,7 @@ int main() {
 
     }
     else {
+        // user quit the program
         cout << "Goodbye\n";
     }
 

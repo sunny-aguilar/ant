@@ -33,6 +33,7 @@ public:
     int subMenuRowStartLocation(int boardSize);
     int subMenuColStartLocation(int boardSize);
     int setRandomLocation(int boardSize);
+    void setAntOrientation();
     int returnInteger(string str);
     int getInteger();
     void callNext();
