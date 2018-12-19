@@ -51,3 +51,10 @@ int Board::getStartRow() {
 int Board::getStartCol() {
     return startCol;
 }
+
+void Board::setBoardArray() {
+    ptrBoard = new char*[getRows()];
+    for (int col = 0; col < getCols(); col++) {
+        ptrBoard[col] = new char[getCols()];
+    }
+}
