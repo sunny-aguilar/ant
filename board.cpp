@@ -58,3 +58,7 @@ void Board::setBoardArrayDimensions() {
         ptrBoard[row] = new char[getCols()];
     }
 }
+
+void Board::setBoardCharacters() {
+    
+}
