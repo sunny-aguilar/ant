@@ -69,6 +69,10 @@ int main() {
             antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
         }
 
+        // submenu item - ask user to set ant's starting orientation
+        antMenu.setAntOrientation();
+        
+
         // debugging code - test board specs
         cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
         cout << "Number of Steps is " << antBoard.getSteps() << endl;

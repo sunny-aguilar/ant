@@ -134,6 +134,13 @@ int Menu::validateCustomStarting(int boardSize) {
 
     return returnInteger(start);
 }
+/*********************************************************************
+** Description:     Validate initial ant orientation
+*********************************************************************/
+int validateOrientation() {
+
+    return 0;
+}
 
 void Menu::subMenuRows() {
     cout << "Great! Now let's create the board\n"
@@ -172,7 +179,11 @@ int Menu::setRandomLocation(int boardSize) {
 }
 
 void Menu::setAntOrientation() {
-    
+    cout << "Select 1-4 to set the ant's starting orientation\n"
+         << "1. North\n"
+         << "2. South\n"
+         << "3. East\n"
+         << "4. West\n";
 }
 
 int Menu::getInteger() {
