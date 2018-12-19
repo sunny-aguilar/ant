@@ -80,6 +80,7 @@ int main() {
         cout << "Number of Steps is " << antBoard.getSteps() << endl;
         cout << "Random row start location " << antBoard.getStartRow() << endl;
         cout << "Random column start location " << antBoard.getStartCol() << endl;
+        cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
 
         //    antMenu.subMenuSteps();
 
