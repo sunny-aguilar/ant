@@ -104,6 +104,17 @@ int Menu::validateStartingSelection() {
              << "Enter again: ";
         getline(cin, start);
     }
+    switch (std::stoi(start)) {
+        case 1:
+            cout << "Custom starting position\n";
+            break;
+        case 2:
+            cout << "Random starting position\n";
+            break;
+        default:
+            cout << "Invalid selection!\n";
+    }
+
     cout << "Selection made is " << start << endl;
     return returnInteger(start);
 }
