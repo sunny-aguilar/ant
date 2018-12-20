@@ -66,7 +66,7 @@ int main() {
             // set random starting location for the ant
             // Extra Credit 5%
             unsigned seed;
-            seed = time(0);
+            seed = static_cast<unsigned int>(time(nullptr));
             srand(seed);
             antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
             antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
@@ -88,7 +88,7 @@ int main() {
 
 
 
-        
+
 
     }
     else {
