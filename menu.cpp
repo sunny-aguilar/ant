@@ -61,21 +61,37 @@ string Menu::validateSelection() {
 ** Description:     Validate number of rows for the board
 *********************************************************************/
 int Menu::validateSize(string dimension) {
-    string choice;
-    getline(cin, choice);
+    int choice;
+    bool invalid = true;
 
-
-
-    regex validMatch("^[2-9]|[1-9][0-9]|100$");
-    std::smatch m;
-
-    while (!std::regex_match(choice, m, validMatch)) {
-        cout << "Please enter a valid selection between 2-100\n";
-        getline(cin, choice);
+    cin >> choice;
+    while (cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        if (choice > 100 || choice < 2) {
+            cout << "Please enter a valid selection between 2-100\n";
+            cin >> choice;
+        }
+        else {
+            cout << "You have selected " << choice << " " << dimension << endl;
+            invalid = false;
+            return choice;
+        }
+        cout << "CIN FAIL!\n";
     }
-    cout << "You have selected " << choice << " " << dimension << endl;
 
-    return returnInteger(choice);
+
+
+//    regex validMatch("^[2-9]|[1-9][0-9]|100$");
+//    std::smatch m;
+//
+//    while (!std::regex_match(choice, m, validMatch)) {
+//        cout << "Please enter a valid selection between 2-100\n";
+//        getline(cin, choice);
+//    }
+//    cout << "You have selected " << choice << " " << dimension << endl;
+
+//    return returnInteger(choice);
 }
 /*********************************************************************
 ** Description:     Validate number of steps during the simulation
