@@ -64,79 +64,52 @@ string Menu::validateSelection() {
 *********************************************************************/
 int Menu::validateSize(string dimension) {
     char choice[100];
-    string value;
-    int intValue;
+    int boardSize = 0;
     std::stringstream convert;
-    bool invalid = true;
-    cin >> choice;
+    bool tooLong = false;
+    bool isNotDigit = false;
+    bool notInRange = false;
 
+    do {
+        cout << "Enter an integer between 2 and 100\n";
+        cin.getline(choice, 100);
 
-
-    for (int i = 0; i < strlen(choice); i++) {
-        if (!isdigit(choice[i])) {
-            cout << "You must enter a number only!\n";
+        // check if length is greater than 3
+        tooLong = false;
+        if (strlen(choice) > 3) {
+            tooLong = true;
         }
-        else {
-            // convert s-string into a stream
-            convert << choice;
-            // concatenate c-string into a string
-            convert >> intValue;
 
-            value += choice[i];
-            while (invalid) {
-                if (intValue > 100 || intValue < 2) {
-                    cout << "Please enter a valid selection between 2-100\n";
-                    cin >> choice;
-                    convert << choice;
-                    convert >> intValue;
-                }
-                else {
-                    cout << "You entered " << value << endl;
-                    invalid = false;
-                }
+        // check if all characters entered are digits
+        isNotDigit = false;
+        for (int i = 0; i < strlen(choice); i++) {
+            // if digit is not a digit, then set it true so that
+            // loop will repeat
+            if (!isdigit(choice[i])) {
+                isNotDigit = true;
             }
         }
 
+        // check if characters entered are within range
+        notInRange = false;
+        if (isNotDigit == false && tooLong == false) {
+            convert.clear();
+            convert << choice;
+            convert >> boardSize;
 
-    }
+            if (boardSize <= 100 && boardSize > 1) {
+                cout << "You entered " << boardSize << " " << dimension << endl;
+            }
+            else {
+                notInRange = true;
+            }
+        }
+    } while (tooLong || isNotDigit || notInRange);
 
+//    cout << "C-string length is " << strlen(choice) << endl;
+//    cout << "Is digit" << isdigit(choice[0]) << endl;
 
-
-    cout << value << endl;
-    cout << "C-string length is " << strlen(choice) << endl;
-    cout << "Is digit" << isdigit(choice[0]) << endl;
-
-    return 0;
-//    while (cin.fail()) {
-//        cin.clear();
-//        cin.ignore();
-//        if (isdigit(    )) {
-//
-//        }
-//        else if (choice > 100 || choice < 2) {
-//            cout << "Please enter a valid selection between 2-100\n";
-//            cin >> choice;
-//        }
-//        else {
-//            cout << "You have selected " << choice << " " << dimension << endl;
-//            invalid = false;
-//            return choice;
-//        }
-//        cout << "CIN FAIL!\n";
-//    }
-
-
-
-//    regex validMatch("^[2-9]|[1-9][0-9]|100$");
-//    std::smatch m;
-//
-//    while (!std::regex_match(choice, m, validMatch)) {
-//        cout << "Please enter a valid selection between 2-100\n";
-//        getline(cin, choice);
-//    }
-//    cout << "You have selected " << choice << " " << dimension << endl;
-
-//    return returnInteger(choice);
+    return boardSize;
 }
 /*********************************************************************
 ** Description:     Validate number of steps during the simulation
