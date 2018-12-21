@@ -9,6 +9,8 @@
 #include "menu.hpp"
 #include <iostream>
 #include <regex>
+#include <cctype>
+#include <sstream>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -61,24 +63,67 @@ string Menu::validateSelection() {
 ** Description:     Validate number of rows for the board
 *********************************************************************/
 int Menu::validateSize(string dimension) {
-    int choice;
+    char choice[100];
+    string value;
+    int intValue;
+    std::stringstream convert;
     bool invalid = true;
-
     cin >> choice;
-    while (cin.fail()) {
-        cin.clear();
-        cin.ignore();
-        if (choice > 100 || choice < 2) {
-            cout << "Please enter a valid selection between 2-100\n";
-            cin >> choice;
+
+
+
+    for (int i = 0; i < strlen(choice); i++) {
+        if (!isdigit(choice[i])) {
+            cout << "You must enter a number only!\n";
         }
         else {
-            cout << "You have selected " << choice << " " << dimension << endl;
-            invalid = false;
-            return choice;
+            // convert s-string into a stream
+            convert << choice;
+            // concatenate c-string into a string
+            convert >> intValue;
+
+            value += choice[i];
+            while (invalid) {
+                if (intValue > 100 || intValue < 2) {
+                    cout << "Please enter a valid selection between 2-100\n";
+                    cin >> choice;
+                    convert << choice;
+                    convert >> intValue;
+                }
+                else {
+                    cout << "You entered " << value << endl;
+                    invalid = false;
+                }
+            }
         }
-        cout << "CIN FAIL!\n";
+
+
     }
+
+
+
+    cout << value << endl;
+    cout << "C-string length is " << strlen(choice) << endl;
+    cout << "Is digit" << isdigit(choice[0]) << endl;
+
+    return 0;
+//    while (cin.fail()) {
+//        cin.clear();
+//        cin.ignore();
+//        if (isdigit(    )) {
+//
+//        }
+//        else if (choice > 100 || choice < 2) {
+//            cout << "Please enter a valid selection between 2-100\n";
+//            cin >> choice;
+//        }
+//        else {
+//            cout << "You have selected " << choice << " " << dimension << endl;
+//            invalid = false;
+//            return choice;
+//        }
+//        cout << "CIN FAIL!\n";
+//    }
 
 
 
