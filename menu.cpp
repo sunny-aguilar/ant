@@ -32,44 +32,66 @@ string Menu::getSelection() {
 // regex strings and select the one you need based on what
 // is being validated?
 string Menu::validateSelection() {
-    string selection;
-    getline(cin, selection);
+    string choice;
+    bool invalid = true;
 
-    regex validMatch("^[1-2]{1}$");
-    std::smatch m;
+    cout << "Choose 1 or 2:\n";
+    getline(cin, choice);
 
-    while (!std::regex_match(selection, m, validMatch)) {
-        if (getSelection() == "1") {
-            cout << "Option 1\n\n";
-        }
-        else if (getSelection() == "2") {
-            cout << "Option 2\n\n";
+    while (invalid) {
+        if (choice.length() >= 1 && choice != "1" && choice != "2") {
+            cout << "Invalid input!\n";
+            cout << "Please enter 1 or 2\n";
+            getline(cin, choice);
         }
         else {
-            cout << "Invalid Input!\n\n"
-                 << "Enter again: ";
-            getline(cin, selection);
+            if (choice == "1") {
+                cout << "You have selected choice 1\n";
+                return choice;
+            }
+            else if (choice == "2") {
+                cout << "You have selected choice 2\n";
+                return choice;
+            }
+            invalid = false;
         }
     }
-    return selection;
 }
 /*********************************************************************
 ** Description:     Validate number of rows for the board
 *********************************************************************/
 int Menu::validateSize(string dimension) {
-    string choice;
-    getline(cin, choice);
+    int choice;
+    bool invalid = true;
 
-    regex validMatch("^[2-9]|[1-9][0-9]|100$");
-    std::smatch m;
-
-    while (!std::regex_match(choice, m, validMatch)) {
-        cout << "Please enter a valid selection between 2-100\n";
-        getline(cin, choice);
+    cin >> choice;
+    while (cin.fail()) {
+        cin.clear();
+        cin.ignore();
+        if (choice > 100 || choice < 2) {
+            cout << "Please enter a valid selection between 2-100\n";
+            cin >> choice;
+        }
+        else {
+            cout << "You have selected " << choice << " " << dimension << endl;
+            invalid = false;
+            return choice;
+        }
+        cout << "CIN FAIL!\n";
     }
-    cout << "You have selected " << choice << " " << dimension << endl;
 
-    return returnInteger(choice);
+
+
+//    regex validMatch("^[2-9]|[1-9][0-9]|100$");
+//    std::smatch m;
+//
+//    while (!std::regex_match(choice, m, validMatch)) {
+//        cout << "Please enter a valid selection between 2-100\n";
+//        getline(cin, choice);
+//    }
+//    cout << "You have selected " << choice << " " << dimension << endl;
+
+//    return returnInteger(choice);
 }
 /*********************************************************************
 ** Description:     Validate number of steps during the simulation
