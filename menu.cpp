@@ -32,7 +32,6 @@ string Menu::getSelection() {
 // regex strings and select the one you need based on what
 // is being validated?
 string Menu::validateSelection() {
-    cout << "Testing validation\n";
     string choice;
     bool invalid = true;
 
@@ -64,6 +63,8 @@ string Menu::validateSelection() {
 int Menu::validateSize(string dimension) {
     string choice;
     getline(cin, choice);
+
+
 
     regex validMatch("^[2-9]|[1-9][0-9]|100$");
     std::smatch m;
