@@ -63,7 +63,7 @@ void Board::setBoardArrayDimensions() {
     }
 }
 
-void Board::setBoardCharacters() {
+void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
         for (int col = 0; col < getCols(); col++) {
             ptrBoard[row][col] = '#';

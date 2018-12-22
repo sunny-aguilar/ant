@@ -27,7 +27,7 @@ public:
     void setStartRow(int startRow);
     void setStartCol(int startCol);
     void setBoardArrayDimensions();
-    void setBoardCharacters();
+    void setAllBoardCharacters();
     void setAntCharacter();
     void showBoard();
     int getRows();

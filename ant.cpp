@@ -35,3 +35,5 @@ int Ant::getCurrentRowLocation() {
 int Ant::getCurrentColLocation() {
     return currentColLocation;
 }
+
+void Ant::moveAnt();
