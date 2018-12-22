@@ -114,20 +114,71 @@ int Menu::validateSize(string dimension) {
 /*********************************************************************
 ** Description:     Validate number of steps during the simulation
 *********************************************************************/
-int Menu::validateSteps() {
-    string steps;
-    getline(cin, steps);
+int Menu::validateSteps(int min, int max) {
+    char choice[100];
+    int steps = 0;
+    std::stringstream convert;
+    bool tooLong = false;
+    bool isNotDigit = false;
+    bool notInRange = false;
 
-    regex validMatch("^[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000$");
-    std::smatch m;
+    // determine # of digits in max value acceptable
+    long unsigned length = std::to_string(max).length();
 
-    while (!std::regex_match(steps, m, validMatch)) {
-        cout << "Please enter a valid number of steps between 1 and 1000\n";
-        getline(cin, steps);
-    }
-    cout << "You have selected " << steps << " steps in the simulation\n\n";
 
-    return returnInteger(steps);
+    do {
+        cout << "Enter an integer between " << min << " and " << max << endl;
+        cin.getline(choice, 100);
+
+        // check if length is greater than 3
+        tooLong = false;
+        if (strlen(choice) > length) {
+            tooLong = true;
+        }
+
+        // check if all characters entered are digits
+        isNotDigit = false;
+        for (int i = 0; i < strlen(choice); i++) {
+            // if digit is not a digit, then set it true so that
+            // loop will repeat
+            if (!isdigit(choice[i])) {
+                isNotDigit = true;
+            }
+        }
+
+        // check if characters entered are within range
+        notInRange = false;
+        if (isNotDigit == false && tooLong == false) {
+            convert.clear();
+            convert << choice;
+            convert >> steps;
+
+            if (steps >= min && steps <= max) {
+                cout << "You entered " << steps << endl;
+            }
+            else {
+                notInRange = true;
+            }
+        }
+    } while (tooLong || isNotDigit || notInRange);
+
+    return steps;
+
+
+
+//    string steps;
+//    getline(cin, steps);
+//
+//    regex validMatch("^[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000$");
+//    std::smatch m;
+//
+//    while (!std::regex_match(steps, m, validMatch)) {
+//        cout << "Please enter a valid number of steps between 1 and 1000\n";
+//        getline(cin, steps);
+//    }
+//    cout << "You have selected " << steps << " steps in the simulation\n\n";
+//
+//    return returnInteger(steps);
 }
 /*********************************************************************
 ** Description:     Validate start location of the ant

@@ -21,7 +21,7 @@ public:
     string getSelection();
     string validateSelection();
     int validateSize(string dimension);
-    int validateSteps();
+    int validateSteps(int min, int max);
     int validateStartingSelection();
     int validateCustomStarting(int customLocation);
     int validateOrientation();
