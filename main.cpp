@@ -132,7 +132,10 @@ int main() {
 
 
             // provide 2 choices: play again or quit
-            antMenu.submenuPlayAgain();
+            if (antMenu.submenuPlayAgain() == "2") {
+                playAgain = false;
+                cout << "Thanks for playing!\n";
+            }
 
         } while (playAgain);
 
