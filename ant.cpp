@@ -37,5 +37,5 @@ int Ant::getCurrentColLocation() {
 }
 
 void Ant::moveAnt() {
-    
+
 }

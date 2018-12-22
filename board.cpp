@@ -80,7 +80,9 @@ void Board::setAllBoardCharacters() {
 void Board::setAntCharacter() {
     ptrBoard[getStartRow()][getStartCol()] = '*';
 }
-
+/*********************************************************************
+** Description:     Displays the current board
+*********************************************************************/
 void Board::showBoard() {
     // build top wall
     cout << " ";
