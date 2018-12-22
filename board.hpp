@@ -42,7 +42,7 @@ public:
     void showBoard();
     void setBoardSpace(int row, int col, AntOrientation heading);
 
-    char getCurrentColor();
+    char getCurrentColor(int row, int col);
 };
 
 #endif
