@@ -21,7 +21,6 @@ public:
     void setSelection(string select);
     string getSelection();
     string validateSelection();
-    int validateStartingSelection();
     int validateOrientation();
     int validateNumber(int min, int max);
     void subMenuRows();

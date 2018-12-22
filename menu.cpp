@@ -37,7 +37,6 @@ string Menu::validateSelection() {
     string choice;
     bool invalid = true;
 
-    cout << "Choose 1 or 2:\n";
     getline(cin, choice);
 
     while (invalid) {
@@ -49,15 +48,14 @@ string Menu::validateSelection() {
         else {
             if (choice == "1") {
                 cout << "You have selected choice 1\n";
-                return choice;
             }
             else if (choice == "2") {
                 cout << "You have selected choice 2\n";
-                return choice;
             }
             invalid = false;
         }
     }
+    return choice;
 }
 /*********************************************************************
 ** Description:     Validate number of rows for the board
@@ -111,34 +109,6 @@ int Menu::validateNumber(int min, int max) {
     } while (tooLong || isNotDigit || notInRange);
 
     return amount;
-}
-/*********************************************************************
-** Description:     Validate start location of the ant
-*********************************************************************/
-int Menu::validateStartingSelection() {
-    string choice;
-    bool invalid = true;
-
-    getline(cin, choice);
-
-    while (invalid) {
-        if (choice.length() >= 1 && choice != "1" && choice != "2") {
-            cout << "Invalid input!\n";
-            cout << "Please enter 1 or 2\n";
-            getline(cin, choice);
-        }
-        else {
-            if (choice == "1") {
-                cout << "You have selected choice 1\n";
-            }
-            else if (choice == "2") {
-                cout << "You have selected choice 2\n";
-            }
-            invalid = false;
-        }
-    }
-
-    return stoi(choice);
 }
 /*********************************************************************
 ** Description:     Validate custom start location of the ant
