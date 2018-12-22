@@ -22,7 +22,7 @@ public:
     string validateSelection();
     int validateNumber(int min, int max);
     int validateStartingSelection();
-    int validateCustomStarting(int customLocation);
+    int validateCustomStarting(int min, int customLocation);     // move to private variable section
     int validateOrientation();
 
     void subMenuRows();

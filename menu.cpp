@@ -139,60 +139,12 @@ int Menu::validateStartingSelection() {
     }
 
     return stoi(choice);
-
-
-
-    //    string start;
-//    getline(cin, start);
-//
-//    regex validMatch("^[1-2]{1}$");
-//    std::smatch m;
-//
-//    while (!std::regex_match(start, m, validMatch)) {
-//        cout << "Invalid Input!\n\n"
-//             << "Enter again: ";
-//        getline(cin, start);
-//    }
-//    switch (std::stoi(start)) {
-//        case 1:
-//            cout << "Custom starting position\n";
-//            break;
-//        case 2:
-//            cout << "Random starting position\n";
-//            break;
-//        default:
-//            cout << "Invalid selection!\n";
-//    }
-//
-//    cout << "Selection made is " << start << endl;
-//    return returnInteger(start);
 }
 /*********************************************************************
 ** Description:     Validate custom start location of the ant
 *********************************************************************/
-int Menu::validateCustomStarting(int boardSize) {
-    string regexPattern;
-
-    if (boardSize < 10)
-        regexPattern = "^[2-9]$";
-    else if (boardSize < 100)
-        regexPattern = "^[2-9]|[1-9][0-9]$";
-    else if (boardSize == 100)
-        regexPattern = "^[2-9]|[1-9][0-9]|100$";
-
-    string start;
-    getline(cin, start);
-
-    regex validMatch(regexPattern);
-    std::smatch m;
-
-    while (!std::regex_match(start, m, validMatch)) {
-        cout << "Invalid Input!\n\n"
-             << "Enter again: ";
-        getline(cin, start);
-    }
-
-    return returnInteger(start);
+int Menu::validateCustomStarting(int min, int boardSize) {
+    return validateNumber(min, boardSize);
 }
 /*********************************************************************
 ** Description:     Validate initial ant orientation
@@ -236,14 +188,14 @@ int Menu::subMenuRowStartLocation(int boardSize) {
     cout << "Enter the start row of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
-    return validateCustomStarting(boardSize);
+    return validateCustomStarting(2, boardSize);
 }
 
 int Menu::subMenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
-    return validateCustomStarting(boardSize);
+    return validateCustomStarting(2, boardSize);
 }
 
 void Menu::subMenuSetAntOrientation() {
