@@ -116,9 +116,9 @@ int main() {
 //                                 ant.getCurrentColLocation(),
 //                                 ant.getAntOrientation() );
 
-        ant.setAntOrientation(antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-                                                      ant.getCurrentColLocation(),
-                                                      ant.getAntOrientation() ) );
+        ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                                       ant.getCurrentColLocation(),
+                                                       ant.getAntOrientation() ) );
 
         antBoard.showBoard();
         // end of simulation
