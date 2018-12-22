@@ -44,9 +44,9 @@ int main() {
         // User picked start simulation option
         // submenu items - ask user to enter rows and columns for board and validate
         antMenu.subMenuRows();
-        antBoard.setRows( antMenu.validateSize("rows.") );
+        antBoard.setRows( antMenu.validateSize("rows.", 2, 100) );
         antMenu.subMenuCols();
-        antBoard.setCols( antMenu.validateSize("columns.") );
+        antBoard.setCols( antMenu.validateSize("columns.", 2, 100) );
 
         // initialize board dimensions in a 2-D dynamic array
         antBoard.setBoardArrayDimensions();

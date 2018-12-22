@@ -62,21 +62,25 @@ string Menu::validateSelection() {
 /*********************************************************************
 ** Description:     Validate number of rows for the board
 *********************************************************************/
-int Menu::validateSize(string dimension) {
+int Menu::validateSize(string dimension, int min, int max) {
     char choice[100];
-    int boardSize = 0;
+    int amount = 0;
     std::stringstream convert;
     bool tooLong = false;
     bool isNotDigit = false;
     bool notInRange = false;
 
+    // determine # of digits in max value acceptable
+    long unsigned length = std::to_string(max).length();
+
+
     do {
-        cout << "Enter an integer between 2 and 100\n";
+        cout << "Enter an integer between " <<  min << " and " << max << endl;
         cin.getline(choice, 100);
 
         // check if length is greater than 3
         tooLong = false;
-        if (strlen(choice) > 3) {
+        if (strlen(choice) > length) {
             tooLong = true;
         }
 
@@ -95,10 +99,10 @@ int Menu::validateSize(string dimension) {
         if (isNotDigit == false && tooLong == false) {
             convert.clear();
             convert << choice;
-            convert >> boardSize;
+            convert >> amount;
 
-            if (boardSize <= 100 && boardSize > 1) {
-                cout << "You entered " << boardSize << " " << dimension << endl;
+            if (amount >= min && amount <= max) {
+                cout << "You entered " << amount << " " << dimension << endl;
             }
             else {
                 notInRange = true;
@@ -109,14 +113,14 @@ int Menu::validateSize(string dimension) {
 //    cout << "C-string length is " << strlen(choice) << endl;
 //    cout << "Is digit" << isdigit(choice[0]) << endl;
 
-    return boardSize;
+    return amount;
 }
 /*********************************************************************
 ** Description:     Validate number of steps during the simulation
 *********************************************************************/
 int Menu::validateSteps(int min, int max) {
     char choice[100];
-    int steps = 0;
+    int amount = 0;
     std::stringstream convert;
     bool tooLong = false;
     bool isNotDigit = false;
@@ -151,10 +155,10 @@ int Menu::validateSteps(int min, int max) {
         if (isNotDigit == false && tooLong == false) {
             convert.clear();
             convert << choice;
-            convert >> steps;
+            convert >> amount;
 
-            if (steps >= min && steps <= max) {
-                cout << "You entered " << steps << endl;
+            if (amount >= min && amount <= max) {
+                cout << "You entered " << amount << endl;
             }
             else {
                 notInRange = true;
@@ -162,7 +166,7 @@ int Menu::validateSteps(int min, int max) {
         }
     } while (tooLong || isNotDigit || notInRange);
 
-    return steps;
+    return amount;
 
 
 
