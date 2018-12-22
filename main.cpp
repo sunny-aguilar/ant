@@ -105,10 +105,13 @@ int main() {
         // set initial board characters
         antBoard.setAllBoardCharacters();
 
-        //
+        // set ant location on board
         antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+
+        // show board
         antBoard.showBoard();
 
+        // move ant / set board color / show updated board
         antBoard.setBoardSpace( ant.getCurrentRowLocation(),
                                  ant.getCurrentColLocation(),
                                  ant.getAntOrientation() );
