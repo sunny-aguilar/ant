@@ -7,6 +7,9 @@
 **
 *********************************************************************/
 #include "board.hpp"
+using std::cin;
+using std::cout;
+using std::endl;
 
 Board::Board() {
 
@@ -54,11 +57,43 @@ int Board::getStartCol() {
 
 void Board::setBoardArrayDimensions() {
     ptrBoard = new char*[getRows()];
+
     for (int row = 0; row < getRows(); row++) {
         ptrBoard[row] = new char[getCols()];
     }
 }
 
 void Board::setBoardCharacters() {
-    
+    for (int row = 0; row < getRows(); row++) {
+        for (int col = 0; col < getCols(); col++) {
+            ptrBoard[row][col] = '#';
+        }
+    }
+}
+
+void Board::setAntCharacter() {
+    ptrBoard[getStartRow()][getStartCol()] = '*';
+}
+
+void Board::showBoard() {
+    // build top wall
+    cout << " ";
+    for (int wall = 0; wall < getRows(); wall++) {
+        cout << " _";
+    }
+    cout << endl;
+    // build board grid
+    for (int row = 0; row < getRows(); row++) {
+        cout << "| ";
+        for (int col = 0; col < getCols(); col++) {
+            cout << ptrBoard[row][col] << " ";
+        }
+        cout << "|";
+        cout << endl;
+    }
+    // build bottom wall
+    cout << " ";
+    for (int wall = 0; wall < getRows(); wall++) {
+        cout << " _";
+    }
 }

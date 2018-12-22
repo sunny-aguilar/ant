@@ -28,6 +28,8 @@ public:
     void setStartCol(int startCol);
     void setBoardArrayDimensions();
     void setBoardCharacters();
+    void setAntCharacter();
+    void showBoard();
     int getRows();
     int getCols();
     int getSteps();

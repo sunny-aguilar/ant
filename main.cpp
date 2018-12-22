@@ -88,9 +88,18 @@ int main() {
 
         //    antMenu.subMenuSteps();
 
+
+
         // initialize ant and board details
-
-
+        ant.setCurrentRowLocation( antBoard.getStartRow() );
+        ant.setCurrentColLocation( antBoard.getStartCol() );
+        cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
+        cout << "Ant col location " << ant.getCurrentColLocation() << endl;
+        antBoard.setBoardArrayDimensions();
+        antBoard.setBoardCharacters();
+        antBoard.setAntCharacter();
+        antBoard.showBoard();
+        //
 
 
     }
