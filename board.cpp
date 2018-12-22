@@ -82,7 +82,7 @@ void Board::setAllBoardCharacters() {
 ** Description:     sets the ant location on the board
 *********************************************************************/
 void Board::setAntLocation(int row, int col) {
-    getCurrentColor(row, col);
+    currentColor = getCurrentColor(row, col);
     ptrBoard[row-1][col-1] = '*';
 }
 /*********************************************************************
@@ -116,20 +116,24 @@ void Board::showBoard() {
 ** Description:     paramaters row and col set board space to black or white on move
 *********************************************************************/
 void Board::setBoardSpace(int row, int col, AntOrientation heading) {
-    if (ptrBoard[row][col] == '#') {
+    // get current color variable
+
+    if (currentColor == '#') {
         // if the ant is on a white space, turn right -> and
         // change space to black
         ptrBoard[row][col+1] = ' ';
     }
-    else if (ptrBoard[row][col] == ' ') {
+    else if (currentColor == ' ') {
         // if the ant is on a black space, turn left <- and
         // change space to white
-        ptrBoard[row][col+1] = '#';
+        ptrBoard[row][col-1] = '#';
     }
 
 
 }
-
+/*********************************************************************
+** Description:     gets the current color of the square ant is on
+*********************************************************************/
 char Board::getCurrentColor(int row, int col) {
     return currentColor = ptrBoard[row][col];
 }
