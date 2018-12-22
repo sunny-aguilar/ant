@@ -91,7 +91,7 @@ int main() {
 
 
         // initialize ant and board details
-        // set initial ant row and column
+        // set initial ant row and column; values received board class
         ant.setCurrentRowLocation( antBoard.getStartRow() );
         ant.setCurrentColLocation( antBoard.getStartCol() );
 
@@ -101,9 +101,11 @@ int main() {
 
         // set board dimensions
         antBoard.setBoardArrayDimensions();
+
+        // set initial board characters
         antBoard.setAllBoardCharacters();
 
-        // 
+        //
         antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
         antBoard.showBoard();
 
