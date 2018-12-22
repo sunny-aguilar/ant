@@ -30,7 +30,7 @@ public:
     void setStartCol(int startCol);
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
-    void setAntCharacter();
+    void setAntInitialLocation();
 
     int getRows();
     int getCols();

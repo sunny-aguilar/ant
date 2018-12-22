@@ -97,7 +97,7 @@ int main() {
         cout << "Ant col location " << ant.getCurrentColLocation() << endl;
         antBoard.setBoardArrayDimensions();
         antBoard.setAllBoardCharacters();
-        antBoard.setAntCharacter();
+        antBoard.setAntInitialLocation();
         antBoard.showBoard();
 
         antBoard.setBoardSpace( ant.getCurrentRowLocation(),

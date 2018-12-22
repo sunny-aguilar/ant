@@ -68,7 +68,9 @@ void Board::setBoardArrayDimensions() {
         ptrBoard[row] = new char[getCols()];
     }
 }
-
+/*********************************************************************
+** Description:     sets the initial board characters
+*********************************************************************/
 void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
         for (int col = 0; col < getCols(); col++) {
@@ -76,8 +78,10 @@ void Board::setAllBoardCharacters() {
         }
     }
 }
-
-void Board::setAntCharacter() {
+/*********************************************************************
+** Description:     sets the initial ant location
+*********************************************************************/
+void Board::setAntInitialLocation() {
     ptrBoard[getStartRow()][getStartCol()] = '*';
 }
 /*********************************************************************
@@ -108,7 +112,7 @@ void Board::showBoard() {
     }
 }
 /*********************************************************************
-** Description:     set board space to black or white on move
+** Description:     paramaters row and col set board space to black or white on move
 *********************************************************************/
 void Board::setBoardSpace(int row, int col, AntOrientation heading) {
     if (ptrBoard[row][col] == '#') {
