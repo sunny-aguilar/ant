@@ -22,6 +22,7 @@ private:
 
 public:
     Board();
+    ~Board();
     void setRows(int row);
     void setCols(int col);
     void setSteps(int steps);

@@ -106,7 +106,8 @@ int main() {
 
 
 
-        //
+        // end of simulation
+        // provide 2 choices: play again or quit
 
 
     }

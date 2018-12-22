@@ -16,6 +16,11 @@ Board::Board() {
 
 }
 
+Board::~Board() {
+    // deallocate pointers here
+    
+}
+
 void Board::setRows(int row) {
     this->rows = row;
 }
@@ -83,6 +88,7 @@ void Board::showBoard() {
         cout << " _";
     }
     cout << endl;
+
     // build board grid
     for (int row = 0; row < getRows(); row++) {
         cout << "| ";
@@ -92,6 +98,7 @@ void Board::showBoard() {
         cout << "|";
         cout << endl;
     }
+
     // build bottom wall
     cout << " ";
     for (int wall = 0; wall < getRows(); wall++) {
@@ -101,14 +108,14 @@ void Board::showBoard() {
 
 void Board::setBoardSpace(int row, int col, AntOrientation heading) {
     if (ptrBoard[row][col] == '#') {
-        // if the ant is on a white space, turn right and
+        // if the ant is on a white space, turn right -> and
         // change space to black
-        ptrBoard[row][col]
+        ptrBoard[row][col+1] = ' ';
     }
     else if (ptrBoard[row][col] == ' ') {
-        // if the ant is on a black space, turn left and
+        // if the ant is on a black space, turn left <- and
         // change space to white
-        ptrBoard[row][col]
+        ptrBoard[row][col+1] = '#';
     }
 
 
