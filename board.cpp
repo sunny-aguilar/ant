@@ -18,7 +18,7 @@ Board::Board() {
 
 Board::~Board() {
     // deallocate pointers here
-    
+
 }
 
 void Board::setRows(int row) {
