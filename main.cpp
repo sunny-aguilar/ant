@@ -26,6 +26,9 @@ int main() {
     // If the ant is on a white space, turn right 90 degrees and change the space to black.
     // If the ant is on a black space, turn left 90 degrees and change the space to white.
 
+    // create variables
+    bool playAgain = true;
+
     // create menu, board, and ant
     Menu antMenu;
     Board antBoard;
@@ -76,53 +79,64 @@ int main() {
         antMenu.subMenuSetAntOrientation();
         ant.setAntOrientation( antMenu.validateOrientation() );
 
-        // show message initializing ant
-        antMenu.submenuInitializeAnt();
+        // once game specs have been entered, the user should have the option
+        // to replay the game or end it
+        do {
 
-        // debugging code - test board specs
-        cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
-        cout << "Number of Steps is " << antBoard.getSteps() << endl;
-        cout << "Random row start location " << antBoard.getStartRow() << endl;
-        cout << "Random column start location " << antBoard.getStartCol() << endl;
-        cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
+            // show message initializing ant
+            antMenu.submenuInitializeAnt();
 
-        //    antMenu.subMenuSteps();
+            // debugging code - test board specs
+            cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
+            cout << "Number of Steps is " << antBoard.getSteps() << endl;
+            cout << "Random row start location " << antBoard.getStartRow() << endl;
+            cout << "Random column start location " << antBoard.getStartCol() << endl;
+            cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
+
+            //    antMenu.subMenuSteps();
 
 
 
-        // initialize ant and board details
-        // set initial ant row and column; values received board class
-        ant.setCurrentRowLocation( antBoard.getStartRow() );
-        ant.setCurrentColLocation( antBoard.getStartCol() );
+            // initialize ant and board details
+            // set initial ant row and column; values received board class
+            ant.setCurrentRowLocation( antBoard.getStartRow() );
+            ant.setCurrentColLocation( antBoard.getStartCol() );
 
-        // debugging - display current ant row and location
-        cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
-        cout << "Ant col location " << ant.getCurrentColLocation() << endl;
+            // debugging - display current ant row and location
+            cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
+            cout << "Ant col location " << ant.getCurrentColLocation() << endl;
 
-        // set board dimensions
-        antBoard.setBoardArrayDimensions();
+            // set board dimensions
+            antBoard.setBoardArrayDimensions();
 
-        // set initial board characters
-        antBoard.setAllBoardCharacters();
+            // set initial board characters
+            antBoard.setAllBoardCharacters();
 
-        // set ant location on board
-        antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+            // set ant location on board
+            antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
-        // show board
-        antBoard.showBoard();
+            // show board
+            antBoard.showBoard();
 
-        // move ant / set board color / show updated board
+            // move ant / set board color / show updated board
 //        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
 //                                 ant.getCurrentColLocation(),
 //                                 ant.getAntOrientation() );
 
-        ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-                                                       ant.getCurrentColLocation(),
-                                                       ant.getAntOrientation() ) );
+            ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                                           ant.getCurrentColLocation(),
+                                                           ant.getAntOrientation() ) );
 
-        antBoard.showBoard();
-        // end of simulation
-        // provide 2 choices: play again or quit
+            antBoard.showBoard();
+            // end of simulation
+
+
+            // provide 2 choices: play again or quit
+            antMenu.submenuPlayAgain();
+
+        } while (playAgain);
+
+
 
 
     }

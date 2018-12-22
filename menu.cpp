@@ -178,3 +178,9 @@ void Menu::callNext() {
     // after vlidation is completed (i.e., call
     // the next function in different class)
 }
+
+string Menu::submenuPlayAgain() {
+    cout << "1. Play again\n"
+         << "2. QUit\n";
+    validateSelection();
+}

@@ -33,6 +33,7 @@ public:
     void subMenuSetAntOrientation();
     void submenuInitializeAnt();
     void callNext();
+    string submenuPlayAgain();
 };
 
 #endif
