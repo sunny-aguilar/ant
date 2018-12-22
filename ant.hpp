@@ -14,10 +14,16 @@ enum AntOrientation {NORTH = 1, SOUTH, EAST, WEST};
 class Ant {
 private:
     AntOrientation antOrientation;
+    int currentRowLocation;
+    int currentColLocation;
 
 public:
     void setAntOrientation(int orientation);
     AntOrientation getAntOrientation();
+    int setCurrentRowLocation(int row);
+    int setCurrentColLocation(int col);
+    int getCurrentRowLocation();
+    int getCurrentColLocation();
 };
 
 #endif
