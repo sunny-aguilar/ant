@@ -39,7 +39,7 @@ int main() {
     // get user main menu selection
     antMenu.setSelection( antMenu.validateSelection() );
 
-    
+
     if (antMenu.getSelection() == "1") {
         // once game specs have been entered, the user should have the option
         // to replay the game or end it
@@ -113,8 +113,15 @@ int main() {
             // set ant location on board
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
-            // show board
-            antBoard.showBoard();
+            for (int steps = 0; antBoard.getSteps(); steps++) {
+                // show board
+                antBoard.showBoard();
+
+
+
+
+            }
+
 
             // move ant / set board color / show updated board
 //        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
@@ -126,9 +133,9 @@ int main() {
                                                            ant.getAntOrientation() ) );
 
             antBoard.showBoard();
+
+
             // end of simulation
-
-
             // provide 2 choices: play again or quit
             if (antMenu.submenuPlayAgain() == "2") {
                 playAgain = false;
