@@ -74,7 +74,7 @@ void Board::setBoardArrayDimensions() {
 void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
         for (int col = 0; col < getCols(); col++) {
-            ptrBoard[row][col] = '#';
+            ptrBoard[row][col] = ' ';
         }
     }
 }
@@ -122,18 +122,18 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
     switch (heading) {
         case 1:
             // facing north
-            if (ptrBoard[row][col+1] == '#') {
+            if (ptrBoard[row][col+1] == ' ') {
                 // if the ant is on a white space, turn right -> and
                 // change space to black
                 cout << "Row " << row << " col " << col+1 << " Heading " << EAST << endl;
-                ptrBoard[row][col] = ' ';
+                ptrBoard[row-1][col] = '#';
                 return EAST;
             }
-            else if (ptrBoard[row][col] == ' ') {
+            else if (ptrBoard[row][col] == '#') {
                 // if the ant is on a black space, turn left <- and
                 // change space to white
                 cout << "Row " << row << " col " << col-1 << " Heading " << WEST  << endl;
-                ptrBoard[row][col-1] = '#';
+                ptrBoard[row-1][col-2] = ' ';
                 return WEST;
             }
             break;
