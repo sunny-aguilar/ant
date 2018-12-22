@@ -53,7 +53,7 @@ int main() {
 
         // submenu item - ask user to enter steps and validate
         antMenu.subMenuSteps();
-        antBoard.setSteps( antMenu.validateSteps(1, 1000) );
+        antBoard.setSteps( antMenu.validateNumber(1, 1000) );
 
         // submenu item - ask user to select the starting location method
         antMenu.subMenuStartLocation();
