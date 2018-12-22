@@ -7,6 +7,7 @@
 **
 *********************************************************************/
 #include "board.hpp"
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -96,4 +97,19 @@ void Board::showBoard() {
     for (int wall = 0; wall < getRows(); wall++) {
         cout << " _";
     }
+}
+
+void Board::setBoardSpace(int row, int col, AntOrientation heading) {
+    if (ptrBoard[row][col] == '#') {
+        // if the ant is on a white space, turn right and
+        // change space to black
+        ptrBoard[row][col]
+    }
+    else if (ptrBoard[row][col] == ' ') {
+        // if the ant is on a black space, turn left and
+        // change space to white
+        ptrBoard[row][col]
+    }
+
+
 }

@@ -100,6 +100,12 @@ int main() {
         antBoard.setAntCharacter();
         antBoard.showBoard();
 
+        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                 ant.getCurrentColLocation(),
+                                 ant.getAntOrientation() );
+
+
+
         //
 
 

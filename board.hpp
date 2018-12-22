@@ -9,6 +9,7 @@
 #ifndef BOARD_HPP
 #define BOARD_HPP
 #include <iostream>
+#include "ant.hpp"
 
 class Board {
 private:
@@ -29,12 +30,15 @@ public:
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
     void setAntCharacter();
-    void showBoard();
+
     int getRows();
     int getCols();
     int getSteps();
     int getStartRow();
     int getStartCol();
+
+    void showBoard();
+    void setBoardSpace(int row, int col, AntOrientation heading);
 };
 
 #endif
