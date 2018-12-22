@@ -151,20 +151,6 @@ int Menu::validateCustomStarting(int min, int boardSize) {
 *********************************************************************/
 int Menu::validateOrientation() {
     return validateNumber(1, 4);
-
-//    string orientation;
-//    getline(cin, orientation);
-//
-//    regex validMatch("^[1-4]{1}$");
-//    std::smatch m;
-//
-//    while (!std::regex_match(orientation, m, validMatch)) {
-//        cout << "Invalid Input!\n\n"
-//             << "Enter again: ";
-//        getline(cin, orientation);
-//    }
-//    cout << "Selection made is " << orientation << endl;
-//    return returnInteger(orientation);
 }
 
 void Menu::subMenuRows() {
@@ -215,18 +201,8 @@ int Menu::setRandomLocation(int boardSize) {
     return randomSize;
 }
 
-int Menu::getInteger() {
-    int info;
-    cin >> info;
-    return info;
-}
-
 void Menu::callNext() {
     // use this function to call the next steps
     // after vlidation is completed (i.e., call
     // the next function in different class)
-}
-
-int Menu::returnInteger(string str) {
-    return std::stoi(str);
 }

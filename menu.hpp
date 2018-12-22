@@ -14,17 +14,16 @@ using std::string;
 class Menu {
 private:
     string selection;           // holds main menu selection made;
+    int validateCustomStarting(int min, int customLocation);     // move to private variable section
 
 public:
     void showStartMenu();
     void setSelection(string select);
     string getSelection();
     string validateSelection();
-    int validateNumber(int min, int max);
     int validateStartingSelection();
-    int validateCustomStarting(int min, int customLocation);     // move to private variable section
     int validateOrientation();
-
+    int validateNumber(int min, int max);
     void subMenuRows();
     void subMenuCols();
     void subMenuSteps();
@@ -33,8 +32,6 @@ public:
     int subMenuColStartLocation(int boardSize);
     int setRandomLocation(int boardSize);
     void subMenuSetAntOrientation();
-    int returnInteger(string str);
-    int getInteger();
     void callNext();
 };
 
