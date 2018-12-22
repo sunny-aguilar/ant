@@ -110,108 +110,62 @@ int Menu::validateNumber(int min, int max) {
         }
     } while (tooLong || isNotDigit || notInRange);
 
-//    cout << "C-string length is " << strlen(choice) << endl;
-//    cout << "Is digit" << isdigit(choice[0]) << endl;
-
     return amount;
-}
-/*********************************************************************
-** Description:     Validate number of steps during the simulation
-*********************************************************************/
-int Menu::validateSteps(int min, int max) {
-    char choice[100];
-    int amount = 0;
-    std::stringstream convert;
-    bool tooLong = false;
-    bool isNotDigit = false;
-    bool notInRange = false;
-
-    // determine # of digits in max value acceptable
-    long unsigned length = std::to_string(max).length();
-
-
-    do {
-        cout << "Enter an integer between " << min << " and " << max << endl;
-        cin.getline(choice, 100);
-
-        // check if length is greater than 3
-        tooLong = false;
-        if (strlen(choice) > length) {
-            tooLong = true;
-        }
-
-        // check if all characters entered are digits
-        isNotDigit = false;
-        for (int i = 0; i < strlen(choice); i++) {
-            // if digit is not a digit, then set it true so that
-            // loop will repeat
-            if (!isdigit(choice[i])) {
-                isNotDigit = true;
-            }
-        }
-
-        // check if characters entered are within range
-        notInRange = false;
-        if (isNotDigit == false && tooLong == false) {
-            convert.clear();
-            convert << choice;
-            convert >> amount;
-
-            if (amount >= min && amount <= max) {
-                cout << "You entered " << amount << endl;
-            }
-            else {
-                notInRange = true;
-            }
-        }
-    } while (tooLong || isNotDigit || notInRange);
-
-    return amount;
-
-
-
-//    string steps;
-//    getline(cin, steps);
-//
-//    regex validMatch("^[1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000$");
-//    std::smatch m;
-//
-//    while (!std::regex_match(steps, m, validMatch)) {
-//        cout << "Please enter a valid number of steps between 1 and 1000\n";
-//        getline(cin, steps);
-//    }
-//    cout << "You have selected " << steps << " steps in the simulation\n\n";
-//
-//    return returnInteger(steps);
 }
 /*********************************************************************
 ** Description:     Validate start location of the ant
 *********************************************************************/
 int Menu::validateStartingSelection() {
-    string start;
-    getline(cin, start);
+    string choice;
+    bool invalid = true;
 
-    regex validMatch("^[1-2]{1}$");
-    std::smatch m;
+    getline(cin, choice);
 
-    while (!std::regex_match(start, m, validMatch)) {
-        cout << "Invalid Input!\n\n"
-             << "Enter again: ";
-        getline(cin, start);
+    while (invalid) {
+        if (choice.length() >= 1 && choice != "1" && choice != "2") {
+            cout << "Invalid input!\n";
+            cout << "Please enter 1 or 2\n";
+            getline(cin, choice);
+        }
+        else {
+            if (choice == "1") {
+                cout << "You have selected choice 1\n";
+            }
+            else if (choice == "2") {
+                cout << "You have selected choice 2\n";
+            }
+            invalid = false;
+        }
     }
-    switch (std::stoi(start)) {
-        case 1:
-            cout << "Custom starting position\n";
-            break;
-        case 2:
-            cout << "Random starting position\n";
-            break;
-        default:
-            cout << "Invalid selection!\n";
-    }
 
-    cout << "Selection made is " << start << endl;
-    return returnInteger(start);
+    return stoi(choice);
+
+
+
+    //    string start;
+//    getline(cin, start);
+//
+//    regex validMatch("^[1-2]{1}$");
+//    std::smatch m;
+//
+//    while (!std::regex_match(start, m, validMatch)) {
+//        cout << "Invalid Input!\n\n"
+//             << "Enter again: ";
+//        getline(cin, start);
+//    }
+//    switch (std::stoi(start)) {
+//        case 1:
+//            cout << "Custom starting position\n";
+//            break;
+//        case 2:
+//            cout << "Random starting position\n";
+//            break;
+//        default:
+//            cout << "Invalid selection!\n";
+//    }
+//
+//    cout << "Selection made is " << start << endl;
+//    return returnInteger(start);
 }
 /*********************************************************************
 ** Description:     Validate custom start location of the ant
@@ -280,11 +234,15 @@ void Menu::subMenuStartLocation() {
 
 int Menu::subMenuRowStartLocation(int boardSize) {
     cout << "Enter the start row of the ant\n";
+    // make this function as private since it should only be accessed
+    // within the class
     return validateCustomStarting(boardSize);
 }
 
 int Menu::subMenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
+    // make this function as private since it should only be accessed
+    // within the class
     return validateCustomStarting(boardSize);
 }
 
