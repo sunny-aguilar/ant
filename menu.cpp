@@ -62,7 +62,7 @@ string Menu::validateSelection() {
 /*********************************************************************
 ** Description:     Validate number of rows for the board
 *********************************************************************/
-int Menu::validateSize(int min, int max) {
+int Menu::validateNumber(int min, int max) {
     char choice[100];
     int amount = 0;
     std::stringstream convert;

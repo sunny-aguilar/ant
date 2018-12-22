@@ -20,7 +20,7 @@ public:
     void setSelection(string select);
     string getSelection();
     string validateSelection();
-    int validateSize(int min, int max);
+    int validateNumber(int min, int max);
     int validateSteps(int min, int max);
     int validateStartingSelection();
     int validateCustomStarting(int customLocation);
