@@ -112,12 +112,15 @@ int main() {
         antBoard.showBoard();
 
         // move ant / set board color / show updated board
-        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-                                 ant.getCurrentColLocation(),
-                                 ant.getAntOrientation() );
+//        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+//                                 ant.getCurrentColLocation(),
+//                                 ant.getAntOrientation() );
 
+        ant.setAntOrientation(antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                                      ant.getCurrentColLocation(),
+                                                      ant.getAntOrientation() ) );
 
-
+        antBoard.showBoard();
         // end of simulation
         // provide 2 choices: play again or quit
 

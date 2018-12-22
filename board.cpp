@@ -111,23 +111,49 @@ void Board::showBoard() {
     for (int wall = 0; wall < getRows(); wall++) {
         cout << " _";
     }
+    cout << endl;
 }
 /*********************************************************************
 ** Description:     paramaters row and col set board space to black or white on move
 *********************************************************************/
-void Board::setBoardSpace(int row, int col, AntOrientation heading) {
+AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
     // get current color variable
 
-    if (currentColor == '#') {
-        // if the ant is on a white space, turn right -> and
-        // change space to black
-        ptrBoard[row][col+1] = ' ';
+    switch (heading) {
+        case 1:
+            // facing north
+            if (ptrBoard[row][col+1] == '#') {
+                // if the ant is on a white space, turn right -> and
+                // change space to black
+                ptrBoard[row][col+1] = ' ';
+                return SOUTH;
+            }
+            else if (ptrBoard[row][col] == ' ') {
+                // if the ant is on a black space, turn left <- and
+                // change space to white
+                ptrBoard[row][col+1] = '#';
+            }
+            break;
+        case 2:
+            // facing south
+
+            break;
+        case 3:
+            // facing east
+
+            break;
+        case 4:
+            // facing west
+
+            break;
+        default:
+            cout << "Error making move!\n";
     }
-    else if (currentColor == ' ') {
-        // if the ant is on a black space, turn left <- and
-        // change space to white
-        ptrBoard[row][col-1] = '#';
-    }
+
+
+
+
+
 
 
 }
