@@ -20,8 +20,8 @@ private:
 public:
     void setAntOrientation(int orientation);
     AntOrientation getAntOrientation();
-    int setCurrentRowLocation(int row);
-    int setCurrentColLocation(int col);
+    void setCurrentRowLocation(int row);
+    void setCurrentColLocation(int col);
     int getCurrentRowLocation();
     int getCurrentColLocation();
 };

@@ -8,13 +8,12 @@
 *********************************************************************/
 #include "menu.hpp"
 #include <iostream>
-#include <regex>
 #include <cctype>
+#include <cstring>
 #include <sstream>
 using std::cin;
 using std::cout;
 using std::endl;
-using std::regex;
 
 void Menu::showStartMenu() {
     cout << "1. Start Langston's Ant Simulation\n"
@@ -166,9 +165,12 @@ void Menu::subMenuSetAntOrientation() {
 
 int Menu::setRandomLocation(int boardSize) {
     int randomSize;
-
     randomSize = rand() % boardSize + 1;
     return randomSize;
+}
+
+void Menu::submenuInitializeAnt() {
+    cout << "Initializing langton's ant...";
 }
 
 void Menu::callNext() {

@@ -76,6 +76,8 @@ int main() {
         antMenu.subMenuSetAntOrientation();
         ant.setAntOrientation( antMenu.validateOrientation() );
 
+        // show message initializing ant
+        antMenu.submenuInitializeAnt();
 
         // debugging code - test board specs
         cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
@@ -86,6 +88,7 @@ int main() {
 
         //    antMenu.subMenuSteps();
 
+        // initialize ant and board details
 
 
 

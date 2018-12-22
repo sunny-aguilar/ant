@@ -20,11 +20,11 @@ AntOrientation Ant::getAntOrientation() {
     return antOrientation;
 }
 
-int Ant::setCurrentRowLocation(int row) {
+void Ant::setCurrentRowLocation(int row) {
     this->currentRowLocation = row;
 }
 
-int Ant::setCurrentColLocation(int col) {
+void Ant::setCurrentColLocation(int col) {
     this->currentColLocation = col;
 }
 

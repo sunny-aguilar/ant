@@ -31,6 +31,7 @@ public:
     int subMenuColStartLocation(int boardSize);
     int setRandomLocation(int boardSize);
     void subMenuSetAntOrientation();
+    void submenuInitializeAnt();
     void callNext();
 };
 
