@@ -125,14 +125,14 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             if (ptrBoard[row][col+1] == '#') {
                 // if the ant is on a white space, turn right -> and
                 // change space to black
-                cout << "Row " << row << " col " << col+1 << "Heading " << EAST << endl;
-                ptrBoard[row][col+1] = ' ';
+                cout << "Row " << row << " col " << col+1 << " Heading " << EAST << endl;
+                ptrBoard[row][col] = ' ';
                 return EAST;
             }
             else if (ptrBoard[row][col] == ' ') {
                 // if the ant is on a black space, turn left <- and
                 // change space to white
-                cout << "Row " << row << " col " << col-1 << "Heading " << WEST  << endl;
+                cout << "Row " << row << " col " << col-1 << " Heading " << WEST  << endl;
                 ptrBoard[row][col-1] = '#';
                 return WEST;
             }
