@@ -19,6 +19,7 @@ private:
     int startRow;
     int startCol;
     char **ptrBoard = nullptr;
+    char currentColor;
 
 public:
     Board();
@@ -40,6 +41,8 @@ public:
 
     void showBoard();
     void setBoardSpace(int row, int col, AntOrientation heading);
+
+    char getCurrentColor();
 };
 
 #endif

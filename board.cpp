@@ -79,10 +79,10 @@ void Board::setAllBoardCharacters() {
     }
 }
 /*********************************************************************
-** Description:     sets the initial ant starting location
+** Description:     sets the ant location on the board
 *********************************************************************/
 void Board::setAntLocation(int row, int col) {
-    ptrBoard[getStartRow()][getStartCol()] = '*';
+    ptrBoard[row-1][col-1] = '*';
 }
 /*********************************************************************
 ** Description:     Displays the current board
@@ -127,4 +127,8 @@ void Board::setBoardSpace(int row, int col, AntOrientation heading) {
     }
 
 
+}
+
+char Board::getCurrentColor() {
+    return currentColor = ptrBoard[][];
 }
