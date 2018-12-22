@@ -91,13 +91,20 @@ int main() {
 
 
         // initialize ant and board details
+        // set initial ant row and column
         ant.setCurrentRowLocation( antBoard.getStartRow() );
         ant.setCurrentColLocation( antBoard.getStartCol() );
+
+        // debugging - display current ant row and location
         cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
         cout << "Ant col location " << ant.getCurrentColLocation() << endl;
+
+        // set board dimensions
         antBoard.setBoardArrayDimensions();
         antBoard.setAllBoardCharacters();
-        antBoard.setAntInitialLocation();
+
+        // 
+        antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
         antBoard.showBoard();
 
         antBoard.setBoardSpace( ant.getCurrentRowLocation(),

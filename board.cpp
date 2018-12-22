@@ -79,9 +79,9 @@ void Board::setAllBoardCharacters() {
     }
 }
 /*********************************************************************
-** Description:     sets the initial ant location
+** Description:     sets the initial ant starting location
 *********************************************************************/
-void Board::setAntInitialLocation() {
+void Board::setAntLocation(int row, int col) {
     ptrBoard[getStartRow()][getStartCol()] = '*';
 }
 /*********************************************************************
