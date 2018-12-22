@@ -107,7 +107,9 @@ void Board::showBoard() {
         cout << " _";
     }
 }
-
+/*********************************************************************
+** Description:     set board space to black or white on move
+*********************************************************************/
 void Board::setBoardSpace(int row, int col, AntOrientation heading) {
     if (ptrBoard[row][col] == '#') {
         // if the ant is on a white space, turn right -> and
