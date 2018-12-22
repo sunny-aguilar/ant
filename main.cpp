@@ -39,10 +39,7 @@ int main() {
     // get user main menu selection
     antMenu.setSelection( antMenu.validateSelection() );
 
-
-    // debugging code - test selection variable for main menu in Board
-    //    cout << "Selection made was " << antMenu.getSelection() << endl; // debugging line (may delete)
-
+    
     if (antMenu.getSelection() == "1") {
         // once game specs have been entered, the user should have the option
         // to replay the game or end it
@@ -139,13 +136,9 @@ int main() {
             }
 
         } while (playAgain);
-
-
-
-
     }
     else {
-        // user quit the program
+        // user quit the program in the main menu
         cout << "Goodbye\n";
     }
 
