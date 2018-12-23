@@ -24,7 +24,6 @@ public:
     void setCurrentColLocation(int col);
     int getCurrentRowLocation();
     int getCurrentColLocation();
-    void moveAnt();
 };
 
 #endif

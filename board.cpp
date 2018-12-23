@@ -17,8 +17,12 @@ Board::Board() {
 }
 
 Board::~Board() {
-    // deallocate pointers here
-
+    // delete dynamically allocated pointers
+    for (int arr = 0; arr < rows; arr++) {
+        delete [] ptrBoard[arr];
+    }
+    //Free the array of pointers
+    delete[] ptrBoard;
 }
 
 void Board::setRows(int row) {
@@ -83,7 +87,7 @@ void Board::setAllBoardCharacters() {
 *********************************************************************/
 void Board::setAntLocation(int row, int col) {
     // adjustment included since arrays start at 0
-    currentColor = getCurrentColor(row, col);
+    currentColor = getColor(row, col);
     ptrBoard[row-1][col-1] = '*';
 }
 
@@ -175,43 +179,43 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             // facing NORTH
             if (ptrBoard[row-1][col-1] == '*') {
                 // if the ant is on a white space, change heading EAST ->
+                cout << "Reached\n";
                 return EAST;
             }
-            else if (ptrBoard[row-2][col-1] == '#') {
+            else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading WEST <-
                 return WEST;
             }
             break;
         case 2:
             // facing SOUTH
-            if (ptrBoard[row][col-1] == ' ') {
+            if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading WEST ->
                 return WEST;
             }
-            else if (ptrBoard[row][col-1] == '#') {
+            else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading EAST <-
-
                 return EAST;
             }
             break;
         case 3:
             // facing EAST
-            if (ptrBoard[row-1][col] == ' ') {
+            if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading SOUTH ->
                 return SOUTH;
             }
-            else if (ptrBoard[row-1][col] == '#') {
+            else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading NORTH <-
                 return NORTH;
             }
             break;
         case 4:
             // facing WEST
-            if (ptrBoard[row-1][col-2] == ' ') {
+            if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading NORTH ->
                 return NORTH;
             }
-            else if (ptrBoard[row-1][col-2] == '#') {
+            else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading SOUTH <-
                 return SOUTH;
             }
@@ -219,18 +223,41 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
         default:
             cout << "Error making move!\n";
     }
-
-
-
-
-
-
-
 }
+
+/*********************************************************************
+** Description:     checks the current square color and heading to
+**                  determine where ant goes next
+*********************************************************************/
+void Board::moveAnt(char color) {
+    cout << "Color is " << color << endl;
+
+    switch (antOrientation) {
+        case 1:
+            if (color == '*') {
+                currentColLocation += 1;
+            }
+            else if (color == '#') {
+                currentColLocation -= 1;
+            }
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+        default:
+            cout << "Error making move in moveAnt!\n";
+    }
+}
+
 /*********************************************************************
 ** Description:     gets the current color of the square ant is on
 *********************************************************************/
-char Board::getCurrentColor(int row, int col) {
-    // may need to change to row-1 and col-1
-    return currentColor = ptrBoard[row][col];
+char Board::getColor(int row, int col) {
+    return ptrBoard[row-1][col-1];
 }

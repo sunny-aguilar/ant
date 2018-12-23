@@ -11,6 +11,7 @@
 #include <string>
 using std::string;
 using std::cout;
+using std::endl;
 
 void Ant::setAntOrientation(int orientation) {
     this->antOrientation = static_cast<AntOrientation>(orientation);
@@ -34,8 +35,4 @@ int Ant::getCurrentRowLocation() {
 
 int Ant::getCurrentColLocation() {
     return currentColLocation;
-}
-
-void Ant::moveAnt() {
-
 }
