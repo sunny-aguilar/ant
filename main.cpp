@@ -109,8 +109,9 @@ int main() {
             // set initial board characters
             antBoard.setAllBoardCharacters();
 
-            // set ant location on board (in 2d array)
+            // set ant * location on board (in 2d array)
             // remember current color and set variable in board class
+            // setAntLocation function has -1 adjustment included to row and col
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
@@ -122,7 +123,7 @@ int main() {
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
 
-                // move ant / set board color
+                // set ant heading
                 ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
@@ -131,10 +132,11 @@ int main() {
                 ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
 
                 // delete old * after moving
-//                antBoard.deletePriorLocation();
+                antBoard.deletePriorLocation();
 
                 // add * to board again
-                antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+                // setAntLocation function has -1 adjustment to row and col
+//                antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
 
 

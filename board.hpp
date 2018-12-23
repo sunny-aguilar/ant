@@ -49,6 +49,7 @@ public:
 
     char getCurrentColor(int row, int col);
     void deletePriorLocation();
+    void addCurrentColor(int row, int col);
     // return updated ant row/col from setBoardSpace member function
     void setNewAntcoor(int row, int col);
 };
