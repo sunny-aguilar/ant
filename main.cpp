@@ -113,19 +113,22 @@ int main() {
             // set ant location on board
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
+            // show initial board setup
+            cout << "Initial board set up\n";
+            antBoard.showBoard();
+            cout << endl;
 
 
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
-                // show board
-                antBoard.showBoard();
+
 
                 // move ant / set board color / show updated board
                 ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
                 antBoard.showBoard();
-
+                cout << "Steps " << steps << endl;
             }
 
 
