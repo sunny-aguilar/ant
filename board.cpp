@@ -90,14 +90,18 @@ void Board::setAntLocation(int row, int col) {
 ** Description:     sets the ant row on the board
 *********************************************************************/
 int Board::getAntCurrentRow() {
-    return antCurrentRow+1;
+    // row and col already include the adjustment necessary from
+    // setBoardSpace() --> setNewAntCoor() --> antCurrentRow
+    return antCurrentRow;
 }
 
 /*********************************************************************
 ** Description:     sets the ant col on the board
 *********************************************************************/
 int Board::getAntCurrentCol() {
-    return antCurrentCol+1;
+    // roaw and col already include the adjustment necessary from
+    // setBoardSpace() --> setNewAntCoor() --> antCurrentCol
+    return antCurrentCol;
 }
 
 /*********************************************************************
@@ -181,6 +185,10 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to white
                 cout << "Row " << row << " col " << col-1 << " Heading " << WEST  << endl;
                 ptrBoard[row-2][col-1] = ' ';
+
+                // return updated ant location
+
+
                 return WEST;
             }
             break;
@@ -191,6 +199,10 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to black
                 cout << "Row " << row << " col " << col+1 << " Heading " << WEST << endl;
                 ptrBoard[row][col-1] = '#';
+
+                // return updated ant location
+
+
                 return WEST;
             }
             else if (ptrBoard[row][col-1] == '#') {
@@ -198,6 +210,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to white
                 cout << "Row " << row << " col " << col-1 << " Heading " << EAST  << endl;
                 ptrBoard[row][col-1] = ' ';
+                // return updated ant location
                 return EAST;
             }
             break;
@@ -208,6 +221,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to black
                 cout << "Row " << row << " col " << col+1 << " Heading " << SOUTH << endl;
                 ptrBoard[row-1][col] = '#';
+                // return updated ant location
                 return SOUTH;
             }
             else if (ptrBoard[row-1][col] == '#') {
@@ -215,6 +229,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to white
                 cout << "Row " << row << " col " << col-1 << " Heading " << NORTH  << endl;
                 ptrBoard[row-1][col] = ' ';
+                // return updated ant location
                 return NORTH;
             }
             break;
@@ -225,6 +240,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to black
                 cout << "Row " << row << " col " << col+1 << " Heading " << NORTH << endl;
                 ptrBoard[row-1][col-2] = '#';
+                // return updated ant location
                 return NORTH;
             }
             else if (ptrBoard[row-1][col-2] == '#') {
@@ -232,6 +248,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
                 // change space to white
                 cout << "Row " << row << " col " << col-1 << " Heading " << SOUTH  << endl;
                 ptrBoard[row-1][col-2] = ' ';
+                // return updated ant location
                 return SOUTH;
             }
             break;
