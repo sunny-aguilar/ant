@@ -130,12 +130,15 @@ int main() {
                 ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );
                 ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
 
+                // delete old * after moving
+//                antBoard.deletePriorLocation();
+
                 // add * to board again
                 antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
 
 
-                // shot updated board
+                // show updated board
                 antBoard.showBoard();
                 cout << endl;
 
