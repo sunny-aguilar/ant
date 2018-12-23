@@ -128,11 +128,14 @@ int main() {
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
                 // move ant and set new location in ant class
-                ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );
-                ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
+                cout << "Current heading " << ant.getAntOrientation() << endl;
+
+
+//                ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );
+//                ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
 
                 // delete old * after moving
-                antBoard.deletePriorLocation();
+//                antBoard.deletePriorLocation();
 
                 // add * to board again
                 // setAntLocation function has -1 adjustment to row and col

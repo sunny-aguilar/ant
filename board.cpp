@@ -166,106 +166,53 @@ void Board::showBoard() {
     cout << endl;
 }
 /*********************************************************************
-** Description:     paramaters row and col set board space to black or white on move
+** Description:     parameters determine ant's current heading and
+**                  the row and col determine the current space its in
 *********************************************************************/
 AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
-    // get current color variable
-    // added a new branch again and again
     switch (heading) {
         case 1:
-            // facing north
-            if (ptrBoard[row-2][col-1] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-
-                // debugging tool - check location of array
-//                ptrBoard[row-2][col-1] = '@';
-//                cout << ptrBoard[row-3][col-1];
-
-                ptrBoard[row-2][col-1] = '#';
-
-                // return updated ant location
-                cout << "SetBoard Space Row " << row-2 << " Col " << col-1 << endl;
-                // only need to adjust row because
-                setNewAntcoor(row-1, col);
-
-                // add back currentColor where * previously was
-//                addCurrentColor(row, col);
-
+            // facing NORTH
+            if (ptrBoard[row-1][col-1] == '*') {
+                // if the ant is on a white space, change heading EAST ->
                 return EAST;
             }
             else if (ptrBoard[row-2][col-1] == '#') {
-                // if the ant is on a black space, change heading<- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << WEST  << endl;
-                ptrBoard[row-2][col-1] = ' ';
-
-                // return updated ant location
-
-
+                // if the ant is on a black space, change heading WEST <-
                 return WEST;
             }
             break;
         case 2:
-            // facing south
+            // facing SOUTH
             if (ptrBoard[row][col-1] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << WEST << endl;
-                ptrBoard[row][col-1] = '#';
-
-                // return updated ant location
-                setNewAntcoor(row-1, col);
-
+                // if the ant is on a white space, change heading WEST ->
                 return WEST;
             }
             else if (ptrBoard[row][col-1] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << EAST  << endl;
-                ptrBoard[row][col-1] = ' ';
-                // return updated ant location
+                // if the ant is on a black space, change heading EAST <-
+
                 return EAST;
             }
             break;
         case 3:
-            // facing east
+            // facing EAST
             if (ptrBoard[row-1][col] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << SOUTH << endl;
-                ptrBoard[row-1][col] = '#';
-                // return updated ant location
-                setNewAntcoor(row, col+1);
+                // if the ant is on a white space, change heading SOUTH ->
                 return SOUTH;
             }
             else if (ptrBoard[row-1][col] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << NORTH  << endl;
-                ptrBoard[row-1][col] = ' ';
-                // return updated ant location
+                // if the ant is on a black space, change heading NORTH <-
                 return NORTH;
             }
             break;
         case 4:
-            // facing west
+            // facing WEST
             if (ptrBoard[row-1][col-2] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << NORTH << endl;
-                ptrBoard[row-1][col-2] = '#';
-                // return updated ant location
-                setNewAntcoor(row-1, col);
-
+                // if the ant is on a white space, change heading NORTH ->
                 return NORTH;
             }
             else if (ptrBoard[row-1][col-2] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << SOUTH  << endl;
-                ptrBoard[row-1][col-2] = ' ';
-                // return updated ant location
+                // if the ant is on a black space, change heading SOUTH <-
                 return SOUTH;
             }
             break;
