@@ -71,6 +71,7 @@ int main() {
                 unsigned seed;
                 seed = static_cast<unsigned int>(time(nullptr));
                 srand(seed);
+                // set random starting location for the ant
                 antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
                 antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
             }
@@ -91,12 +92,10 @@ int main() {
             cout << "Random column start location " << antBoard.getStartCol() << endl;
             cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
 
-            //    antMenu.subMenuSteps();
-
-
 
             // initialize ant and board details
             // set initial ant row and column; values received board class
+            // ant class holds current row and column for the ant only
             ant.setCurrentRowLocation( antBoard.getStartRow() );
             ant.setCurrentColLocation( antBoard.getStartCol() );
 
@@ -111,6 +110,7 @@ int main() {
             antBoard.setAllBoardCharacters();
 
             // set ant location on board
+            // remember current color and set variable in board class
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
@@ -126,6 +126,9 @@ int main() {
                 ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
+                // move ant
+                ant.setCurrentRowLocation( antBoard.getStartRow() );
+
                 // shot updated board
                 antBoard.showBoard();
                 cout << endl;
