@@ -128,7 +128,6 @@ int main() {
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
                 antBoard.showBoard();
-                cout << "Steps " << steps << endl;
             }
 
 
