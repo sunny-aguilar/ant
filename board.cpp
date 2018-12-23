@@ -13,16 +13,17 @@ using std::cout;
 using std::endl;
 
 Board::Board() {
-
+    ptrBoard = nullptr;
 }
 
 Board::~Board() {
     // delete dynamically allocated pointers
-    for (int arr = 0; arr < rows; arr++) {
-        delete [] ptrBoard[arr];
+    cout << "Good bye, total columns are " << getCols() << endl;
+    for (int col = 0; col < getCols(); col++) {
+            delete [] ptrBoard[col];
     }
     //Free the array of pointers
-    delete[] ptrBoard;
+    delete [] ptrBoard;
 }
 
 void Board::setRows(int row) {
@@ -230,29 +231,29 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
 **                  determine where ant goes next
 *********************************************************************/
 void Board::moveAnt(char color) {
-    cout << "Color is " << color << endl;
-
-    switch (antOrientation) {
-        case 1:
-            if (color == '*') {
-                currentColLocation += 1;
-            }
-            else if (color == '#') {
-                currentColLocation -= 1;
-            }
-            break;
-        case 2:
-
-            break;
-        case 3:
-
-            break;
-        case 4:
-
-            break;
-        default:
-            cout << "Error making move in moveAnt!\n";
-    }
+//    cout << "Color is " << color << endl;
+//
+//    switch (antOrientation) {
+//        case 1:
+//            if (color == '*') {
+//                currentColLocation += 1;
+//            }
+//            else if (color == '#') {
+//                currentColLocation -= 1;
+//            }
+//            break;
+//        case 2:
+//
+//            break;
+//        case 3:
+//
+//            break;
+//        case 4:
+//
+//            break;
+//        default:
+//            cout << "Error making move in moveAnt!\n";
+//    }
 }
 
 /*********************************************************************

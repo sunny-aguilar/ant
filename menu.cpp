@@ -181,6 +181,6 @@ void Menu::callNext() {
 
 string Menu::submenuPlayAgain() {
     cout << "1. Play again\n"
-         << "2. QUit\n";
+         << "2. Quit\n";
     return validateSelection();
 }

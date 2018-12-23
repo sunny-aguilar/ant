@@ -21,7 +21,7 @@ private:
     // updated row and col values for ant class
     int antCurrentRow;
     int antCurrentCol;
-    char **ptrBoard = nullptr;
+    char **ptrBoard;
     char currentColor;
 
 public:
