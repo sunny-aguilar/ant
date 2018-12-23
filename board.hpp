@@ -43,6 +43,10 @@ public:
     AntOrientation setBoardSpace(int row, int col, AntOrientation heading);
 
     char getCurrentColor(int row, int col);
+
+    // return updated ant row/col from setBoardSpace member function
+    int getNewAntRow();
+    int getNewAntCol();
 };
 
 #endif

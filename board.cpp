@@ -86,6 +86,19 @@ void Board::setAntLocation(int row, int col) {
     ptrBoard[row-1][col-1] = '*';
 }
 /*********************************************************************
+** Description:     get new ant row from setBoardSpace function
+*********************************************************************/
+int Board::getNewAntRow() {
+
+}
+/*********************************************************************
+** Description:     get new ant col from setBoardSpace function
+*********************************************************************/
+int Board::getNewAntCol() {
+
+}
+
+/*********************************************************************
 ** Description:     Displays the current board
 *********************************************************************/
 void Board::showBoard() {
@@ -125,8 +138,14 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             if (ptrBoard[row-2][col-1] == ' ') {
                 // if the ant is on a white space, turn right -> and
                 // change space to black
+
+                // debugging tool - check location of array
+//                ptrBoard[row-3][col-1] = '@';
+//                cout << ptrBoard[row-3][col-1];
+
                 cout << "Row " << row << " col " << col+1 << " Heading " << EAST << endl;
                 ptrBoard[row-2][col-1] = '#';
+
                 return EAST;
             }
             else if (ptrBoard[row-2][col-1] == '#') {
