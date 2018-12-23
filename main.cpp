@@ -113,26 +113,21 @@ int main() {
             // set ant location on board
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
-            for (int steps = 0; antBoard.getSteps(); steps++) {
+
+
+            // Loop through the steps
+            for (int steps = 0; steps < antBoard.getSteps(); steps++) {
                 // show board
                 antBoard.showBoard();
 
-
-
+                // move ant / set board color / show updated board
+                ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                                               ant.getCurrentColLocation(),
+                                                               ant.getAntOrientation() ) );
+                antBoard.showBoard();
 
             }
 
-
-            // move ant / set board color / show updated board
-//        antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-//                                 ant.getCurrentColLocation(),
-//                                 ant.getAntOrientation() );
-
-            ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-                                                           ant.getCurrentColLocation(),
-                                                           ant.getAntOrientation() ) );
-
-            antBoard.showBoard();
 
 
             // end of simulation
