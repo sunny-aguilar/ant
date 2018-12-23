@@ -122,13 +122,15 @@ int main() {
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
 
-
-                // move ant / set board color / show updated board
+                // move ant / set board color
                 ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
+                // shot updated board
                 antBoard.showBoard();
                 cout << endl;
+
+
 
                 // delete these lines after your done
                 // use this pause to help with debugging
