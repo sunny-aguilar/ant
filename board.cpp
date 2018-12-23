@@ -203,5 +203,6 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
 ** Description:     gets the current color of the square ant is on
 *********************************************************************/
 char Board::getCurrentColor(int row, int col) {
+    // may need to change to row-1 and col-1
     return currentColor = ptrBoard[row][col];
 }

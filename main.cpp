@@ -61,7 +61,7 @@ int main() {
             // submenu item - ask user to select the starting location method
             antMenu.subMenuStartLocation();
             if ( antMenu.validateSelection() == "1") {
-                // set custom user-picked location
+                // set custom user-picked starting location for the ant
                 antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
                 antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
             }
