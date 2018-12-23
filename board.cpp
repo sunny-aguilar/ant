@@ -182,8 +182,6 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
 //                ptrBoard[row-2][col-1] = '@';
 //                cout << ptrBoard[row-3][col-1];
 
-                cout << "W/O Adj Row " << row << " col " << col << endl;
-                cout << "Row " << row-2 << " col " << col-1 << " Heading " << EAST << endl;
                 ptrBoard[row-2][col-1] = '#';
 
                 // return updated ant location
