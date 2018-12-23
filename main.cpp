@@ -127,8 +127,13 @@ int main() {
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
                 // move ant and set new location in ant class
-                ant.setCurrentRowLocation(  );
-                ant.setCurrentColLocation(  );
+                ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );
+                ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
+
+                // add * to board again
+                antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+
+
 
                 // shot updated board
                 antBoard.showBoard();

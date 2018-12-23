@@ -85,17 +85,27 @@ void Board::setAntLocation(int row, int col) {
     currentColor = getCurrentColor(row, col);
     ptrBoard[row-1][col-1] = '*';
 }
-/*********************************************************************
-** Description:     get new ant row from setBoardSpace function
-*********************************************************************/
-int Board::getNewAntRow() {
 
+/*********************************************************************
+** Description:     sets the ant row on the board
+*********************************************************************/
+int Board::getAntCurrentRow() {
+    return antCurrentRow;
 }
-/*********************************************************************
-** Description:     get new ant col from setBoardSpace function
-*********************************************************************/
-int Board::getNewAntCol() {
 
+/*********************************************************************
+** Description:     sets the ant col on the board
+*********************************************************************/
+int Board::getAntCurrentCol() {
+    return antCurrentCol;
+}
+
+/*********************************************************************
+** Description:     get new ant row/col from setBoardSpace function
+*********************************************************************/
+void Board::setNewAntcoor(int row, int col) {
+    antCurrentRow = row;
+    antCurrentCol = col;
 }
 
 /*********************************************************************
@@ -145,6 +155,9 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
 
                 cout << "Row " << row << " col " << col+1 << " Heading " << EAST << endl;
                 ptrBoard[row-2][col-1] = '#';
+
+                // return updated ant location
+                setNewAntcoor(row-2, row-1);
 
                 return EAST;
             }
