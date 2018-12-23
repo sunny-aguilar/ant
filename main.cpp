@@ -114,7 +114,7 @@ int main() {
             antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
-            cout << "Initial board set up\n";
+            cout << "\nInitial board set up\n";
             antBoard.showBoard();
             cout << endl;
 
@@ -128,6 +128,14 @@ int main() {
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
                 antBoard.showBoard();
+                cout << endl;
+
+                // delete these lines after your done
+                // use this pause to help with debugging
+                cout << "Hit enter to continue\n";
+                cin.get();
+
+                cout << endl;
             }
 
 
