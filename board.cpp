@@ -170,7 +170,7 @@ void Board::showBoard() {
 *********************************************************************/
 AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
     // get current color variable
-    // added a new branch again
+    // added a new branch again and again
     switch (heading) {
         case 1:
             // facing north
