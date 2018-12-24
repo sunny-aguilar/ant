@@ -177,7 +177,8 @@ void Board::showBoard() {
 }
 
 /*********************************************************************
-** Description:     updates the ant's new orientation
+** Description:     updates the ant's new orientation based on color
+**                  it is on
 *********************************************************************/
 AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {

@@ -124,7 +124,8 @@ int main() {
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
 
-                // update ant orientation
+                // update ant orientation in ant class (ant orientation initially set by user
+                // and set in ant class
                 ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
