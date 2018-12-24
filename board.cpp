@@ -18,9 +18,8 @@ Board::Board() {
 
 Board::~Board() {
     // delete dynamically allocated pointers
-    cout << "Good bye, total columns are " << getCols() << endl;
     for (int col = 0; col < getCols(); col++) {
-            delete [] ptrBoard[col];
+        delete [] ptrBoard[col];
     }
     //Free the array of pointers
     delete [] ptrBoard;
@@ -66,13 +65,16 @@ int Board::getStartCol() {
     return startCol;
 }
 
+/*********************************************************************
+** Description:     dynamic allocation of 2-D array
+*********************************************************************/
 void Board::setBoardArrayDimensions() {
     ptrBoard = new char*[getRows()];
-
     for (int row = 0; row < getRows(); row++) {
         ptrBoard[row] = new char[getCols()];
     }
 }
+
 /*********************************************************************
 ** Description:     sets the initial board characters
 *********************************************************************/
@@ -83,6 +85,7 @@ void Board::setAllBoardCharacters() {
         }
     }
 }
+
 /*********************************************************************
 ** Description:     sets the ant location on the board
 *********************************************************************/

@@ -31,8 +31,8 @@ int main() {
 
     // create menu, board, and ant
     Menu antMenu;
-    Board antBoard;
-    Ant ant;
+
+    Ant ant{};
 
     // call main menu
     antMenu.showStartMenu();
@@ -44,6 +44,7 @@ int main() {
         // once game specs have been entered, the user should have the option
         // to replay the game or end it
         do {
+            Board antBoard;
             // User picked start simulation option
             // submenu items - ask user to enter rows and columns for board and validate
             antMenu.subMenuRows();
@@ -52,7 +53,7 @@ int main() {
             antBoard.setCols( antMenu.validateNumber(2, 100) );
 
             // initialize board dimensions in a 2-D dynamic array
-            antBoard.setBoardArrayDimensions();
+//            antBoard.setBoardArrayDimensions();     // ! can create memory leak!
 
             // submenu item - ask user to enter steps and validate
             antMenu.subMenuSteps();
@@ -66,8 +67,8 @@ int main() {
                 antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
             }
             else {
-                // set random starting location for the ant
                 // Extra Credit 5%
+                // set random starting location for the ant
                 unsigned seed;
                 seed = static_cast<unsigned int>(time(nullptr));
                 srand(seed);
@@ -103,8 +104,9 @@ int main() {
             cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
             cout << "Ant col location " << ant.getCurrentColLocation() << endl;
 
-            // set board dimensions
-            antBoard.setBoardArrayDimensions();
+            // set board dimensions *******************************************************
+            antBoard.setBoardArrayDimensions();     // !each call can create a memory leak!
+            // ***************************************************************************
 
             // set initial board characters
             antBoard.setAllBoardCharacters();
