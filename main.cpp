@@ -109,7 +109,8 @@ int main() {
             // set ant * location on board (in 2d array)
             // remember current color and set variable in board class
             // setAntLocation function has -1 adjustment included to row and col
-            antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+            // wait until you can find a way to show the * ant and remember the space color too
+//            antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
             cout << "\nInitial board set up\n";
@@ -121,9 +122,9 @@ int main() {
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
 
                 // set/update ant heading
-//                ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
-//                                                               ant.getCurrentColLocation(),
-//                                                               ant.getAntOrientation() ) );
+                ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                                                               ant.getCurrentColLocation(),
+                                                               ant.getAntOrientation() ) );
                 // move ant and set new location in ant class
                 // if heading is North, South, East, West
 //                cout << "Current color " << antBoard.getColor( ant.getCurrentRowLocation(),
