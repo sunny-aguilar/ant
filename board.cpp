@@ -195,6 +195,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a black space, change heading WEST <-
                 cout << "Heading prior to move - NORTH\n"
                      << "Update heading to WEST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return WEST;
             }
             break;
@@ -212,6 +214,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a black space, change heading EAST <-
                 cout << "Heading prior to move - SOUTH\n"
                      << "Update heading to EAST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return EAST;
             }
             break;
@@ -229,6 +233,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a black space, change heading NORTH <-
                 cout << "Heading prior to move - EAST\n"
                      << "Update heading to NORTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return NORTH;
             }
             break;
@@ -246,6 +252,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a black space, change heading SOUTH <-
                 cout << "Heading prior to move - WEST\n"
                      << "Update heading to SOUTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return SOUTH;
             }
             break;
@@ -302,7 +310,7 @@ void Board::flipColor(int row, int col) {
         cout << "flipColor reached for ' '\n";
     }
     else if (currentColor == '#') {
-        setCurrentColorVariable(' ');
+        ptrBoard[row][col] = ' ';
         cout << "flipColor reached for #\n";
     }
 }
