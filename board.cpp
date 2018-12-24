@@ -66,7 +66,8 @@ int Board::getStartCol() {
 }
 
 /*********************************************************************
-** Description:     dynamic allocation of 2-D array
+** Description:     dynamic allocation of 2-D array and is de-allocated
+**                  by the destructor
 *********************************************************************/
 void Board::setBoardArrayDimensions() {
     ptrBoard = new char*[getRows()];
@@ -76,7 +77,7 @@ void Board::setBoardArrayDimensions() {
 }
 
 /*********************************************************************
-** Description:     sets the initial board characters
+** Description:     sets the initial board characters to white
 *********************************************************************/
 void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
@@ -161,7 +162,7 @@ void Board::showBoard() {
     for (int row = 0; row < getRows(); row++) {
         cout << "| ";
         for (int col = 0; col < getCols(); col++) {
-            cout << ptrBoard[row][col] << " ";
+            cout << "[" << ptrBoard[row][col] << "]" << " ";
         }
         cout << "|";
         cout << endl;

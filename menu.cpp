@@ -29,9 +29,9 @@ string Menu::getSelection() {
     return selection;
 }
 
-// maybe there is a simpler way to validate? create multiple
-// regex strings and select the one you need based on what
-// is being validated?
+/*********************************************************************
+** Description:     validate selection
+*********************************************************************/
 string Menu::validateSelection() {
     string choice;
     bool invalid = true;
@@ -57,7 +57,8 @@ string Menu::validateSelection() {
     return choice;
 }
 /*********************************************************************
-** Description:     Validate number of rows for the board
+** Description:     general validator where the parameters are the
+**                  min and max numbers acceptable
 *********************************************************************/
 int Menu::validateNumber(int min, int max) {
     char choice[100];
@@ -110,13 +111,13 @@ int Menu::validateNumber(int min, int max) {
     return amount;
 }
 /*********************************************************************
-** Description:     Validate custom start location of the ant
+** Description:     validate custom start location of the ant
 *********************************************************************/
 int Menu::validateCustomStarting(int min, int boardSize) {
     return validateNumber(min, boardSize);
 }
 /*********************************************************************
-** Description:     Validate initial ant orientation
+** Description:     validate initial ant orientation
 *********************************************************************/
 int Menu::validateOrientation() {
     return validateNumber(1, 4);
@@ -173,14 +174,8 @@ int Menu::setRandomLocation(int boardSize) {
     return randomSize;
 }
 
-void Menu::submenuInitializeAnt() {
+void Menu::submenuInitializeAntMessage() {
     cout << "Initializing Langston's Ant...";
-}
-
-void Menu::callNext() {
-    // use this function to call the next steps
-    // after vlidation is completed (i.e., call
-    // the next function in different class)
 }
 
 string Menu::submenuPlayAgain() {

@@ -79,9 +79,9 @@ int main() {
             ant.setAntOrientation( antMenu.validateOrientation() );
 
             // show message initializing ant
-            antMenu.submenuInitializeAnt();
+            antMenu.submenuInitializeAntMessage();
 
-            // debugging code - test board specs
+            // debugging code - test board specs DELETE WHEN DONE
             cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
             cout << "Number of Steps is " << antBoard.getSteps() << endl;
             cout << "Random row start location " << antBoard.getStartRow() << endl;
@@ -95,14 +95,15 @@ int main() {
             ant.setCurrentRowLocation( antBoard.getStartRow() );
             ant.setCurrentColLocation( antBoard.getStartCol() );
 
-            // debugging - display current ant row and location
+            // debugging - display current ant row and location DELETE WHEN DONE
             cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
             cout << "Ant col location " << ant.getCurrentColLocation() << endl;
 
-            // set board dimensions
+            // set board dimensions rows and columns
+            // allocates 2-D array
             antBoard.setBoardArrayDimensions();
 
-            // set initial board characters
+            // set initial board characters to white ' '
             antBoard.setAllBoardCharacters();
 
             // set ant * location on board (in 2d array)
