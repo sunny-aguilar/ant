@@ -23,16 +23,15 @@ public:
     string validateSelection();
     int validateOrientation();
     int validateNumber(int min, int max);
-    void subMenuRows();
-    void subMenuCols();
-    void subMenuSteps();
-    void subMenuStartLocation();
-    int subMenuRowStartLocation(int boardSize);
-    int subMenuColStartLocation(int boardSize);
+    void submenuRows();
+    void submenuCols();
+    void submenuSteps();
+    void submenuStartLocation();
+    int submenuRowStartLocation(int boardSize);
+    int submenuColStartLocation(int boardSize);
     int setRandomLocation(int boardSize);
-    void subMenuSetAntOrientation();
-    void submenuInitializeAnt();
-    void callNext();
+    void submenuSetAntOrientation();
+    void submenuInitializeAntMessage();
     string submenuPlayAgain();
 };
 
