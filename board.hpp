@@ -19,9 +19,9 @@ private:
     int startRow;
     int startCol;
     // updated row and col values for ant class
-    int antCurrentRow;
-    int antCurrentCol;
-    char **ptrBoard = nullptr;
+    int antBoardCurrentRow;
+    int antBoardCurrentCol;
+    char **ptrBoard;
     char currentColor;
 
 public:
@@ -35,6 +35,7 @@ public:
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
     void setAntLocation(int row, int col);
+    void setCurrentColorVariable(char newColor);
 
     int getRows();
     int getCols();
@@ -45,13 +46,15 @@ public:
     int getAntCurrentCol();
 
     void showBoard();
-    AntOrientation setBoardSpace(int row, int col, AntOrientation heading);
+    AntOrientation updateOrientation(int row, int col, AntOrientation heading);
 
-    char getCurrentColor(int row, int col);
+    char getColor(int row, int col);
     void deletePriorLocation();
     void addCurrentColor(int row, int col);
     // return updated ant row/col from setBoardSpace member function
     void setNewAntcoor(int row, int col);
+    void moveAnt(AntOrientation orientation);
+    void flipColor(int row, int col);
 };
 
 #endif
