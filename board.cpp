@@ -258,7 +258,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             }
             break;
         default:
-            cout << "Error making move!\n";
+            cout << "Error updating orientation!\n";
     }
 }
 
@@ -289,7 +289,7 @@ void Board::moveAnt(AntOrientation orientation) {
             cout << "Move West - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
             break;
         default:
-            cout << "Error making move in moveAnt!\n";
+            cout << "Error moving ant!\n";
     }
 }
 
