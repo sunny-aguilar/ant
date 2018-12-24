@@ -48,21 +48,21 @@ int main() {
             Ant ant{};
 
             // submenu - ask user to enter rows and columns for board and validate
-            antMenu.subMenuRows();
+            antMenu.submenuRows();
             antBoard.setRows( antMenu.validateNumber(2, 100) );
-            antMenu.subMenuCols();
+            antMenu.submenuCols();
             antBoard.setCols( antMenu.validateNumber(2, 100) );
 
             // submenu - ask user to enter steps and validate
-            antMenu.subMenuSteps();
+            antMenu.submenuSteps();
             antBoard.setSteps( antMenu.validateNumber(1, 1000) );
 
-            // submenu - ask user to select the starting location method
-            antMenu.subMenuStartLocation();
+            // submenu - ask user to select the starting location for the ant
+            antMenu.submenuStartLocation();
             if ( antMenu.validateSelection() == "1") {
                 // set custom starting location for the ant
-                antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
-                antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
+                antBoard.setStartRow( antMenu.submenuRowStartLocation( antBoard.getRows() ) );
+                antBoard.setStartCol( antMenu.submenuColStartLocation( antBoard.getCols() ) );
             }
             else {
                 // Extra Credit 5%
@@ -75,10 +75,8 @@ int main() {
             }
 
             // submenu - ask user to set ant's starting orientation
-            antMenu.subMenuSetAntOrientation();
+            antMenu.submenuSetAntOrientation();
             ant.setAntOrientation( antMenu.validateOrientation() );
-
-
 
             // show message initializing ant
             antMenu.submenuInitializeAnt();
