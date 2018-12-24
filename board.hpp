@@ -35,7 +35,7 @@ public:
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
     void setAntLocation(int row, int col);
-    void setCurrentColor(char newColor);
+    void setCurrentColorVariable(char newColor);
 
     int getRows();
     int getCols();
