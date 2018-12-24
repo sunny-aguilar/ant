@@ -31,7 +31,7 @@ int main() {
 
     // create menu, board, and ant
     Menu antMenu;
-    Board antBoard;
+    Board antBoard;     // !!! Move board to inside of do while loop to prevent memory leaks!
     Ant ant;
 
     // call main menu
@@ -41,9 +41,11 @@ int main() {
 
 
     if (antMenu.getSelection() == "1") {
-        // once game specs have been entered, the user should have the option
-        // to replay the game or end it
+        // do while loop repeats the game if user wants to play again
         do {
+            // ADD BOARD INSTANCE HERE
+            
+            
             // User picked start simulation option
             // submenu items - ask user to enter rows and columns for board and validate
             antMenu.subMenuRows();
