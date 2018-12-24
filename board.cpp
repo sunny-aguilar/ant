@@ -96,7 +96,7 @@ void Board::setAntLocation(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     sets the ant row on the board
+** Description:     gets the ant row on the board
 *********************************************************************/
 int Board::getAntCurrentRow() {
     // row and col already include the adjustment necessary from
@@ -136,6 +136,7 @@ void Board::deletePriorLocation() {
         }
     }
 }
+
 /*********************************************************************
 ** Description:     add currentColor back to board
 *********************************************************************/
@@ -173,6 +174,7 @@ void Board::showBoard() {
     }
     cout << endl;
 }
+
 /*********************************************************************
 ** Description:     parameters determine ant's current heading and
 **                  the row and col determine the current space its in

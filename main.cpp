@@ -21,7 +21,6 @@ using std::string;
 //using std::regex;
 
 int main() {
-
     // ant rules
     // If the ant is on a white space, turn right 90 degrees and change the space to black.
     // If the ant is on a black space, turn left 90 degrees and change the space to white.
@@ -32,19 +31,22 @@ int main() {
     // create menu, board, and ant
     Menu antMenu;
 
-    Ant ant{};
-
     // call main menu
     antMenu.showStartMenu();
+
     // get user main menu selection
     antMenu.setSelection( antMenu.validateSelection() );
 
-
+    // *********************************************************************************
+    // main menu screen - user plays game or quits *************************************
+    // *********************************************************************************
     if (antMenu.getSelection() == "1") {
-        // once game specs have been entered, the user should have the option
-        // to replay the game or end it
+        // do while loop repeats the game if user wants to play again
         do {
-            Board antBoard;
+            // create board and ant
+            Board antBoard;                 // create board inside loop otherwise leak!
+            Ant ant{};
+
             // User picked start simulation option
             // submenu items - ask user to enter rows and columns for board and validate
             antMenu.subMenuRows();
@@ -104,9 +106,8 @@ int main() {
             cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
             cout << "Ant col location " << ant.getCurrentColLocation() << endl;
 
-            // set board dimensions *******************************************************
-            antBoard.setBoardArrayDimensions();     // !each call can create a memory leak!
-            // ***************************************************************************
+            // set board dimensions
+            antBoard.setBoardArrayDimensions();
 
             // set initial board characters
             antBoard.setAllBoardCharacters();
