@@ -134,7 +134,6 @@ int main() {
                 antBoard.moveAnt( ant.getAntOrientation() );    // move and and update new coord in board
                 ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );                  // update new row coord in ant class
                 ant.setCurrentColLocation( antBoard.getAntCurrentCol() );                  // update new col coord in ant class
-//                antBoard.flipColor();                           // flip ant color
 
 
 
