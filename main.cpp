@@ -122,9 +122,17 @@ int main() {
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
 
                 // update ant orientation
-                ant.setAntOrientation( antBoard.setBoardSpace( ant.getCurrentRowLocation(),
+                ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
+
+
+                // move ant
+                antBoard.moveAnt( ant.getAntOrientation() );
+
+
+
+
                 // move ant and set new location in ant class
                 // if heading is North, South, East, West
 //                cout << "Current color " << antBoard.getColor( ant.getCurrentRowLocation(),

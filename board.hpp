@@ -45,14 +45,14 @@ public:
     int getAntCurrentCol();
 
     void showBoard();
-    AntOrientation setBoardSpace(int row, int col, AntOrientation heading);
+    AntOrientation updateOrientation(int row, int col, AntOrientation heading);
 
     char getColor(int row, int col);
     void deletePriorLocation();
     void addCurrentColor(int row, int col);
     // return updated ant row/col from setBoardSpace member function
     void setNewAntcoor(int row, int col);
-    void moveAnt(char color);
+    void moveAnt(AntOrientation orientation);
 };
 
 #endif

@@ -177,10 +177,9 @@ void Board::showBoard() {
 }
 
 /*********************************************************************
-** Description:     parameters determine ant's current heading and
-**                  the row and col determine the current space its in
+** Description:     updates the ant's new orientation
 *********************************************************************/
-AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
+AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {
         case 1:
             // facing NORTH
@@ -243,9 +242,7 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
 ** Description:     checks the current square color and heading to
 **                  determine where ant goes next
 *********************************************************************/
-void Board::moveAnt(char color) {
-//    cout << "Color is " << color << endl;
-//
+void Board::moveAnt(AntOrientation orientation) {
 //    switch (antOrientation) {
 //        case 1:
 //            if (color == '*') {
