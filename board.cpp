@@ -187,6 +187,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a white space, change heading EAST ->
                 cout << "Heading prior to move - NORTH\n"
                      << "Update heading to EAST\n";
+                setCurrentColor(ptrBoard[row-1][col-1]);
+                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
                 return EAST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -202,6 +204,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a white space, change heading WEST ->
                 cout << "Heading prior to move - SOUTH\n"
                      << "Update heading to WEST\n";
+                setCurrentColor(ptrBoard[row-1][col-1]);
+                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
                 return WEST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -217,6 +221,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a white space, change heading SOUTH ->
                 cout << "Heading prior to move - EAST\n"
                      << "Update heading to SOUTH\n";
+                setCurrentColor(ptrBoard[row-1][col-1]);
+                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
                 return SOUTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -232,6 +238,8 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 // if the ant is on a white space, change heading NORTH ->
                 cout << "Heading prior to move - WEST\n"
                      << "Update heading to NORTH\n";
+                setCurrentColor(ptrBoard[row-1][col-1]);
+                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
                 return NORTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -281,7 +289,7 @@ void Board::moveAnt(AntOrientation orientation) {
 ** Description:     gets the current color of the square ant is on
 *********************************************************************/
 char Board::getColor(int row, int col) {
-    return ptrBoard[row-1][col-1];
+    return ptrBoard[row][col];
 }
 
 void Board::setCurrentColor(char newColor) {
@@ -291,8 +299,10 @@ void Board::setCurrentColor(char newColor) {
 void Board::flipColor() {
     if (currentColor == ' ') {
         setCurrentColor('#');
+        cout << "flipColor reached for ' '\n";
     }
     else if (currentColor == '#') {
         setCurrentColor(' ');
+        cout << "flipColor reached for #\n";
     }
 }
