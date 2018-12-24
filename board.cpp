@@ -188,9 +188,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 cout << "Heading prior to move - NORTH\n"
                      << "Update heading to EAST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
-                cout << "Current character: " << getColor(row-1, col-1) << endl;
-                flipColor();
-                ptrBoard[row-1][col-1] = getColor(row-1, col-1);
+                flipColor(row-1, col-1);
                 return EAST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -207,7 +205,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 cout << "Heading prior to move - SOUTH\n"
                      << "Update heading to WEST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
-                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
+                flipColor(row-1, col-1);
                 return WEST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -224,7 +222,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 cout << "Heading prior to move - EAST\n"
                      << "Update heading to SOUTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
-
+                flipColor(row-1, col-1);
                 return SOUTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -241,7 +239,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                 cout << "Heading prior to move - WEST\n"
                      << "Update heading to NORTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
-                ptrBoard[row-1][col-1] = getColor(row-1, row-2);
+                flipColor(row-1, col-1);
                 return NORTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
@@ -298,9 +296,9 @@ void Board::setCurrentColorVariable(char newColor) {
     currentColor = newColor;
 }
 
-void Board::flipColor() {
+void Board::flipColor(int row, int col) {
     if (currentColor == ' ') {
-        setCurrentColorVariable('#');
+        ptrBoard[row][col] = '#';
         cout << "flipColor reached for ' '\n";
     }
     else if (currentColor == '#') {

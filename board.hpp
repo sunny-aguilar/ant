@@ -54,7 +54,7 @@ public:
     // return updated ant row/col from setBoardSpace member function
     void setNewAntcoor(int row, int col);
     void moveAnt(AntOrientation orientation);
-    void flipColor();
+    void flipColor(int row, int col);
 };
 
 #endif
