@@ -184,13 +184,14 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
     switch (heading) {
         case 1:
             // facing NORTH
-            if (ptrBoard[row-1][col-1] == '*') {
+            if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading EAST ->
-                cout << "Reached\n";
+                cout << "EAST\n";
                 return EAST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading WEST <-
+                cout << "WEST\n";
                 return WEST;
             }
             break;
@@ -198,10 +199,12 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             // facing SOUTH
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading WEST ->
+                cout << "WEST\n";
                 return WEST;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading EAST <-
+                cout << "EAST\n";
                 return EAST;
             }
             break;
@@ -209,10 +212,12 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             // facing EAST
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading SOUTH ->
+                cout << "SOUTH\n";
                 return SOUTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading NORTH <-
+                cout << "NORTH\n";
                 return NORTH;
             }
             break;
@@ -220,10 +225,12 @@ AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
             // facing WEST
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading NORTH ->
+                cout << "NORTH\n";
                 return NORTH;
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading SOUTH <-
+                cout << "SOUTH\n";
                 return SOUTH;
             }
             break;
