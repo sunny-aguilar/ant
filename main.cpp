@@ -47,8 +47,7 @@ int main() {
             Board antBoard;                 // create board inside loop otherwise leak!
             Ant ant{};
 
-            // User picked start simulation option
-            // submenu items - ask user to enter rows and columns for board and validate
+            // submenu - ask user to enter rows and columns for board and validate
             antMenu.subMenuRows();
             antBoard.setRows( antMenu.validateNumber(2, 100) );
             antMenu.subMenuCols();
