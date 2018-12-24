@@ -13,12 +13,16 @@ using std::cout;
 using std::endl;
 
 Board::Board() {
-
+    ptrBoard = nullptr;
 }
 
 Board::~Board() {
-    // deallocate pointers here
-
+    // delete dynamically allocated pointers
+    for (int col = 0; col < getCols(); col++) {
+        delete [] ptrBoard[col];
+    }
+    //Free the array of pointers
+    delete [] ptrBoard;
 }
 
 void Board::setRows(int row) {
@@ -61,15 +65,19 @@ int Board::getStartCol() {
     return startCol;
 }
 
+/*********************************************************************
+** Description:     dynamic allocation of 2-D array and is de-allocated
+**                  by the destructor
+*********************************************************************/
 void Board::setBoardArrayDimensions() {
     ptrBoard = new char*[getRows()];
-
     for (int row = 0; row < getRows(); row++) {
         ptrBoard[row] = new char[getCols()];
     }
 }
+
 /*********************************************************************
-** Description:     sets the initial board characters
+** Description:     sets the initial board characters to white
 *********************************************************************/
 void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
@@ -78,22 +86,23 @@ void Board::setAllBoardCharacters() {
         }
     }
 }
+
 /*********************************************************************
 ** Description:     sets the ant location on the board
 *********************************************************************/
 void Board::setAntLocation(int row, int col) {
     // adjustment included since arrays start at 0
-    currentColor = getCurrentColor(row, col);
+    currentColor = getColor(row, col);
     ptrBoard[row-1][col-1] = '*';
 }
 
 /*********************************************************************
-** Description:     sets the ant row on the board
+** Description:     gets the ant row on the board
 *********************************************************************/
 int Board::getAntCurrentRow() {
     // row and col already include the adjustment necessary from
     // setBoardSpace() --> setNewAntCoor() --> antCurrentRow
-    return antCurrentRow;
+    return antBoardCurrentRow;
 }
 
 /*********************************************************************
@@ -102,17 +111,17 @@ int Board::getAntCurrentRow() {
 int Board::getAntCurrentCol() {
     // roaw and col already include the adjustment necessary from
     // setBoardSpace() --> setNewAntCoor() --> antCurrentCol
-    return antCurrentCol;
+    return antBoardCurrentCol;
 }
 
 /*********************************************************************
-** Description:     get new ant row/col from setBoardSpace function
+** Description:     set new ant row/col from setBoardSpace function
 *********************************************************************/
 void Board::setNewAntcoor(int row, int col) {
     // row and col received include the adjustment necessary from
     // setBoardSpace() so no further adj. needed
-    antCurrentRow = row;
-    antCurrentCol = col;
+    antBoardCurrentRow = row;
+    antBoardCurrentCol = col;
 }
 
 /*********************************************************************
@@ -128,6 +137,7 @@ void Board::deletePriorLocation() {
         }
     }
 }
+
 /*********************************************************************
 ** Description:     add currentColor back to board
 *********************************************************************/
@@ -152,7 +162,7 @@ void Board::showBoard() {
     for (int row = 0; row < getRows(); row++) {
         cout << "| ";
         for (int col = 0; col < getCols(); col++) {
-            cout << ptrBoard[row][col] << " ";
+            cout << "[" << ptrBoard[row][col] << "]" << " ";
         }
         cout << "|";
         cout << endl;
@@ -165,125 +175,142 @@ void Board::showBoard() {
     }
     cout << endl;
 }
-/*********************************************************************
-** Description:     paramaters row and col set board space to black or white on move
-*********************************************************************/
-AntOrientation Board::setBoardSpace(int row, int col, AntOrientation heading) {
-    // get current color variable
 
+/*********************************************************************
+** Description:     updates the ant's new orientation
+*********************************************************************/
+AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {
         case 1:
-            // facing north
-            if (ptrBoard[row-2][col-1] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-
-                // debugging tool - check location of array
-//                ptrBoard[row-2][col-1] = '@';
-//                cout << ptrBoard[row-3][col-1];
-
-                ptrBoard[row-2][col-1] = '#';
-
-                // return updated ant location
-                cout << "SetBoard Space Row " << row-2 << " Col " << col-1 << endl;
-                // only need to adjust row because
-                setNewAntcoor(row-1, col);
-
-                // add back currentColor where * previously was
-//                addCurrentColor(row, col);
-
+            // facing NORTH
+            if (ptrBoard[row-1][col-1] == ' ') {
+                // if the ant is on a white space, change heading EAST ->
+                cout << "Heading prior to move - NORTH\n"
+                     << "Update heading to EAST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return EAST;
             }
-            else if (ptrBoard[row-2][col-1] == '#') {
-                // if the ant is on a black space, change heading<- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << WEST  << endl;
-                ptrBoard[row-2][col-1] = ' ';
-
-                // return updated ant location
-
-
+            else if (ptrBoard[row-1][col-1] == '#') {
+                // if the ant is on a black space, change heading WEST <-
+                cout << "Heading prior to move - NORTH\n"
+                     << "Update heading to WEST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return WEST;
             }
             break;
         case 2:
-            // facing south
-            if (ptrBoard[row][col-1] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << WEST << endl;
-                ptrBoard[row][col-1] = '#';
-
-                // return updated ant location
-                setNewAntcoor(row-1, col);
-
+            // facing SOUTH
+            if (ptrBoard[row-1][col-1] == ' ') {
+                // if the ant is on a white space, change heading WEST ->
+                cout << "Heading prior to move - SOUTH\n"
+                     << "Update heading to WEST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return WEST;
             }
-            else if (ptrBoard[row][col-1] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << EAST  << endl;
-                ptrBoard[row][col-1] = ' ';
-                // return updated ant location
+            else if (ptrBoard[row-1][col-1] == '#') {
+                // if the ant is on a black space, change heading EAST <-
+                cout << "Heading prior to move - SOUTH\n"
+                     << "Update heading to EAST\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return EAST;
             }
             break;
         case 3:
-            // facing east
-            if (ptrBoard[row-1][col] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << SOUTH << endl;
-                ptrBoard[row-1][col] = '#';
-                // return updated ant location
-                setNewAntcoor(row, col+1);
+            // facing EAST
+            if (ptrBoard[row-1][col-1] == ' ') {
+                // if the ant is on a white space, change heading SOUTH ->
+                cout << "Heading prior to move - EAST\n"
+                     << "Update heading to SOUTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return SOUTH;
             }
-            else if (ptrBoard[row-1][col] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << NORTH  << endl;
-                ptrBoard[row-1][col] = ' ';
-                // return updated ant location
+            else if (ptrBoard[row-1][col-1] == '#') {
+                // if the ant is on a black space, change heading NORTH <-
+                cout << "Heading prior to move - EAST\n"
+                     << "Update heading to NORTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return NORTH;
             }
             break;
         case 4:
-            // facing west
-            if (ptrBoard[row-1][col-2] == ' ') {
-                // if the ant is on a white space, change heading -> and
-                // change space to black
-                cout << "Row " << row << " col " << col+1 << " Heading " << NORTH << endl;
-                ptrBoard[row-1][col-2] = '#';
-                // return updated ant location
-                setNewAntcoor(row-1, col);
-
+            // facing WEST
+            if (ptrBoard[row-1][col-1] == ' ') {
+                // if the ant is on a white space, change heading NORTH ->
+                cout << "Heading prior to move - WEST\n"
+                     << "Update heading to NORTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return NORTH;
             }
-            else if (ptrBoard[row-1][col-2] == '#') {
-                // if the ant is on a black space, change heading <- and
-                // change space to white
-                cout << "Row " << row << " col " << col-1 << " Heading " << SOUTH  << endl;
-                ptrBoard[row-1][col-2] = ' ';
-                // return updated ant location
+            else if (ptrBoard[row-1][col-1] == '#') {
+                // if the ant is on a black space, change heading SOUTH <-
+                cout << "Heading prior to move - WEST\n"
+                     << "Update heading to SOUTH\n";
+                setCurrentColorVariable(ptrBoard[row-1][col-1]);
+                flipColor(row-1, col-1);
                 return SOUTH;
             }
             break;
         default:
-            cout << "Error making move!\n";
+            cout << "Error updating orientation!\n";
     }
-
-
-
-
-
-
-
 }
+
+/*********************************************************************
+** Description:     checks the current square color and heading to
+**                  determine where ant goes next
+*********************************************************************/
+void Board::moveAnt(AntOrientation orientation) {
+    switch (orientation) {
+        case 1:
+            // move NORTH
+            setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
+            cout << "Move North - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+            break;
+        case 2:
+            // move SOUTH
+            setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
+            cout << "Move South - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+            break;
+        case 3:
+            // move EAST
+            setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
+            cout << "Move East - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+            break;
+        case 4:
+            // move WEST
+            setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
+            cout << "Move West - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+            break;
+        default:
+            cout << "Error moving ant!\n";
+    }
+}
+
 /*********************************************************************
 ** Description:     gets the current color of the square ant is on
 *********************************************************************/
-char Board::getCurrentColor(int row, int col) {
-    // may need to change to row-1 and col-1
-    return currentColor = ptrBoard[row][col];
+char Board::getColor(int row, int col) {
+    return ptrBoard[row][col];
+}
+
+void Board::setCurrentColorVariable(char newColor) {
+    currentColor = newColor;
+}
+
+void Board::flipColor(int row, int col) {
+    if (currentColor == ' ') {
+        ptrBoard[row][col] = '#';
+        cout << "flipColor reached for ' '\n";
+    }
+    else if (currentColor == '#') {
+        ptrBoard[row][col] = ' ';
+        cout << "flipColor reached for #\n";
+    }
 }
