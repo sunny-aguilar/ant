@@ -130,7 +130,6 @@ int main() {
 //                cout << "Current color " << antBoard.getColor( ant.getCurrentRowLocation(),
 //                                                               ant.getCurrentColLocation() ) << endl;
 
-//                cout << "Current heading " << ant.getAntOrientation() << endl;
 
 //                ant.moveAnt( antBoard.getColor( ant.getCurrentRowLocation(),
 //                                                ant.getCurrentColLocation() ) );
