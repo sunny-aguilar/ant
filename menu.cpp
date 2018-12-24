@@ -122,6 +122,10 @@ int Menu::validateOrientation() {
     return validateNumber(1, 4);
 }
 
+
+/*********************************************************************
+** Description:     show menu options
+*********************************************************************/
 void Menu::submenuRows() {
     cout << "Great! Now let's create the board\n"
          << "Enter the number of rows for the board (min 2 rows, max 100 rows)\n";
@@ -170,7 +174,7 @@ int Menu::setRandomLocation(int boardSize) {
 }
 
 void Menu::submenuInitializeAnt() {
-    cout << "Initializing langton's ant...";
+    cout << "Initializing Langston's Ant...";
 }
 
 void Menu::callNext() {
