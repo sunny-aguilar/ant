@@ -29,9 +29,9 @@ string Menu::getSelection() {
     return selection;
 }
 
-// maybe there is a simpler way to validate? create multiple
-// regex strings and select the one you need based on what
-// is being validated?
+/*********************************************************************
+** Description:     validate selection
+*********************************************************************/
 string Menu::validateSelection() {
     string choice;
     bool invalid = true;
@@ -57,7 +57,8 @@ string Menu::validateSelection() {
     return choice;
 }
 /*********************************************************************
-** Description:     Validate number of rows for the board
+** Description:     general validator where the parameters are the
+**                  min and max numbers acceptable
 *********************************************************************/
 int Menu::validateNumber(int min, int max) {
     char choice[100];
@@ -110,52 +111,56 @@ int Menu::validateNumber(int min, int max) {
     return amount;
 }
 /*********************************************************************
-** Description:     Validate custom start location of the ant
+** Description:     validate custom start location of the ant
 *********************************************************************/
 int Menu::validateCustomStarting(int min, int boardSize) {
     return validateNumber(min, boardSize);
 }
 /*********************************************************************
-** Description:     Validate initial ant orientation
+** Description:     validate initial ant orientation
 *********************************************************************/
 int Menu::validateOrientation() {
     return validateNumber(1, 4);
 }
 
-void Menu::subMenuRows() {
+
+/*********************************************************************
+** Description:     show menu options
+*********************************************************************/
+void Menu::submenuRows() {
     cout << "Great! Now let's create the board\n"
          << "Enter the number of rows for the board (min 2 rows, max 100 rows)\n";
 }
 
-void Menu::subMenuCols() {
+void Menu::submenuCols() {
     cout << "Enter the number of columns for the board (min 2 columns, max 100 columns)\n";
 }
 
-void Menu::subMenuSteps() {
+void Menu::submenuSteps() {
     cout << "Enter the number of steps for the simulation\n";
 }
 
-void Menu::subMenuStartLocation() {
+void Menu::submenuStartLocation() {
     cout << "Now enter 1 or 2 to set the starting location of the ant\n"
          << "1. Pick your own starting location\n"
          << "2. A random starting location\n ";
 }
 
-int Menu::subMenuRowStartLocation(int boardSize) {
+int Menu::submenuRowStartLocation(int boardSize) {
     cout << "Enter the start row of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
     return validateCustomStarting(2, boardSize);
 }
 
-int Menu::subMenuColStartLocation(int boardSize) {
+int Menu::submenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
     return validateCustomStarting(2, boardSize);
 }
 
-void Menu::subMenuSetAntOrientation() {
+void Menu::submenuSetAntOrientation() {
     cout << "Select 1-4 to set the ant's starting orientation\n"
          << "1. North\n"
          << "2. South\n"
@@ -169,18 +174,12 @@ int Menu::setRandomLocation(int boardSize) {
     return randomSize;
 }
 
-void Menu::submenuInitializeAnt() {
-    cout << "Initializing langton's ant...";
-}
-
-void Menu::callNext() {
-    // use this function to call the next steps
-    // after vlidation is completed (i.e., call
-    // the next function in different class)
+void Menu::submenuInitializeAntMessage() {
+    cout << "Initializing Langston's Ant...";
 }
 
 string Menu::submenuPlayAgain() {
     cout << "1. Play again\n"
-         << "2. QUit\n";
+         << "2. Quit\n";
     return validateSelection();
 }
