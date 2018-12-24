@@ -53,17 +53,14 @@ int main() {
             antMenu.subMenuCols();
             antBoard.setCols( antMenu.validateNumber(2, 100) );
 
-            // initialize board dimensions in a 2-D dynamic array
-//            antBoard.setBoardArrayDimensions();     // ! can create memory leak!
-
-            // submenu item - ask user to enter steps and validate
+            // submenu - ask user to enter steps and validate
             antMenu.subMenuSteps();
             antBoard.setSteps( antMenu.validateNumber(1, 1000) );
 
-            // submenu item - ask user to select the starting location method
+            // submenu - ask user to select the starting location method
             antMenu.subMenuStartLocation();
             if ( antMenu.validateSelection() == "1") {
-                // set custom user-picked starting location for the ant
+                // set custom starting location for the ant
                 antBoard.setStartRow( antMenu.subMenuRowStartLocation( antBoard.getRows() ) );
                 antBoard.setStartCol( antMenu.subMenuColStartLocation( antBoard.getCols() ) );
             }
@@ -73,12 +70,11 @@ int main() {
                 unsigned seed;
                 seed = static_cast<unsigned int>(time(nullptr));
                 srand(seed);
-                // set random starting location for the ant
                 antBoard.setStartRow( antMenu.setRandomLocation( antBoard.getRows() ) );
                 antBoard.setStartCol( antMenu.setRandomLocation( antBoard.getCols() ) );
             }
 
-            // submenu item - ask user to set ant's starting orientation
+            // submenu - ask user to set ant's starting orientation
             antMenu.subMenuSetAntOrientation();
             ant.setAntOrientation( antMenu.validateOrientation() );
 
