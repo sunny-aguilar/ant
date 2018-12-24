@@ -94,6 +94,9 @@ int main() {
             // ant class holds current row and column for the ant only
             ant.setCurrentRowLocation( antBoard.getStartRow() );
             ant.setCurrentColLocation( antBoard.getStartCol() );
+            // send current ant location from ant class back to board class
+            antBoard.setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+
 
             // debugging - display current ant row and location DELETE WHEN DONE
             cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
@@ -128,7 +131,10 @@ int main() {
 
 
                 // move ant
-                antBoard.moveAnt( ant.getAntOrientation() );
+                antBoard.moveAnt( ant.getAntOrientation() );    // move and and update new coord in board
+                ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );                  // update new row coord in ant class
+                ant.setCurrentColLocation( antBoard.getAntCurrentCol() );                  // update new col coord in ant class
+                antBoard.flipColor();                           // flip ant color
 
 
 
