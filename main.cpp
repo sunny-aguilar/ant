@@ -118,20 +118,19 @@ int main() {
             // show initial board setup
             cout << "\nInitial board set up\n";
 
+            
+
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentRowLocation()-1 );
             antBoard.showBoard();
-
             // ********* DEBUGGING - DELETE ************
             // use this pause to help with debugging
             cout << "Hit enter to continue\n";
             cin.get();
             // ********* DEBUGGING - DELETE ************
-
             antBoard.deletePriorLocation();
-            antBoard.showBoard();
-            
-//            antBoard.getColor( ant.getCurrentRowLocation()-1, ant.getCurrentRowLocation()-1 );
-            // show ant * on board then delete
+
+
+
             cout << endl;
 
 
