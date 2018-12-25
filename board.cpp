@@ -132,7 +132,7 @@ void Board::deletePriorLocation() {
         for (int col = 0; col < getCols(); col++) {
             if (ptrBoard[row][col] == '*') {
 //                ptrBoard[row][col] = currentColor;
-                ptrBoard[row][col] = currentColor;
+                ptrBoard[row][col] = '@';
             }
         }
     }

@@ -138,15 +138,13 @@ int main() {
 
 
 
-                
-
 
 
                 // show current ant location, show board with ant, then replace ant
-                antBoard.addAntCharacter( antBoard.getAntCurrentRow(), antBoard.getAntCurrentCol() );
+//                antBoard.addAntCharacter( antBoard.getAntCurrentRow(), antBoard.getAntCurrentCol() );
                 // show updated board
                 antBoard.showBoard();
-                antBoard.deletePriorLocation();
+//                antBoard.deletePriorLocation();
                 cout << endl;
 
 
