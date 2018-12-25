@@ -150,15 +150,12 @@ int main() {
 
 
 
-                // delete these lines after your done
                 // use this pause to help with debugging
                 cout << "Hit enter to continue\n";
                 cin.get();
 
                 cout << endl;
             }
-
-
 
             // end of simulation
             // provide 2 choices: play again or quit
