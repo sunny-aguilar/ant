@@ -125,15 +125,6 @@ void Board::setNewAntcoor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     add currentColor back to board
-*********************************************************************/
-void Board::addCurrentColor(int row, int col) {
-    cout << "Current color " << currentColor << endl;
-    ptrBoard[row-1][col-1] = currentColor;
-//    ptrBoard[row-1][col-1] = '@';
-}
-
-/*********************************************************************
 ** Description:     Displays the current board
 *********************************************************************/
 void Board::showBoard() {
@@ -309,6 +300,7 @@ void Board::flipColor(int row, int col) {
 ** Description:     delete old * position
 *********************************************************************/
 void Board::addAntCharacter(int row, int col) {
+    currentColor = ptrBoard[row][col];
     ptrBoard[row][col] = '*';
 }
 
@@ -324,4 +316,13 @@ void Board::deletePriorLocation() {
             }
         }
     }
+}
+
+/*********************************************************************
+** Description:     add currentColor back to board
+*********************************************************************/
+void Board::addCurrentColor(int row, int col) {
+    cout << "Current color " << currentColor << endl;
+    ptrBoard[row][col] = currentColor;
+//    ptrBoard[row-1][col-1] = '@';
 }

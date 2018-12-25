@@ -118,7 +118,7 @@ int main() {
             // show initial board setup
             cout << "\nInitial board set up\n";
 
-            
+
 
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentRowLocation()-1 );
             antBoard.showBoard();
@@ -152,17 +152,20 @@ int main() {
 
 
 
-
-
                 // show current ant location, show board with ant, then replace ant
-//                antBoard.addAntCharacter( antBoard.getAntCurrentRow(), antBoard.getAntCurrentCol() );
+                // show current ant location
+                antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
                 // show updated board
                 antBoard.showBoard();
-//                antBoard.deletePriorLocation();
+                // delete ant
+                antBoard.deletePriorLocation();
+                // replace ant with prior space character
+                antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+
+
+
                 cout << endl;
-
-
-
                 // use this pause to help with debugging
                 cout << "Hit enter to continue\n";
                 cin.get();
