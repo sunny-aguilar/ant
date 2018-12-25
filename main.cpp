@@ -138,33 +138,15 @@ int main() {
 
 
 
-
-                // move ant and set new location in ant class
-                // if heading is North, South, East, West
-//                cout << "Current color " << antBoard.getColor( ant.getCurrentRowLocation(),
-//                                                               ant.getCurrentColLocation() ) << endl;
-
-
-//                ant.moveAnt( antBoard.getColor( ant.getCurrentRowLocation(),
-//                                                ant.getCurrentColLocation() ) );
+                
 
 
 
-
-//                ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );
-//                ant.setCurrentColLocation( antBoard.getAntCurrentCol() );
-
-                // delete old * after moving
-//                antBoard.deletePriorLocation();
-
-                // add * to board again
-                // setAntLocation function has -1 adjustment to row and col
-//                antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
-
-
-
+                // show current ant location, show board with ant, then replace ant
+                antBoard.addAntCharacter( antBoard.getAntCurrentRow(), antBoard.getAntCurrentCol() );
                 // show updated board
                 antBoard.showBoard();
+                antBoard.deletePriorLocation();
                 cout << endl;
 
 

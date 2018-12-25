@@ -55,6 +55,8 @@ public:
     void setNewAntcoor(int row, int col);
     void moveAnt(AntOrientation orientation);
     void flipColor(int row, int col);
+
+    void addAntCharacter (int row, int col);
 };
 
 #endif

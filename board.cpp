@@ -132,7 +132,7 @@ void Board::deletePriorLocation() {
         for (int col = 0; col < getCols(); col++) {
             if (ptrBoard[row][col] == '*') {
 //                ptrBoard[row][col] = currentColor;
-                ptrBoard[row][col] = '@';
+                ptrBoard[row][col] = currentColor;
             }
         }
     }
@@ -305,6 +305,9 @@ void Board::setCurrentColorVariable(char newColor) {
     currentColor = newColor;
 }
 
+/*********************************************************************
+** Description:     flips the color of the square ant moved from
+*********************************************************************/
 void Board::flipColor(int row, int col) {
     if (currentColor == ' ') {
         ptrBoard[row][col] = '#';
@@ -314,5 +317,9 @@ void Board::flipColor(int row, int col) {
         ptrBoard[row][col] = ' ';
         cout << "flipColor reached for #\n";
     }
+}
+
+void Board::addAntCharacter(int row, int col) {
+    ptrBoard[row][col] = '*';
 }
 
