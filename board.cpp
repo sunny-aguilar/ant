@@ -297,7 +297,7 @@ void Board::flipColor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     delete old * position
+** Description:     save board color and add ant character
 *********************************************************************/
 void Board::addAntCharacter(int row, int col) {
     currentColor = ptrBoard[row][col];
