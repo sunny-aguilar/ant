@@ -125,20 +125,6 @@ void Board::setNewAntcoor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     delete old * position
-*********************************************************************/
-void Board::deletePriorLocation() {
-    for (int row = 0; row < getRows(); row++) {
-        for (int col = 0; col < getCols(); col++) {
-            if (ptrBoard[row][col] == '*') {
-//                ptrBoard[row][col] = currentColor;
-                ptrBoard[row][col] = '@';
-            }
-        }
-    }
-}
-
-/*********************************************************************
 ** Description:     add currentColor back to board
 *********************************************************************/
 void Board::addCurrentColor(int row, int col) {
@@ -319,7 +305,23 @@ void Board::flipColor(int row, int col) {
     }
 }
 
+/*********************************************************************
+** Description:     delete old * position
+*********************************************************************/
 void Board::addAntCharacter(int row, int col) {
     ptrBoard[row][col] = '*';
 }
 
+/*********************************************************************
+** Description:     delete old * position
+*********************************************************************/
+void Board::deletePriorLocation() {
+    for (int row = 0; row < getRows(); row++) {
+        for (int col = 0; col < getCols(); col++) {
+            if (ptrBoard[row][col] == '*') {
+                ptrBoard[row][col] = currentColor;
+//                ptrBoard[row][col] = '@';
+            }
+        }
+    }
+}
