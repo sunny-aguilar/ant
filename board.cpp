@@ -14,6 +14,7 @@ using std::endl;
 
 Board::Board() {
     ptrBoard = nullptr;
+    checkWallHit = false;
 }
 
 Board::~Board() {
@@ -254,7 +255,8 @@ void Board::moveAnt(AntOrientation orientation) {
                 // this if stmt changes direction of ant if it hits border
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 // need to find a way to update the orientation to face SOUTH
-
+                checkWallHit = true;
+                wallCheckOrientation(SOUTH);
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
@@ -271,6 +273,8 @@ void Board::moveAnt(AntOrientation orientation) {
                 // [0][0] but it should face north, not face south still otherwise it
                 // will be moving with the wrong heading variable in ant class and cause
                 // a bug
+                checkWallHit = true;
+                wallCheckOrientation(NORTH);
 
                 break;
             }
@@ -283,6 +287,9 @@ void Board::moveAnt(AntOrientation orientation) {
             // move EAST
             if ((antBoardCurrentCol+1) > cols) {
                 // this if stmt changes direction of ant if it hits border
+                checkWallHit = true;
+                wallCheckOrientation(WEST);
+
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
                 break;
             }
@@ -295,6 +302,9 @@ void Board::moveAnt(AntOrientation orientation) {
             // move WEST
             if ((antBoardCurrentCol-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
+                checkWallHit = true;
+                wallCheckOrientation(EAST);
+
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 break;
             }
@@ -361,4 +371,17 @@ void Board::deletePriorLocation() {
 void Board::addCurrentColor(int row, int col) {
     cout << "Current color " << currentColor << endl;
     ptrBoard[row][col] = currentColor;
+}
+
+
+AntOrientation Board::wallCheckOrientation(AntOrientation heading) {
+   return heading;
+}
+
+bool Board::checkWallHitVar() {
+    return checkWallHit;
+}
+
+void Board::setCheckWallHitVar (bool val) {
+    checkWallHit = val;
 }

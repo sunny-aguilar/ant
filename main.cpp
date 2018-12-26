@@ -140,8 +140,12 @@ int main() {
                 // and set in ant class         1st switch stmt updateOrientation()
 
                 // add a function here if a wall was hit and add it in board class to be
-                // triggered by getAntOrientation function. Make into a bool
-                wallCheckOrientation(ge);
+                // triggered by getAntOrientation function. Make into a bool in switch.
+                if (antBoard.checkWallHitVar()) {
+                    ant.setAntOrientation( antBoard.wallCheckOrientation( ant.getAntOrientation() ) );
+                    antBoard.setCheckWallHitVar(false);
+                }
+
 
                 ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),

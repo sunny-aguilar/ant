@@ -23,6 +23,7 @@ private:
     int antBoardCurrentCol;
     char **ptrBoard;
     char currentColor;
+    bool checkWallHit;
 
 public:
     Board();
@@ -57,6 +58,10 @@ public:
     void flipColor(int row, int col);
 
     void addAntCharacter (int row, int col);
+
+    AntOrientation wallCheckOrientation(AntOrientation heading);
+    bool checkWallHitVar();
+    void setCheckWallHitVar(bool val);
 };
 
 #endif
