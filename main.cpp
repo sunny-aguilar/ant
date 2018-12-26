@@ -179,6 +179,9 @@ int main() {
                 playAgain = false;
                 cout << "Thanks for playing!\n";
             }
+            else {
+                trackSteps = 0;
+            }
 
         } while (playAgain);
     }
