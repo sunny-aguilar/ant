@@ -27,6 +27,7 @@ int main() {
 
     // create variables
     bool playAgain = true;
+    int trackSteps = 0;
 
     // create menu, board, and ant
     Menu antMenu;
@@ -134,7 +135,7 @@ int main() {
 
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
-
+                trackSteps++;
                 // update ant orientation in ant class (ant orientation initially set by user
                 // and set in ant class
                 ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
@@ -165,6 +166,7 @@ int main() {
 
                 cout << endl;
                 // use this pause to help with debugging
+                cout << "Steps taken " << trackSteps << endl;
                 cout << "Hit enter to continue\n";
                 cin.get();
 
