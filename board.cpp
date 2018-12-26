@@ -324,5 +324,4 @@ void Board::deletePriorLocation() {
 void Board::addCurrentColor(int row, int col) {
     cout << "Current color " << currentColor << endl;
     ptrBoard[row][col] = currentColor;
-//    ptrBoard[row-1][col-1] = '@';
 }
