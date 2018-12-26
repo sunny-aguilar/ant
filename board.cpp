@@ -86,15 +86,15 @@ void Board::setAllBoardCharacters() {
         }
     }
 }
-
-/*********************************************************************
-** Description:     sets the ant location on the board
-*********************************************************************/
-void Board::setAntLocation(int row, int col) {
-    // adjustment included since arrays start at 0
-    currentColor = getColor(row, col);
-    ptrBoard[row-1][col-1] = '*';
-}
+//
+///*********************************************************************
+//** Description:     sets the ant location on the board
+//*********************************************************************/
+//void Board::setAntLocation(int row, int col) {
+//    // adjustment included since arrays start at 0
+//    currentColor = getColor(row, col);
+//    ptrBoard[row-1][col-1] = '*';
+//}
 
 /*********************************************************************
 ** Description:     gets the ant row on the board
@@ -154,8 +154,10 @@ void Board::showBoard() {
 }
 
 /*********************************************************************
-** Description:     updates the ant's new orientation based on color
-**                  it is on
+** Description:     updates the ant's new orientation. Old orientation
+**                  is taken in as a parameter and checks the color
+**                  of the square it is on in order to turn right or
+**                  left
 *********************************************************************/
 AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {
