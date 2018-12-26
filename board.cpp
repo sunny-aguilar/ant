@@ -252,12 +252,11 @@ void Board::moveAnt(AntOrientation orientation) {
                 // this if stmt changes direction of ant if it hits border
                 moveAnt(SOUTH);
                 break;
+            } else {
+                setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
+                cout << "Move North - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+                break;
             }
-            cout << "REACHED!!!" << endl;
-
-            setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
-            cout << "Move North - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
-            break;
         case 2:
             // move SOUTH
             if ((antBoardCurrentRow+1) > rows) {
@@ -265,11 +264,11 @@ void Board::moveAnt(AntOrientation orientation) {
                 moveAnt(NORTH);
                 break;
             }
-            cout << "REACHED!!!" << endl;
-
-            setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
-            cout << "Move South - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
-            break;
+            else {
+                setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
+                cout << "Move South - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+                break;
+            }
         case 3:
             // move EAST
             if ((antBoardCurrentCol+1) > cols) {
@@ -277,11 +276,11 @@ void Board::moveAnt(AntOrientation orientation) {
                 moveAnt(WEST);
                 break;
             }
-            cout << "REACHED!!!" << endl;
-
-            setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
-            cout << "Move East - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
-            break;
+            else {
+                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
+                cout << "Move East - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+                break;
+            }
         case 4:
             // move WEST
             if ((antBoardCurrentCol-1) < 1) {
@@ -289,11 +288,11 @@ void Board::moveAnt(AntOrientation orientation) {
                 moveAnt(EAST);
                 break;
             }
-            cout << "REACHED!!!" << endl;
-
-            setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
-            cout << "Move West - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
-            break;
+            else {
+                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
+                cout << "Move West - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
+                break;
+            }
         default:
             cout << "Error moving ant!\n";
     }
