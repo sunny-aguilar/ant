@@ -248,7 +248,7 @@ void Board::moveAnt(AntOrientation orientation) {
     switch (orientation) {
         case 1:
             // move NORTH
-            if ((antBoardCurrentRow-1) < 0) {
+            if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
                 moveAnt(SOUTH);
                 break;
