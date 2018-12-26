@@ -122,11 +122,11 @@ int main() {
 
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentRowLocation()-1 );
             antBoard.showBoard();
-            // ********* DEBUGGING - DELETE ************
+            // ********* DEBUGGING - DELETE BELOW ************
             // use this pause to help with debugging
             cout << "Hit enter to continue\n";
             cin.get();
-            // ********* DEBUGGING - DELETE ************
+            // ********* DEBUGGING - DELETE ABOVE ^^^ ************
             antBoard.deletePriorLocation();
 
 
