@@ -116,7 +116,7 @@ int main() {
 //            antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
-            cout << "\nInitial board set up\n";
+            cout << "\n********** Initial Board Set Up **********\n";
 
 
 
