@@ -128,9 +128,7 @@ int main() {
             cin.get();
             // ********* DEBUGGING - DELETE ABOVE ^^^ ************
             antBoard.deletePriorLocation();
-
-
-
+            
             cout << endl;
 
 
