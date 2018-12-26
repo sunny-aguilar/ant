@@ -162,14 +162,14 @@ void Board::showBoard() {
 AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {
         case 1:
-            // facing NORTH
+            // facing NORTH <-- ^ -->
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading EAST ->
                 cout << "Heading prior to move - NORTH\n"
                      << "Update heading to EAST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return EAST;
+                return EAST;                    // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading WEST <-
@@ -177,7 +177,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to WEST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return WEST;
+                return WEST;                    // return new orientation
             }
             break;
         case 2:
@@ -188,7 +188,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to WEST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return WEST;
+                return WEST;                    // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading EAST <-
@@ -196,7 +196,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to EAST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return EAST;
+                return EAST;                    // return new orientation
             }
             break;
         case 3:
@@ -207,7 +207,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to SOUTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return SOUTH;
+                return SOUTH;                   // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading NORTH <-
@@ -215,7 +215,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to NORTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return NORTH;
+                return NORTH;                   // return new orientation
             }
             break;
         case 4:
@@ -226,7 +226,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to NORTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return NORTH;
+                return NORTH;                   // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading SOUTH <-
@@ -234,7 +234,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
                      << "Update heading to SOUTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
-                return SOUTH;
+                return SOUTH;                   // return new orientation
             }
             break;
         default:
@@ -253,6 +253,8 @@ void Board::moveAnt(AntOrientation orientation) {
             if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
+                // need to find a way to update the orientation to face SOUTH
+
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
@@ -264,6 +266,12 @@ void Board::moveAnt(AntOrientation orientation) {
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
+                // need to find a way to update the orientation to face SOUTH
+                // bug - on a 4x4 board, on step 20, on [0][1], the ant is moved up to
+                // [0][0] but it should face north, not face south still otherwise it
+                // will be moving with the wrong heading variable in ant class and cause
+                // a bug
+
                 break;
             }
             else {

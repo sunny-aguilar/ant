@@ -137,14 +137,19 @@ int main() {
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
                 trackSteps++;
                 // update ant orientation in ant class (ant orientation initially set by user
-                // and set in ant class
+                // and set in ant class         1st switch stmt updateOrientation()
+
+                // add a function here if a wall was hit and add it in board class to be
+                // triggered by getAntOrientation function. Make into a bool
+                wallCheckOrientation(ge);
+
                 ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
 
 
                 // move ant by getting getting new orientation from ant class and moving left
-                // or right
+                // or right   2nd switch stmt for moveAnt(  )
                 antBoard.moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
                 ant.setCurrentRowLocation( antBoard.getAntCurrentRow() );   // update new row coord in ant class
                 ant.setCurrentColLocation( antBoard.getAntCurrentCol() );   // update new col coord in ant class
