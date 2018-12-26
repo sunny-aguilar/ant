@@ -250,7 +250,7 @@ void Board::moveAnt(AntOrientation orientation) {
             // move NORTH
             if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                moveAnt(SOUTH);
+                setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
@@ -261,7 +261,7 @@ void Board::moveAnt(AntOrientation orientation) {
             // move SOUTH
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
-                moveAnt(NORTH);
+                setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 break;
             }
             else {
@@ -273,7 +273,7 @@ void Board::moveAnt(AntOrientation orientation) {
             // move EAST
             if ((antBoardCurrentCol+1) > cols) {
                 // this if stmt changes direction of ant if it hits border
-                moveAnt(WEST);
+                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
                 break;
             }
             else {
@@ -285,7 +285,7 @@ void Board::moveAnt(AntOrientation orientation) {
             // move WEST
             if ((antBoardCurrentCol-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                moveAnt(EAST);
+                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 break;
             }
             else {
