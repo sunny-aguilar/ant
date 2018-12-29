@@ -24,6 +24,7 @@ private:
     char **ptrBoard;
     char currentColor;
     bool checkWallHit;
+    int tempHeading;
 
 public:
     Board();
@@ -59,9 +60,10 @@ public:
 
     void addAntCharacter (int row, int col);
 
-    AntOrientation wallCheckOrientation(AntOrientation heading);
+    AntOrientation wallCheckOrientation();
     bool checkWallHitVar();
     void setCheckWallHitVar(bool val);
+    void intTempHeading(int heading);
 };
 
 #endif

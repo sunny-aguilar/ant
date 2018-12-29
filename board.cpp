@@ -256,7 +256,7 @@ void Board::moveAnt(AntOrientation orientation) {
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 // need to find a way to update the orientation to face SOUTH
                 checkWallHit = true;
-                wallCheckOrientation(SOUTH);
+                intTempHeading(SOUTH);
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
@@ -268,13 +268,9 @@ void Board::moveAnt(AntOrientation orientation) {
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
-                // need to find a way to update the orientation to face SOUTH
-                // bug - on a 4x4 board, on step 20, on [0][1], the ant is moved up to
-                // [0][0] but it should face north, not face south still otherwise it
-                // will be moving with the wrong heading variable in ant class and cause
-                // a bug
+                cout << "South Wall hit\n";
                 checkWallHit = true;
-                wallCheckOrientation(NORTH);
+                intTempHeading(NORTH);
 
                 break;
             }
@@ -287,9 +283,9 @@ void Board::moveAnt(AntOrientation orientation) {
             // move EAST
             if ((antBoardCurrentCol+1) > cols) {
                 // this if stmt changes direction of ant if it hits border
+                cout << "East Wall hit\n";
                 checkWallHit = true;
-                wallCheckOrientation(WEST);
-
+                intTempHeading(WEST);
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
                 break;
             }
@@ -302,9 +298,9 @@ void Board::moveAnt(AntOrientation orientation) {
             // move WEST
             if ((antBoardCurrentCol-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
+                cout << "West Wall hit\n";
                 checkWallHit = true;
-                wallCheckOrientation(EAST);
-
+                intTempHeading(EAST);
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 break;
             }
@@ -374,8 +370,13 @@ void Board::addCurrentColor(int row, int col) {
 }
 
 
-AntOrientation Board::wallCheckOrientation(AntOrientation heading) {
-   return heading;
+void Board::intTempHeading(int newHeading) {
+    tempHeading = newHeading;
+    cout << "Heading saved in board class " << tempHeading << endl;
+}
+
+AntOrientation Board::wallCheckOrientation() {
+   return static_cast<AntOrientation>(tempHeading);
 }
 
 bool Board::checkWallHitVar() {

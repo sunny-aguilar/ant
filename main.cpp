@@ -85,8 +85,8 @@ int main() {
             // debugging code - test board specs DELETE WHEN DONE
             cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
             cout << "Number of Steps is " << antBoard.getSteps() << endl;
-            cout << "Random row start location " << antBoard.getStartRow() << endl;
-            cout << "Random column start location " << antBoard.getStartCol() << endl;
+            cout << "Row start location " << antBoard.getStartRow() << endl;
+            cout << "Column start location " << antBoard.getStartCol() << endl;
             cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
 
 
@@ -121,7 +121,7 @@ int main() {
 
 
 
-            antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentRowLocation()-1 );
+            antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
             antBoard.showBoard();
             // ********* DEBUGGING - DELETE BELOW ************
             // use this pause to help with debugging
@@ -142,7 +142,7 @@ int main() {
                 // add a function here if a wall was hit and add it in board class to be
                 // triggered by getAntOrientation function. Make into a bool in switch.
                 if (antBoard.checkWallHitVar()) {
-                    ant.setAntOrientation( antBoard.wallCheckOrientation( ant.getAntOrientation() ) );
+                    ant.setAntOrientation( antBoard.wallCheckOrientation() );
                     antBoard.setCheckWallHitVar(false);
                 }
 
