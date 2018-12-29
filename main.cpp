@@ -1,10 +1,12 @@
 /*********************************************************************
 ** Author:          Sandro Aguilar
 ** Date:            Jan 2019
-** Description:     Write a short description
-**                  of your code
-**                  here.
-**
+** Description:     This project implements Langston's ant. The program
+**                  begins by asking user to enter game details such
+**                  board size dimensions, # of steps, and starting
+**                  location. The ant then proceeds to move around
+**                  according to the project specifications. The ant
+**                  bounces off the walls so as not to exceed bounds.
 *********************************************************************/
 #include "ant.hpp"
 #include "board.hpp"
@@ -13,12 +15,10 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-//#include <regex>
 using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
-//using std::regex;
 
 int main() {
     // ant rules
