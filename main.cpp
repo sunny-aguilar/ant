@@ -100,16 +100,18 @@ int main() {
 
             // add ant * in array and saves current color ant is on in a variable
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+            // show board
             antBoard.showBoard();
-            // addCurrentColor deletes * and replaces with ' ' space...
-//            antBoard.deletePriorLocation();
+
+            // add current color back on board (replacing * in array)
             antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
             // ********* DEBUGGING - DELETE BELOW ************
             // use this pause to help with debugging
             cout << "Hit enter to continue\n";
             cin.get();
             // ********* DEBUGGING - DELETE ABOVE ^^^ ************
-//            antBoard.deletePriorLocation();
 
             cout << endl;
 
@@ -117,17 +119,14 @@ int main() {
             // Loop through the steps
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
                 trackSteps++;
-                // update ant orientation in ant class (ant orientation initially set by user
-                // and set in ant class         1st switch stmt updateOrientation()
 
-                // add a function here if a wall was hit and add it in board class to be
-                // triggered by getAntOrientation function. Make into a bool in switch.
+                // update ant orientation for ant going out of bounds
                 if (antBoard.checkWallHitVar()) {
                     ant.setAntOrientation( antBoard.wallCheckOrientation() );
                     antBoard.setCheckWallHitVar(false);
                 }
 
-
+                // update ant orientation after moving moving ant on board
                 ant.setAntOrientation( antBoard.updateOrientation( ant.getCurrentRowLocation(),
                                                                ant.getCurrentColLocation(),
                                                                ant.getAntOrientation() ) );
