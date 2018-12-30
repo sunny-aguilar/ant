@@ -16,17 +16,17 @@ enum AntOrientation {NORTH = 1, SOUTH, EAST, WEST};
 
 class Ant {
 private:
-    AntOrientation antOrientation;
-    int currentRowLocation;
-    int currentColLocation;
+    AntOrientation antOrientation;              // ant orientation
+    int currentRowLocation;                     // ant current row
+    int currentColLocation;                     // ant current location
 
 public:
-    void setAntOrientation(int orientation);
-    AntOrientation getAntOrientation();
-    void setCurrentRowLocation(int row);
-    void setCurrentColLocation(int col);
-    int getCurrentRowLocation();
-    int getCurrentColLocation();
+    void setAntOrientation(int orientation);    // set ant orientation
+    AntOrientation getAntOrientation();         // get ant orientation
+    void setCurrentRowLocation(int row);        // set current row
+    void setCurrentColLocation(int col);        // set current column
+    int getCurrentRowLocation();                // get current row
+    int getCurrentColLocation();                // get current location
 };
 
 #endif

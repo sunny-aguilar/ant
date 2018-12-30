@@ -14,11 +14,11 @@
 
 class Board {
 private:
-    int rows;           // total board rows
-    int cols;           // total board columns
-    int steps;          // total steps to move
-    int startRow;       // start row of ant
-    int startCol;       // start column of ant
+    int rows;                   // total board rows
+    int cols;                   // total board columns
+    int steps;                  // total steps to move
+    int startRow;               // start row of ant
+    int startCol;               // start column of ant
     int antBoardCurrentRow;
     int antBoardCurrentCol;
     char **ptrBoard;
