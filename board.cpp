@@ -214,7 +214,23 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
 
 /*********************************************************************
 ** Description:     checks the current square color and heading to
-**                  determine where ant goes next
+**                  determine where ant goes next. If the ant goes out
+**                  of bounds, then other rules take precedence. Outer
+**                  if statement determines if ant is out of bounds.
+**                  If ant is out of bounds, then direction of ant is
+**                  updated to reflect a direction that is 180 degrees
+**                  from where it was previously heading and moved
+**                  toward that direction. Inner if statement checks
+**                  the row and col width of the board. If there is
+**                  only one row or column on the board, different
+**                  rules are observed. Specifically, the ant is not
+**                  moved i.e., if there is only one row in the board
+**                  and if the ant is facing NORTH, the ant direction
+**                  is changed 180 degrees (SOUTH) however it does not
+**                  move the ant since ant cannot move up or down when
+**                  there is only one row. Same goes for columns. Outer
+**                  else statement is for when ant is within bounds
+**                  and there are more than 1 row/col on the game board.
 *********************************************************************/
 void Board::moveAnt(AntOrientation orientation) {
     switch (orientation) {
