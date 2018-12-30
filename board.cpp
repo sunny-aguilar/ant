@@ -42,6 +42,9 @@ void Board::setStartRow(int startRow) {
     this->startRow = startRow;
 }
 
+/*********************************************************************
+** Description:     set the starting column for the ant
+*********************************************************************/
 void Board::setStartCol(int startCol) {
     this->startCol = startCol;
 }
