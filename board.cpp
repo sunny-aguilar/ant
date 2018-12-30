@@ -330,13 +330,15 @@ void Board::addCurrentColor(int row, int col) {
     ptrBoard[row][col] = currentColor;
 }
 
-
+/*********************************************************************
+** Description:     get ant orientation
+*********************************************************************/
 void Board::intTempHeading(int newHeading) {
     tempHeading = newHeading;
 }
 
 /*********************************************************************
-** Description:     
+** Description:     get ant orientation
 *********************************************************************/
 AntOrientation Board::wallCheckOrientation() {
    return static_cast<AntOrientation>(tempHeading);
