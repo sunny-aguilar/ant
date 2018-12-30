@@ -30,6 +30,10 @@ void Board::setRows(int row) {
     this->rows = row;
 }
 
+/*********************************************************************
+** Description:     takes an int parameter to set the total columns in
+**                  the board.
+*********************************************************************/
 void Board::setCols(int col) {
     this->cols = col;
 }
