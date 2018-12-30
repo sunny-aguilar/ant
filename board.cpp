@@ -50,6 +50,9 @@ int Board::getRows() {
     return rows;
 }
 
+/*********************************************************************
+** Description:     get the total columns in the board
+*********************************************************************/
 int Board::getCols() {
     return cols;
 }
