@@ -143,7 +143,10 @@ void Board::showBoard() {
 ** Description:     updates the ant's new orientation. Old orientation
 **                  is taken in as a parameter and checks the color
 **                  of the square it is on in order to turn right or
-**                  left
+**                  left. setCurrentColorVariable() is also called to
+ *                  save the current square color in member variable
+ *                  currentColor. Function flipColor() is then called
+ *                  to flip the color of the current square.
 *********************************************************************/
 AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading) {
     switch (heading) {
