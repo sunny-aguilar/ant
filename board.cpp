@@ -38,6 +38,9 @@ void Board::setSteps(int steps) {
     this->steps = steps;
 }
 
+/*********************************************************************
+** Description:     set the starting row for the ant
+*********************************************************************/
 void Board::setStartRow(int startRow) {
     this->startRow = startRow;
 }
