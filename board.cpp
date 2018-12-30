@@ -46,6 +46,9 @@ void Board::setStartCol(int startCol) {
     this->startCol = startCol;
 }
 
+/*********************************************************************
+** Description:     get the total rows in the board
+*********************************************************************/
 int Board::getRows() {
     return rows;
 }
