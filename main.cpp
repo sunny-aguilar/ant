@@ -122,7 +122,7 @@ int main() {
 
                 // update ant orientation for ant going out of bounds. If ant goes out of bounds,
                 // behavior is to make ant turn around 180 degree and move 1 square in that new
-                // direction 
+                // direction
                 if (antBoard.checkWallHitVar()) {
                     ant.setAntOrientation( antBoard.wallCheckOrientation() );
                     antBoard.setCheckWallHitVar(false);

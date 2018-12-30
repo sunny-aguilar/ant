@@ -36,7 +36,6 @@ public:
     void setStartCol(int startCol);
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
-    void setAntLocation(int row, int col);
     void setCurrentColorVariable(char newColor);
 
     int getRows();
@@ -50,8 +49,6 @@ public:
     void showBoard();
     AntOrientation updateOrientation(int row, int col, AntOrientation heading);
 
-    char getColor(int row, int col);
-    void deletePriorLocation();
     void addCurrentColor(int row, int col);
     // return updated ant row/col from setBoardSpace member function
     void setNewAntcoor(int row, int col);

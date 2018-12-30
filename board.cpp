@@ -87,22 +87,11 @@ void Board::setAllBoardCharacters() {
         }
     }
 }
-//
-///*********************************************************************
-//** Description:     sets the ant location on the board
-//*********************************************************************/
-//void Board::setAntLocation(int row, int col) {
-//    // adjustment included since arrays start at 0
-//    currentColor = getColor(row, col);
-//    ptrBoard[row-1][col-1] = '*';
-//}
 
 /*********************************************************************
 ** Description:     gets the ant row on the board
 *********************************************************************/
 int Board::getAntCurrentRow() {
-    // row and col already include the adjustment necessary from
-    // setBoardSpace() --> setNewAntCoor() --> antCurrentRow
     return antBoardCurrentRow;
 }
 
@@ -110,8 +99,6 @@ int Board::getAntCurrentRow() {
 ** Description:     sets the ant col on the board
 *********************************************************************/
 int Board::getAntCurrentCol() {
-    // roaw and col already include the adjustment necessary from
-    // setBoardSpace() --> setNewAntCoor() --> antCurrentCol
     return antBoardCurrentCol;
 }
 
@@ -119,8 +106,6 @@ int Board::getAntCurrentCol() {
 ** Description:     set new ant row/col from setBoardSpace function
 *********************************************************************/
 void Board::setNewAntcoor(int row, int col) {
-    // row and col received include the adjustment necessary from
-    // setBoardSpace() so no further adj. needed
     antBoardCurrentRow = row;
     antBoardCurrentCol = col;
 }
@@ -314,13 +299,6 @@ void Board::moveAnt(AntOrientation orientation) {
     }
 }
 
-/*********************************************************************
-** Description:     gets the current color of the square ant is on
-*********************************************************************/
-char Board::getColor(int row, int col) {
-    return ptrBoard[row][col];
-}
-
 void Board::setCurrentColorVariable(char newColor) {
     currentColor = newColor;
 }
@@ -343,19 +321,6 @@ void Board::flipColor(int row, int col) {
 void Board::addAntCharacter(int row, int col) {
     currentColor = ptrBoard[row][col];
     ptrBoard[row][col] = '*';
-}
-
-/*********************************************************************
-** Description:     delete old * position
-*********************************************************************/
-void Board::deletePriorLocation() {
-    for (int row = 0; row < getRows(); row++) {
-        for (int col = 0; col < getCols(); col++) {
-            if (ptrBoard[row][col] == '*') {
-                ptrBoard[row][col] = ' ';
-            }
-        }
-    }
 }
 
 /*********************************************************************
