@@ -1,10 +1,13 @@
 /*********************************************************************
 ** Author:          Sandro Aguilar
 ** Date:            Jan 2019
-** Description:     Write a short description
-**                  of your code
-**                  here.
-**
+** Description:     Ant class is used to hold the current orientation,
+**                  current row and current column location of the ant.
+**                  Ant class interacts with the menu for initializing
+**                  the board and ant details and interacts with the
+**                  board class as the game is ongoing by passing it
+**                  the current ant orientation so that the appropriate
+**                  moves are made by the ant when it moves.
 *********************************************************************/
 #include "ant.hpp"
 #include <iostream>
