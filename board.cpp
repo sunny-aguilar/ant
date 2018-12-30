@@ -58,10 +58,16 @@ int Board::getSteps() {
     return steps;
 }
 
+/*********************************************************************
+** Description:     get the start row from the board class
+*********************************************************************/
 int Board::getStartRow() {
     return startRow;
 }
 
+/*********************************************************************
+** Description:     get the start column from the board class
+*********************************************************************/
 int Board::getStartCol() {
     return startCol;
 }
@@ -96,7 +102,7 @@ int Board::getAntCurrentRow() {
 }
 
 /*********************************************************************
-** Description:     sets the ant col on the board
+** Description:     gets the ant col on the board
 *********************************************************************/
 int Board::getAntCurrentCol() {
     return antBoardCurrentCol;
