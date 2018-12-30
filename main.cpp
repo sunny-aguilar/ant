@@ -92,7 +92,7 @@ int main() {
             // set board dimensions rows and columns by dynamically allocating 2D array
             antBoard.setBoardArrayDimensions();
 
-            // set initial board characters to white ' '
+            // set initial board characters to white squares
             antBoard.setAllBoardCharacters();
 
             // show initial board setup
