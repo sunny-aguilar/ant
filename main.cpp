@@ -98,8 +98,7 @@ int main() {
             // show initial board setup
             cout << "\n********** Initial Board Set Up **********\n";
 
-
-            // add addAntCharacter stores * in array and saves current color in variable
+            // add ant * in array and saves current color ant is on in a variable
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
             antBoard.showBoard();
             // addCurrentColor deletes * and replaces with ' ' space...
