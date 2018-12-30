@@ -222,7 +222,6 @@ void Board::moveAnt(AntOrientation orientation) {
             // move NORTH
             if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                // need to find a way to update the orientation to face SOUTH
                 checkWallHit = true;
                 intTempHeading(SOUTH);
                 if (rows < 2) {
@@ -234,6 +233,7 @@ void Board::moveAnt(AntOrientation orientation) {
 
                 break;
             } else {
+                // move NORTH
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 break;
             }
