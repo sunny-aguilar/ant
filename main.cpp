@@ -86,6 +86,7 @@ int main() {
             // set initial ant row and column; values received board class
             ant.setCurrentRowLocation( antBoard.getStartRow() );
             ant.setCurrentColLocation( antBoard.getStartCol() );
+            
             // send current ant location from ant class back to board class
             antBoard.setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
