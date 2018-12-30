@@ -43,7 +43,8 @@ void Board::setCols(int col) {
 }
 
 /*********************************************************************
-** Description:     set the total steps to move the ant
+** Description:     takes an int parameter to set the total steps to
+**                  move the ant
 *********************************************************************/
 void Board::setSteps(int steps) {
     this->steps = steps;
