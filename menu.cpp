@@ -150,14 +150,14 @@ int Menu::submenuRowStartLocation(int boardSize) {
     cout << "Enter the start row of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
-    return validateCustomStarting(2, boardSize);
+    return validateCustomStarting(1, boardSize);
 }
 
 int Menu::submenuColStartLocation(int boardSize) {
     cout << "Enter the start column of the ant\n";
     // make this function as private since it should only be accessed
     // within the class
-    return validateCustomStarting(2, boardSize);
+    return validateCustomStarting(1, boardSize);
 }
 
 void Menu::submenuSetAntOrientation() {

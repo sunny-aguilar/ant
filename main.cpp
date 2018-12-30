@@ -50,9 +50,9 @@ int main() {
 
             // submenu - ask user to enter rows and columns for board and validate
             antMenu.submenuRows();
-            antBoard.setRows( antMenu.validateNumber(2, 100) );
+            antBoard.setRows( antMenu.validateNumber(1, 100) );
             antMenu.submenuCols();
-            antBoard.setCols( antMenu.validateNumber(2, 100) );
+            antBoard.setCols( antMenu.validateNumber(1, 100) );
 
             // submenu - ask user to enter steps and validate
             antMenu.submenuSteps();
@@ -85,8 +85,8 @@ int main() {
             // debugging code - test board specs DELETE WHEN DONE
             cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
             cout << "Number of Steps is " << antBoard.getSteps() << endl;
-            cout << "Row start location " << antBoard.getStartRow() << endl;
-            cout << "Column start location " << antBoard.getStartCol() << endl;
+            cout << "Board Row start location " << antBoard.getStartRow() << endl;
+            cout << "Board Column start location " << antBoard.getStartCol() << endl;
             cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
 
 
@@ -100,8 +100,7 @@ int main() {
 
 
             // debugging - display current ant row and location DELETE WHEN DONE
-            cout << "Ant row location " << ant.getCurrentRowLocation() << endl;
-            cout << "Ant col location " << ant.getCurrentColLocation() << endl;
+            cout << "Ant row start location " << ant.getCurrentRowLocation() << " Ant col start location " << ant.getCurrentColLocation() << endl;
 
             // set board dimensions rows and columns
             // allocates 2-D array
@@ -120,15 +119,18 @@ int main() {
             cout << "\n********** Initial Board Set Up **********\n";
 
 
-
+            // add addAntCharacter stores * in array and saves current color in variable
             antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
             antBoard.showBoard();
+            // addCurrentColor deletes * and replaces with ' ' space...
+//            antBoard.deletePriorLocation();
+            antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
             // ********* DEBUGGING - DELETE BELOW ************
             // use this pause to help with debugging
             cout << "Hit enter to continue\n";
             cin.get();
             // ********* DEBUGGING - DELETE ABOVE ^^^ ************
-            antBoard.deletePriorLocation();
+//            antBoard.deletePriorLocation();
 
             cout << endl;
 
@@ -161,12 +163,16 @@ int main() {
 
 
                 // show current ant location, show board with ant, then replace ant
-                // show current ant location
+                // add current ant location and update currentColor variable
+                cout << "Board Row " << antBoard.getAntCurrentRow() << " Col " << antBoard.getAntCurrentCol() << endl;
+                cout << "Ant Row " << ant.getCurrentRowLocation() << " Col " << ant.getCurrentColLocation() << endl;
                 antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+                cout << "Get color from board before showing board " << antBoard.getAntCurrentCol() << endl;
                 // show updated board
                 antBoard.showBoard();
+                cout << "Get color from board after showing board " << antBoard.getAntCurrentCol() << endl;
                 // delete ant
-                antBoard.deletePriorLocation();
+//                antBoard.deletePriorLocation();
                 // replace ant with prior space character
                 antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
 

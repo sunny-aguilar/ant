@@ -253,10 +253,16 @@ void Board::moveAnt(AntOrientation orientation) {
             // move NORTH
             if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 // need to find a way to update the orientation to face SOUTH
                 checkWallHit = true;
                 intTempHeading(SOUTH);
+                if (rows < 1) {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
+                }
+                else {
+                    setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
+                }
+
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
@@ -267,10 +273,15 @@ void Board::moveAnt(AntOrientation orientation) {
             // move SOUTH
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
-                setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 cout << "South Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(NORTH);
+                if (rows < 1) {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
+                }
+                else {
+                    setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
+                }
 
                 break;
             }
@@ -286,7 +297,13 @@ void Board::moveAnt(AntOrientation orientation) {
                 cout << "East Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(WEST);
-                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
+                if (cols < 1) {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
+                }
+                else {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
+                }
+
                 break;
             }
             else {
@@ -301,7 +318,13 @@ void Board::moveAnt(AntOrientation orientation) {
                 cout << "West Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(EAST);
-                setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
+                if (cols < 1) {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
+                }
+                else {
+                    setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
+                }
+
                 break;
             }
             else {
@@ -354,7 +377,6 @@ void Board::deletePriorLocation() {
     for (int row = 0; row < getRows(); row++) {
         for (int col = 0; col < getCols(); col++) {
             if (ptrBoard[row][col] == '*') {
-//                ptrBoard[row][col] = currentColor;
                 ptrBoard[row][col] = ' ';
             }
         }
@@ -365,14 +387,12 @@ void Board::deletePriorLocation() {
 ** Description:     add currentColor back to board
 *********************************************************************/
 void Board::addCurrentColor(int row, int col) {
-    cout << "Current color " << currentColor << endl;
     ptrBoard[row][col] = currentColor;
 }
 
 
 void Board::intTempHeading(int newHeading) {
     tempHeading = newHeading;
-    cout << "Heading saved in board class " << tempHeading << endl;
 }
 
 AntOrientation Board::wallCheckOrientation() {
