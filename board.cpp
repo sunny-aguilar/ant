@@ -28,7 +28,7 @@ Board::~Board() {
 
 /*********************************************************************
 ** Description:     takes an int parameter to set the total rows in
-**                  the board.
+**                  the board
 *********************************************************************/
 void Board::setRows(int row) {
     this->rows = row;
@@ -36,7 +36,7 @@ void Board::setRows(int row) {
 
 /*********************************************************************
 ** Description:     takes an int parameter to set the total columns in
-**                  the board.
+**                  the board
 *********************************************************************/
 void Board::setCols(int col) {
     this->cols = col;
@@ -51,14 +51,16 @@ void Board::setSteps(int steps) {
 }
 
 /*********************************************************************
-** Description:     set the starting row for the ant
+** Description:     takes an int parameter to set the starting row for
+**                  the ant
 *********************************************************************/
 void Board::setStartRow(int startRow) {
     this->startRow = startRow;
 }
 
 /*********************************************************************
-** Description:     set the starting column for the ant
+** Description:     takes an int parameter to set the starting column
+**                  for the ant
 *********************************************************************/
 void Board::setStartCol(int startCol) {
     this->startCol = startCol;
