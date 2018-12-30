@@ -82,37 +82,18 @@ int main() {
             // show message initializing ant
             antMenu.submenuInitializeAntMessage();
 
-            // debugging code - test board specs DELETE WHEN DONE
-            cout << "\n\nRows " << antBoard.getRows() << " Cols " << antBoard.getCols() << endl;
-            cout << "Number of Steps is " << antBoard.getSteps() << endl;
-            cout << "Board Row start location " << antBoard.getStartRow() << endl;
-            cout << "Board Column start location " << antBoard.getStartCol() << endl;
-            cout << "Starting ant orientation is " << ant.getAntOrientation() << endl;
-
-
             // initialize ant and board details
             // set initial ant row and column; values received board class
-            // ant class holds current row and column for the ant only
             ant.setCurrentRowLocation( antBoard.getStartRow() );
             ant.setCurrentColLocation( antBoard.getStartCol() );
             // send current ant location from ant class back to board class
             antBoard.setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
-
-            // debugging - display current ant row and location DELETE WHEN DONE
-            cout << "Ant row start location " << ant.getCurrentRowLocation() << " Ant col start location " << ant.getCurrentColLocation() << endl;
-
-            // set board dimensions rows and columns
-            // allocates 2-D array
+            // set board dimensions rows and columns by dynamically allocating 2D array
             antBoard.setBoardArrayDimensions();
 
             // set initial board characters to white ' '
             antBoard.setAllBoardCharacters();
-
-            // set ant * location on board (in 2d array)
-            // remember current color and set variable in board class
-            // setAntLocation function has -1 adjustment included to row and col
-            // wait until you can find a way to show the * ant and remember the space color too
 
             // show initial board setup
             cout << "\n********** Initial Board Set Up **********\n";
@@ -163,8 +144,6 @@ int main() {
 
                 // show current ant location, show board with ant, then replace ant
                 // add current ant location and update currentColor variable
-                cout << "Board Row " << antBoard.getAntCurrentRow() << " Col " << antBoard.getAntCurrentCol() << endl;
-                cout << "Ant Row " << ant.getCurrentRowLocation() << " Col " << ant.getCurrentColLocation() << endl;
                 antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
                 // show updated board
                 antBoard.showBoard();

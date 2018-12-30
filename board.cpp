@@ -166,16 +166,12 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             // facing NORTH <-- ^ -->
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading EAST ->
-                cout << "Heading prior to move - NORTH\n"
-                     << "Update heading to EAST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return EAST;                    // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading WEST <-
-                cout << "Heading prior to move - NORTH\n"
-                     << "Update heading to WEST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return WEST;                    // return new orientation
@@ -185,16 +181,12 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             // facing SOUTH
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading WEST ->
-                cout << "Heading prior to move - SOUTH\n"
-                     << "Update heading to WEST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return WEST;                    // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading EAST <-
-                cout << "Heading prior to move - SOUTH\n"
-                     << "Update heading to EAST\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return EAST;                    // return new orientation
@@ -204,16 +196,12 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             // facing EAST
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading SOUTH ->
-                cout << "Heading prior to move - EAST\n"
-                     << "Update heading to SOUTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return SOUTH;                   // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading NORTH <-
-                cout << "Heading prior to move - EAST\n"
-                     << "Update heading to NORTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return NORTH;                   // return new orientation
@@ -223,16 +211,12 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             // facing WEST
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading NORTH ->
-                cout << "Heading prior to move - WEST\n"
-                     << "Update heading to NORTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return NORTH;                   // return new orientation
             }
             else if (ptrBoard[row-1][col-1] == '#') {
                 // if the ant is on a black space, change heading SOUTH <-
-                cout << "Heading prior to move - WEST\n"
-                     << "Update heading to SOUTH\n";
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
                 flipColor(row-1, col-1);
                 return SOUTH;                   // return new orientation
@@ -266,14 +250,12 @@ void Board::moveAnt(AntOrientation orientation) {
                 break;
             } else {
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
-                cout << "Move North - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
                 break;
             }
         case 2:
             // move SOUTH
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
-                cout << "South Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(NORTH);
                 if (rows < 2) {
@@ -287,14 +269,12 @@ void Board::moveAnt(AntOrientation orientation) {
             }
             else {
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
-                cout << "Move South - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
                 break;
             }
         case 3:
             // move EAST
             if ((antBoardCurrentCol+1) > cols) {
                 // this if stmt changes direction of ant if it hits border
-                cout << "East Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(WEST);
                 if (cols < 2) {
@@ -308,14 +288,12 @@ void Board::moveAnt(AntOrientation orientation) {
             }
             else {
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
-                cout << "Move East - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
                 break;
             }
         case 4:
             // move WEST
             if ((antBoardCurrentCol-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                cout << "West Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(EAST);
                 if (cols < 2) {
@@ -329,7 +307,6 @@ void Board::moveAnt(AntOrientation orientation) {
             }
             else {
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
-                cout << "Move West - Row " << antBoardCurrentRow << " Col " << antBoardCurrentCol << endl;
                 break;
             }
         default:
