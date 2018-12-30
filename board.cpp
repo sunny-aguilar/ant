@@ -240,11 +240,11 @@ void Board::moveAnt(AntOrientation orientation) {
                 wallHit = true;
                 intTempHeading(SOUTH);
                 if (rows < 2) {
-                    // if board only has 1 row, do not move south
+                    // if board only has 1 row, do not move SOUTH
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
-                    // move ant south otherwise
+                    // move ant SOUTH otherwise
                     setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 }
                 break;
@@ -259,14 +259,17 @@ void Board::moveAnt(AntOrientation orientation) {
                 wallHit = true;
                 intTempHeading(NORTH);
                 if (rows < 2) {
+                    // if board only has 1 row, do not move NORTH
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
+                    // move ant NORTH otherwise
                     setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 }
                 break;
             }
             else {
+                // move SOUTH
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 break;
             }
@@ -276,14 +279,17 @@ void Board::moveAnt(AntOrientation orientation) {
                 wallHit = true;
                 intTempHeading(WEST);
                 if (cols < 2) {
+                    // if board only has 1 row, do not move WEST
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
+                    // move ant WEST otherwise
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
                 }
                 break;
             }
             else {
+                // move EAST
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 break;
             }
@@ -293,14 +299,17 @@ void Board::moveAnt(AntOrientation orientation) {
                 wallHit = true;
                 intTempHeading(EAST);
                 if (cols < 2) {
+                    // if board only has 1 row, do not move EAST
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
+                    // move ant EAST otherwise
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 }
                 break;
             }
             else {
+                // move WEST
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol-1);
                 break;
             }
