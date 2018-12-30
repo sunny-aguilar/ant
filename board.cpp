@@ -335,14 +335,25 @@ void Board::intTempHeading(int newHeading) {
     tempHeading = newHeading;
 }
 
+/*********************************************************************
+** Description:     
+*********************************************************************/
 AntOrientation Board::wallCheckOrientation() {
    return static_cast<AntOrientation>(tempHeading);
 }
 
+/*********************************************************************
+** Description:     get bool variable that indicates wall was hit
+*********************************************************************/
 bool Board::checkWallHitVar() {
     return checkWallHit;
 }
 
+/*********************************************************************
+** Description:     takes a bool parameter that is set to true if
+**                  moveAnt() detects that the ant has gone out of
+**                  bounds.
+*********************************************************************/
 void Board::setCheckWallHitVar (bool val) {
     checkWallHit = val;
 }
