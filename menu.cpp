@@ -1,10 +1,11 @@
 /*********************************************************************
 ** Author:          Sandro Aguilar
 ** Date:            Jan 2019
-** Description:     Write a short description
-**                  of your code
-**                  here.
-**
+** Description:     Menu class is used to show meny options as well as
+**                  to validate user input. Input validation is done
+**                  using a generic validators where the ranges are
+**                  set as determined by the needs of main.cpp (thus
+**                  making it portable and re-usable.
 *********************************************************************/
 #include "menu.hpp"
 #include <iostream>
