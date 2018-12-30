@@ -256,7 +256,7 @@ void Board::moveAnt(AntOrientation orientation) {
                 // need to find a way to update the orientation to face SOUTH
                 checkWallHit = true;
                 intTempHeading(SOUTH);
-                if (rows < 1) {
+                if (rows < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
@@ -276,7 +276,7 @@ void Board::moveAnt(AntOrientation orientation) {
                 cout << "South Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(NORTH);
-                if (rows < 1) {
+                if (rows < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
@@ -297,7 +297,7 @@ void Board::moveAnt(AntOrientation orientation) {
                 cout << "East Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(WEST);
-                if (cols < 1) {
+                if (cols < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
@@ -318,7 +318,7 @@ void Board::moveAnt(AntOrientation orientation) {
                 cout << "West Wall hit\n";
                 checkWallHit = true;
                 intTempHeading(EAST);
-                if (cols < 1) {
+                if (cols < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
@@ -354,11 +354,9 @@ void Board::setCurrentColorVariable(char newColor) {
 void Board::flipColor(int row, int col) {
     if (currentColor == ' ') {
         ptrBoard[row][col] = '#';
-        cout << "flipColor reached for ' '\n";
     }
     else if (currentColor == '#') {
         ptrBoard[row][col] = ' ';
-        cout << "flipColor reached for #\n";
     }
 }
 

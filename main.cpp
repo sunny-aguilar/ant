@@ -113,7 +113,6 @@ int main() {
             // remember current color and set variable in board class
             // setAntLocation function has -1 adjustment included to row and col
             // wait until you can find a way to show the * ant and remember the space color too
-//            antBoard.setAntLocation( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
 
             // show initial board setup
             cout << "\n********** Initial Board Set Up **********\n";
@@ -167,10 +166,8 @@ int main() {
                 cout << "Board Row " << antBoard.getAntCurrentRow() << " Col " << antBoard.getAntCurrentCol() << endl;
                 cout << "Ant Row " << ant.getCurrentRowLocation() << " Col " << ant.getCurrentColLocation() << endl;
                 antBoard.addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-                cout << "Get color from board before showing board " << antBoard.getAntCurrentCol() << endl;
                 // show updated board
                 antBoard.showBoard();
-                cout << "Get color from board after showing board " << antBoard.getAntCurrentCol() << endl;
                 // delete ant
 //                antBoard.deletePriorLocation();
                 // replace ant with prior space character
