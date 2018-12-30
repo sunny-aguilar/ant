@@ -54,6 +54,9 @@ int Board::getCols() {
     return cols;
 }
 
+/*********************************************************************
+** Description:     get the total steps to move the ant
+*********************************************************************/
 int Board::getSteps() {
     return steps;
 }
