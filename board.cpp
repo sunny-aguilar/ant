@@ -103,7 +103,9 @@ int Board::getAntCurrentCol() {
 }
 
 /*********************************************************************
-** Description:     set new ant row/col from setBoardSpace function
+** Description:     takes two parameters that are the current row/col
+**                  from the ant class and assigns them to the
+**                  antBoard current row and column.
 *********************************************************************/
 void Board::setNewAntcoor(int row, int col) {
     antBoardCurrentRow = row;
@@ -111,7 +113,7 @@ void Board::setNewAntcoor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     Displays the current board
+** Description:     Displays the current game board
 *********************************************************************/
 void Board::showBoard() {
     // build top wall
