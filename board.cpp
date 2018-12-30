@@ -12,6 +12,10 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+/*********************************************************************
+** Description:     default constructor that initializes the pointer
+**                  member and bool member variable
+*********************************************************************/
 Board::Board() {
     ptrBoard = nullptr;
     wallHit = false;
