@@ -26,6 +26,10 @@ Board::~Board() {
     delete [] ptrBoard;
 }
 
+/*********************************************************************
+** Description:     takes an int parameter to set the total rows in
+**                  the board.
+*********************************************************************/
 void Board::setRows(int row) {
     this->rows = row;
 }
