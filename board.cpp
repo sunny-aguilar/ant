@@ -316,7 +316,7 @@ void Board::flipColor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     save board color and add ant character
+** Description:     save board color to variable and add ant character
 *********************************************************************/
 void Board::addAntCharacter(int row, int col) {
     currentColor = ptrBoard[row][col];
@@ -332,9 +332,9 @@ void Board::addCurrentColor(int row, int col) {
 
 /*********************************************************************
 ** Description:     set temp ant orientation sets the ant orientation
- *                  when the ant goes out of bound. Ant orientation is
- *                  changed to changed to face the opposite direction
- *                  i.e., north --> south and east --> west
+**                  when the ant goes out of bound. Ant orientation is
+**                  changed to changed to face the opposite direction
+**                  i.e., north --> south and east --> west
 *********************************************************************/
 void Board::intTempHeading(int newHeading) {
     tempHeading = newHeading;
