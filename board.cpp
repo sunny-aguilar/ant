@@ -17,6 +17,10 @@ Board::Board() {
     wallHit = false;
 }
 
+/*********************************************************************
+** Description:     destructor that de-allocates the 2D pointer
+**                  that was allocated in the board class
+*********************************************************************/
 Board::~Board() {
     // delete dynamically allocated pointers
     for (int col = 0; col < getCols(); col++) {
