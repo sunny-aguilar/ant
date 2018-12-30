@@ -331,14 +331,17 @@ void Board::addCurrentColor(int row, int col) {
 }
 
 /*********************************************************************
-** Description:     get ant orientation
+** Description:     set temp ant orientation sets the ant orientation
+ *                  when the ant goes out of bound. Ant orientation is
+ *                  changed to changed to face the opposite direction
+ *                  i.e., north --> south and east --> west
 *********************************************************************/
 void Board::intTempHeading(int newHeading) {
     tempHeading = newHeading;
 }
 
 /*********************************************************************
-** Description:     get ant orientation
+** Description:     get temp ant orientation
 *********************************************************************/
 AntOrientation Board::wallCheckOrientation() {
    return static_cast<AntOrientation>(tempHeading);
