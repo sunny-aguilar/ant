@@ -1,13 +1,13 @@
 /*********************************************************************
 ** Author:          Sandro Aguilar
 ** Date:            Jan 2019
-** Description:     Write a short description
-**                  of your code
-**                  here.
-**
+** Description:     Board class creates a game board that is used to
+**                  maintain the board colors and move the ant. Works
+**                  together with the Ant class to pass data between
+**                  both in order to coordinate the ant location and
+**                  heading.
 *********************************************************************/
 #include "board.hpp"
-
 using std::cin;
 using std::cout;
 using std::endl;
