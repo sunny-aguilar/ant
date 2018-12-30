@@ -163,7 +163,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             }
             break;
         case 2:
-            // facing SOUTH
+            // facing SOUTH <-- \/ -->
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading WEST ->
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
@@ -178,7 +178,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             }
             break;
         case 3:
-            // facing EAST
+            // facing EAST >>>
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading SOUTH ->
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
@@ -193,7 +193,7 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
             }
             break;
         case 4:
-            // facing WEST
+            // facing WEST <<<
             if (ptrBoard[row-1][col-1] == ' ') {
                 // if the ant is on a white space, change heading NORTH ->
                 setCurrentColorVariable(ptrBoard[row-1][col-1]);
