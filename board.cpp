@@ -282,7 +282,6 @@ void Board::moveAnt(AntOrientation orientation) {
                 else {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 }
-
                 break;
             }
             else {
