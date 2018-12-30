@@ -29,9 +29,9 @@ private:
 
 public:
     Board();                                        // default constructor
-    ~Board();
-    void setRows(int row);
-    void setCols(int col);
+    ~Board();                                       // destructor
+    void setRows(int row);                          // set board rows
+    void setCols(int col);                          // set board columns
     void setSteps(int steps);
     void setStartRow(int startRow);
     void setStartCol(int startCol);
