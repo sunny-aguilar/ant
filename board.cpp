@@ -14,7 +14,7 @@ using std::endl;
 
 Board::Board() {
     ptrBoard = nullptr;
-    checkWallHit = false;
+    wallHit = false;
 }
 
 Board::~Board() {
@@ -218,30 +218,29 @@ AntOrientation Board::updateOrientation(int row, int col, AntOrientation heading
 *********************************************************************/
 void Board::moveAnt(AntOrientation orientation) {
     switch (orientation) {
-        case 1:
-            // move NORTH
+        case 1: // move ant NORTH unless it is out of bounds (if stmts)
             if ((antBoardCurrentRow-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                checkWallHit = true;
+                wallHit = true;
                 intTempHeading(SOUTH);
                 if (rows < 2) {
+                    // if board only has 1 row, do not move south
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
                 }
                 else {
+                    // move ant south otherwise
                     setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 }
-
                 break;
             } else {
                 // move NORTH
                 setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 break;
             }
-        case 2:
-            // move SOUTH
+        case 2: // move ant SOUTH unless it is out of bounds (if stmts)
             if ((antBoardCurrentRow+1) > rows) {
                 // this if stmt changes direction of ant if it hits border
-                checkWallHit = true;
+                wallHit = true;
                 intTempHeading(NORTH);
                 if (rows < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
@@ -249,18 +248,16 @@ void Board::moveAnt(AntOrientation orientation) {
                 else {
                     setNewAntcoor(antBoardCurrentRow-1, antBoardCurrentCol);
                 }
-
                 break;
             }
             else {
                 setNewAntcoor(antBoardCurrentRow+1, antBoardCurrentCol);
                 break;
             }
-        case 3:
-            // move EAST
+        case 3: // move ant EAST unless it is out of bounds (if stmts)
             if ((antBoardCurrentCol+1) > cols) {
                 // this if stmt changes direction of ant if it hits border
-                checkWallHit = true;
+                wallHit = true;
                 intTempHeading(WEST);
                 if (cols < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
@@ -275,11 +272,10 @@ void Board::moveAnt(AntOrientation orientation) {
                 setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol+1);
                 break;
             }
-        case 4:
-            // move WEST
+        case 4: // move ant WEST unless it is out of bounds (if stmts)
             if ((antBoardCurrentCol-1) < 1) {
                 // this if stmt changes direction of ant if it hits border
-                checkWallHit = true;
+                wallHit = true;
                 intTempHeading(EAST);
                 if (cols < 2) {
                     setNewAntcoor(antBoardCurrentRow, antBoardCurrentCol);
@@ -356,7 +352,7 @@ AntOrientation Board::wallCheckOrientation() {
 ** Description:     get bool variable that indicates wall was hit
 *********************************************************************/
 bool Board::checkWallHitVar() {
-    return checkWallHit;
+    return wallHit;
 }
 
 /*********************************************************************
@@ -365,5 +361,5 @@ bool Board::checkWallHitVar() {
 **                  bounds.
 *********************************************************************/
 void Board::setCheckWallHitVar (bool val) {
-    checkWallHit = val;
+    wallHit = val;
 }

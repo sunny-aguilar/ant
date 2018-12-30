@@ -23,7 +23,7 @@ private:
     int antBoardCurrentCol;
     char **ptrBoard;
     char currentColor;
-    bool checkWallHit;
+    bool wallHit;
     int tempHeading;
     void setCurrentColorVariable(char newColor);
 
