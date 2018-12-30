@@ -28,7 +28,7 @@ private:
     void setCurrentColorVariable(char newColor);    // private function
 
 public:
-    Board();
+    Board();                                        // default constructor
     ~Board();
     void setRows(int row);
     void setCols(int col);
