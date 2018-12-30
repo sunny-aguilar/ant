@@ -300,7 +300,9 @@ void Board::moveAnt(AntOrientation orientation) {
 }
 
 /*********************************************************************
-** Description:     flips the color of the square ant moved from
+** Description:     private function that sets the current color
+**                  variable. This function is for internal use of
+**                  the class.
 *********************************************************************/
 void Board::setCurrentColorVariable(char newColor) {
     currentColor = newColor;

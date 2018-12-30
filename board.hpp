@@ -25,6 +25,7 @@ private:
     char currentColor;
     bool checkWallHit;
     int tempHeading;
+    void setCurrentColorVariable(char newColor);
 
 public:
     Board();
@@ -36,7 +37,7 @@ public:
     void setStartCol(int startCol);
     void setBoardArrayDimensions();
     void setAllBoardCharacters();
-    void setCurrentColorVariable(char newColor);
+
 
     int getRows();
     int getCols();
