@@ -299,6 +299,9 @@ void Board::moveAnt(AntOrientation orientation) {
     }
 }
 
+/*********************************************************************
+** Description:     flips the color of the square ant moved from
+*********************************************************************/
 void Board::setCurrentColorVariable(char newColor) {
     currentColor = newColor;
 }
