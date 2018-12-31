@@ -15,7 +15,7 @@ using std::string;
 
 class Menu {
 private:
-    string selection;           // holds main menu selection made;
+    string selection;           // holds main menu selection
     int validateCustomStarting(int min, int customLocation);     // move to private variable section
 
 public:
