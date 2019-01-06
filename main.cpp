@@ -26,13 +26,17 @@ int main() {
     // If the ant is on a black space, turn left 90 degrees and change the space to white.
 
     // create variables
-    bool playAgain = true;
-    int trackSteps = 0;
+    bool playAgain = true;          // to control repeat games
+    int trackSteps = 0;             // to track the steps the ant makes
+    const int MIN_ROW = 1;          // to preset min number of rows and columns
+    const int MAX_ROW = 100;        // to preset max number fo rows and columns
+    const int MIN_STEPS = 1;        // to preset min steps to move the ant
+    const int MAX_STEPS = 1000;     // to preset max steps to move the ant
 
-    // create menu, board, and ant
+    // create menu
     Menu antMenu;
 
-    // call main menu
+    // call main menu2
     antMenu.showStartMenu();
 
     // get user main menu selection
@@ -50,13 +54,13 @@ int main() {
 
             // submenu - ask user to enter rows and columns for board and validate
             antMenu.submenuRows();
-            antBoard.setRows( antMenu.validateNumber(1, 100) );
+            antBoard.setRows( antMenu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
             antMenu.submenuCols();
-            antBoard.setCols( antMenu.validateNumber(1, 100) );
+            antBoard.setCols( antMenu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
 
-            // submenu - ask user to enter steps and validate
+            // submenu - ask user to enter steps and validate user input
             antMenu.submenuSteps();
-            antBoard.setSteps( antMenu.validateNumber(1, 1000) );
+            antBoard.setSteps( antMenu.validateNumber(MIN_STEPS, MAX_STEPS) ); // valid numbers are 1 through 1000
 
             // submenu - ask user to select the starting location for the ant
             antMenu.submenuStartLocation();
@@ -108,17 +112,19 @@ int main() {
             // add current color back on board (replacing * in array)
             antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
 
-            // ********* DEBUGGING - DELETE BELOW ************
-            // use this pause to help with debugging
+            // ********* DEBUGGING - TOOL ************
+            // use this to pause between steps to help
+            // with debugging and for viewing the ant
+            // move 1 step at a time
             cout << "Hit enter to continue\n";
             cin.get();
-            // ********* DEBUGGING - DELETE ABOVE ^^^ ************
-
             cout << endl;
+            // ********* DEBUGGING - TOOL^^^ ************
 
 
-            // Loop through the steps
+            // Loop through the total steps the ant is to move
             for (int steps = 0; steps < antBoard.getSteps(); steps++) {
+                // total steps taken is increased by one for each step
                 trackSteps++;
 
                 // update ant orientation for ant going out of bounds. If ant goes out of bounds,
@@ -154,14 +160,12 @@ int main() {
                 antBoard.addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
 
 
-
-
+                // ********* DEBUGGING - TOOL ************
+                // a pause is used to
                 cout << endl;
-                // use this pause to help with debugging
                 cout << "Steps taken " << trackSteps << endl;
                 cout << "Hit enter to continue\n";
                 cin.get();
-
                 cout << endl;
             }
 
