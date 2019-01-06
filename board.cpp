@@ -121,7 +121,7 @@ void Board::setBoardArrayDimensions() {
 }
 
 /*********************************************************************
-** Description:     sets the initial board characters to white
+** Description:     sets the initial board characters to all white
 *********************************************************************/
 void Board::setAllBoardCharacters() {
     for (int row = 0; row < getRows(); row++) {
