@@ -11,7 +11,6 @@
 *********************************************************************/
 #include "ant.hpp"
 
-
 void Ant::setAntOrientation(int orientation) {
     this->antOrientation = static_cast<AntOrientation>(orientation);
 }
