@@ -10,11 +10,7 @@
 **                  moves are made by the ant when it moves.
 *********************************************************************/
 #include "ant.hpp"
-#include <iostream>
-#include <string>
-using std::string;
-using std::cout;
-using std::endl;
+
 
 void Ant::setAntOrientation(int orientation) {
     this->antOrientation = static_cast<AntOrientation>(orientation);

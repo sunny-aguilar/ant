@@ -77,7 +77,7 @@ int Menu::validateNumber(int min, int max) {
         cout << "Enter an integer between " <<  min << " and " << max << endl;
         cin.getline(choice, 100);
 
-        // check if length is greater than 3
+        // reject any input that has more than digits than max parameter
         tooLong = false;
         if (strlen(choice) > length) {
             tooLong = true;
