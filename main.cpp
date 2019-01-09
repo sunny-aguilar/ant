@@ -31,7 +31,7 @@ int main() {
     const int MIN_ROW = 1;          // to preset min number of rows and columns
     const int MAX_ROW = 100;        // to preset max number fo rows and columns
     const int MIN_STEPS = 1;        // to preset min steps to move the ant
-    const int MAX_STEPS = 1000;     // to preset max steps to move the ant
+    const int MAX_STEPS = 20000;    // to preset max steps to move the ant
 
     // create menu
     Menu antMenu;
