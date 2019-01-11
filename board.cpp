@@ -161,7 +161,7 @@ void Board::setNewAntcoor(int row, int col) {
 void Board::showBoard() {
     for (int row = 0; row < getRows(); row++) {
         for (int col = 0; col < getCols(); col++) {
-            cout << "[" << ptrBoard[row][col] << "]" << " ";
+            cout << ptrBoard[row][col] << " ";
         }
         cout << endl;
     }

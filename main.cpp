@@ -164,9 +164,10 @@ int main() {
                 // a pause is used to
                 cout << endl;
                 cout << "Steps taken " << trackSteps << endl;
-                cout << "Hit enter to continue\n";
-                cin.get();
+//                cout << "Hit enter to continue\n";
+//                cin.get();
                 cout << endl;
+                // ********* END DEBUGGING - TOOL **********
             }
 
             // end of simulation
