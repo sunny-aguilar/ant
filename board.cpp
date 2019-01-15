@@ -159,12 +159,25 @@ void Board::setNewAntcoor(int row, int col) {
 ** Description:     Displays the current game board
 *********************************************************************/
 void Board::showBoard() {
+    // build the top border
+    for (int topWall = 0; topWall < getRows(); topWall++) {
+        cout << " -";
+    }
+    cout << endl;
     for (int row = 0; row < getRows(); row++) {
+        cout << "|";
         for (int col = 0; col < getCols(); col++) {
             cout << ptrBoard[row][col] << " ";
         }
+        cout << "|";
         cout << endl;
     }
+
+    // build the bottom border
+    for (int topWall = 0; topWall < getRows(); topWall++) {
+        cout << " -";
+    }
+    cout << endl;
 }
 
 /*********************************************************************
