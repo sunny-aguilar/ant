@@ -32,15 +32,15 @@ Board::~Board() {
 }
 
 /*********************************************************************
-** Description:     this function starts the ant simulation
-**                  that was allocated in the board class
+** Description:     this function starts the ant simulation. Constant
+**                  variables are created to control game parameters.
 *********************************************************************/
 void Board::startAntSimulation() {
     // create constant variables
     bool playAgain = true;          // to control repeat games
     int trackSteps = 0;             // to track the steps the ant makes
     const int MIN_ROW = 1;          // to preset min number of rows and columns
-    const int MAX_ROW = 100;        // to preset max number fo rows and columns
+    const int MAX_ROW = 120;        // to preset max number fo rows and columns
     const int MIN_STEPS = 1;        // to preset min steps to move the ant
     const int MAX_STEPS = 20000;    // to preset max steps to move the ant
 
@@ -70,9 +70,8 @@ void Board::startAntSimulation() {
                 setStartCol( menu.submenuColStartLocation( getCols() ) );
             }
             else {
-                // Extra Credit 5%
+                // Extra Credit 5% ************************
                 // set random starting location for the ant
-
                 setStartRow( menu.setRandomLocation( getRows() ) );
                 setStartCol( menu.setRandomLocation( getCols() ) );
             }
