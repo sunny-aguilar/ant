@@ -99,9 +99,9 @@ void Board::setBoardSizes(int MIN_ROW, int MAX_ROW) {
 ** Description:     takes constant parameters to set the total steps
 *********************************************************************/
 void Board::setupSteps(int MIN_STEPS, int MAX_STEPS) {
-    // submenu - ask user to enter steps and validate user input
+    // submenu - prompt user to enter steps and validate user input
     menu.submenuSteps();
-    setSteps( menu.validateNumber(MIN_STEPS, MAX_STEPS) ); // valid numbers are 1 through 1000
+    setSteps( menu.validateNumber(MIN_STEPS, MAX_STEPS) );
 }
 
 /*********************************************************************
