@@ -22,22 +22,22 @@ class Board {
 private:
     Menu menu;
     Ant ant;
-    int rows;                                       // total board rows
-    int cols;                                       // total board columns
-    int steps;                                      // total steps to move
-    int startRow;                                   // start row of ant
-    int startCol;                                   // start column of ant
-    int antBoardCurrentRow;                         // ant current row
-    int antBoardCurrentCol;                         // ant current column
-    char **ptrBoard;                                // pointer to an array of pointers
-    char currentColor;                              // current square color
-    bool wallHit;                                   // wall was hit bool
-    int tempHeading;                                // temporary ant heading
-    void setCurrentColorVariable(char newColor);    // private function
+    char **ptrBoard;
+    int rows;
+    int cols;
+    int steps;
+    int startRow;
+    int startCol;
+    int antBoardCurrentRow;
+    int antBoardCurrentCol;
+    char currentColor;
+    bool wallHit;
+    int tempHeading;
+    void setCurrentColorVariable(char newColor);
 
 public:
-    Board();                                        // default constructor
-    ~Board();                                       // destructor
+    Board();
+    ~Board();
     void startAntSimulation();
     void setBoardSizes(int MIN_ROW, int MAX_ROW);
     void setupSteps(int MIN_STEPS, int MAX_STEPS);
@@ -45,8 +45,8 @@ public:
     void setupOrientation();
     void setupBoardDetails();
     void showInitialBoardSetup();
-    void setRows(int row);                          // set board rows
-    void setCols(int col);                          // set board columns
+    void setRows(int row);
+    void setCols(int col);
     void setSteps(int steps);
     void setStartRow(int startRow);
     void setStartCol(int startCol);

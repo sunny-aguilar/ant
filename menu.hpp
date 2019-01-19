@@ -23,8 +23,8 @@ using std::string;
 
 class Menu {
 private:
-    string selection;           // holds main menu selection
-    int validateCustomStarting(int min, int customLocation);     // move to private variable section
+    string selection;
+    int validateCustomStarting(int min, int customLocation);
 
 public:
     void showStartMenu();
