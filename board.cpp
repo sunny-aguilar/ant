@@ -71,7 +71,7 @@ void Board::startAntSimulation() {
             // show initial starting board
             showInitialBoardSetup();
 
-            // Loop through the total steps the ant is to move
+            // move the ant operations
             moveAntOperations(trackSteps);
         } while ( playAgain(trackSteps) );
     }
@@ -579,7 +579,14 @@ void Board::setCheckWallHitVar (bool val) {
     wallHit = val;
 }
 
-
+/*********************************************************************
+** Description:     this functions takes in a parameter to track the
+**                  steps. This is mainly in charge of checking
+**                  whether the ant has moved out of bounds, updating
+ *                  the ant on the board after moving it, updating
+ *                  board class and ant class data variables, and
+ *                  calling a function to display the updated board.
+*********************************************************************/
 void Board::moveAntOperations(int trackSteps) {
     for (int steps = 0; steps < getSteps(); steps++) {
         // total steps taken is increased by one for each step
@@ -600,7 +607,7 @@ void Board::moveAntOperations(int trackSteps) {
 
 
         // move ant by getting getting new orientation from ant class and moving left
-        // or right   2nd switch stmt for moveAnt(  )
+        // or right
         moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
         ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
         ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
