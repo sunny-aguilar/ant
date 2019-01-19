@@ -34,6 +34,164 @@ Board::~Board() {
     delete [] ptrBoard;
 }
 
+
+void Board::startAntSimulation() {
+    menu.showStartMenu();
+    menu.setSelection( menu.validateSelection() );
+
+
+    // create variables
+    bool playAgain = true;          // to control repeat games
+    int trackSteps = 0;             // to track the steps the ant makes
+    const int MIN_ROW = 1;          // to preset min number of rows and columns
+    const int MAX_ROW = 100;        // to preset max number fo rows and columns
+    const int MIN_STEPS = 1;        // to preset min steps to move the ant
+    const int MAX_STEPS = 20000;    // to preset max steps to move the ant
+
+
+    if (menu.getSelection() == "1") {
+        // do while loop repeats the game if user wants to play again
+        do {
+
+            // submenu - ask user to enter rows and columns for board and validate
+            menu.submenuRows();
+            setRows( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+            menu.submenuCols();
+            setCols( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+
+            // submenu - ask user to enter steps and validate user input
+            menu.submenuSteps();
+            setSteps( menu.validateNumber(MIN_STEPS, MAX_STEPS) ); // valid numbers are 1 through 1000
+
+            // submenu - ask user to select the starting location for the ant
+            menu.submenuStartLocation();
+            if ( menu.validateSelection() == "1") {
+                // set custom starting location for the ant
+                setStartRow( menu.submenuRowStartLocation( getRows() ) );
+                setStartCol( menu.submenuColStartLocation( getCols() ) );
+            }
+            else {
+                // Extra Credit 5%
+                // set random starting location for the ant
+
+                setStartRow( menu.setRandomLocation( getRows() ) );
+                setStartCol( menu.setRandomLocation( getCols() ) );
+            }
+
+            // submenu - ask user to set ant's starting orientation
+            menu.submenuSetAntOrientation();
+            ant.setAntOrientation( menu.validateOrientation() );
+
+            // show message initializing ant
+            menu.submenuInitializeAntMessage();
+
+            // initialize ant and board details
+            // set initial ant row and column; values received board class
+            ant.setCurrentRowLocation( getStartRow() );
+            ant.setCurrentColLocation( getStartCol() );
+
+            // send current ant location from ant class back to board class
+            setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+
+            // set board dimensions rows and columns by dynamically allocating 2D array
+            setBoardArrayDimensions();
+
+            // set initial board characters to white squares
+            setAllBoardCharacters();
+
+            // show initial board setup
+            cout << "\n\n********** Initial Board Set Up **********\n";
+
+            // add ant * in array and saves current color ant is on in a variable
+            addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+            // show board
+            showBoard();
+
+            // add current color back on board (replacing * in array)
+            addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+            // ********* DEBUGGING - TOOL ************
+            // use this to pause between steps to help
+            // with debugging and for viewing initial
+            // baord set-up
+            cout << "The board has been initialized - Hit ENTER to continue\n";
+            cin.get();
+            cout << endl;
+            // ********* DEBUGGING - TOOL^^^ ************
+
+
+            // Loop through the total steps the ant is to move
+            for (int steps = 0; steps < getSteps(); steps++) {
+                // total steps taken is increased by one for each step
+                trackSteps++;
+
+                // update ant orientation for ant going out of bounds. If ant goes out of bounds,
+                // behavior is to make ant turn around 180 degree and move 1 square in that new
+                // direction
+                if (checkWallHitVar()) {
+                    ant.setAntOrientation( wallCheckOrientation() );
+                    setCheckWallHitVar(false);
+                }
+
+                // update ant orientation after moving moving ant on board
+                ant.setAntOrientation( updateOrientation( ant.getCurrentRowLocation(),
+                                                                   ant.getCurrentColLocation(),
+                                                                   ant.getAntOrientation() ) );
+
+
+                // move ant by getting getting new orientation from ant class and moving left
+                // or right   2nd switch stmt for moveAnt(  )
+                moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
+                ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
+                ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
+
+
+
+                // show current ant location, show board with ant, then replace ant
+                // add current ant location and update currentColor variable
+                addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+                // show updated board
+                showBoard();
+                // delete ant
+//                antBoard.deletePriorLocation();
+                // replace ant with prior space character
+                addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+
+                cout << endl;
+                cout << "Steps taken " << trackSteps << endl;
+                cout << endl;
+
+                // ********* DEBUGGING - TOOL ************
+                // cout << "Hit enter to continue\n";
+                // cin.get();
+                // ********* END DEBUGGING - TOOL **********
+            }
+
+            // end of simulation
+            // provide 2 choices: play again or quit
+            if (menu.submenuPlayAgain() == "2") {
+                playAgain = false;
+                cout << "Thanks for playing!\n";
+            }
+            else {
+                trackSteps = 0;
+            }
+
+        } while (playAgain);
+    }
+    else {
+        // user quit the program in the main menu
+        cout << "Goodbye\n";
+    }
+
+
+}
+
+
+
+
 /*********************************************************************
 ** Description:     takes an int parameter to set the total rows in
 **                  the board
@@ -165,11 +323,11 @@ void Board::showBoard() {
     }
     cout << endl;
     for (int row = 0; row < getRows(); row++) {
-        cout << "|";
+        cout << "|";    // build left wall
         for (int col = 0; col < getCols(); col++) {
             cout << ptrBoard[row][col] << " ";
         }
-        cout << "|";
+        cout << "|";    // build right wall
         cout << endl;
     }
 

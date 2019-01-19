@@ -11,9 +11,12 @@
 #define BOARD_HPP
 #include <iostream>
 #include "ant.hpp"
+#include "menu.hpp"
 
 class Board {
 private:
+    Menu menu;
+    Ant ant;
     int rows;                                       // total board rows
     int cols;                                       // total board columns
     int steps;                                      // total steps to move
@@ -30,6 +33,7 @@ private:
 public:
     Board();                                        // default constructor
     ~Board();                                       // destructor
+    void startAntSimulation();
     void setRows(int row);                          // set board rows
     void setCols(int col);                          // set board columns
     void setSteps(int steps);
