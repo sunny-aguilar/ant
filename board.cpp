@@ -607,13 +607,11 @@ void Board::moveAntOperations(int trackSteps) {
                                                   ant.getCurrentColLocation(),
                                                   ant.getAntOrientation() ) );
 
-
         // move ant by getting getting new orientation from ant class and moving left
         // or right
         moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
         ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
         ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
-
 
         // show current ant location, show board with ant, then replace ant
         // add current ant location and update currentColor variable
