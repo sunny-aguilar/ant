@@ -175,7 +175,7 @@ void Board::showInitialBoardSetup() {
 
     // ********* DEBUGGING - TOOL ************
     // use this to pause for viewing initial
-    // baord set-up
+    // board set-up
     cout << "The board has been initialized - Hit ENTER to continue\n";
     cin.get();
     cout << endl;
