@@ -10,6 +10,9 @@
 *********************************************************************/
 #include "menu.hpp"
 
+/*********************************************************************
+** Description:     shows the main menu, prompts user to start
+*********************************************************************/
 void Menu::showStartMenu() {
     cout << "1. Start Langston's Ant Simulation\n"
          << "2. Quit\n"
