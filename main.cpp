@@ -8,7 +8,8 @@
 **                  according to the project specifications. The ant
 **                  bounces off the walls so as not to exceed bounds.
 **                  EXTRA CREDIT - a random starting location option
-**                  has been incorporated for extra credit.
+**                  has been incorporated for extra credit, see
+**                  board class.
 *********************************************************************/
 #include "ant.hpp"
 #include "board.hpp"
