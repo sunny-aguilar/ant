@@ -71,51 +71,49 @@ void Board::startAntSimulation() {
             // show initial starting board
             showInitialBoardSetup();
 
-
-
             // Loop through the total steps the ant is to move
-            for (int steps = 0; steps < getSteps(); steps++) {
-                // total steps taken is increased by one for each step
-                trackSteps++;
-
-                // update ant orientation for ant going out of bounds. If ant goes out of bounds,
-                // behavior is to make ant turn around 180 degree and move 1 square in that new
-                // direction
-                if (checkWallHitVar()) {
-                    ant.setAntOrientation( wallCheckOrientation() );
-                    setCheckWallHitVar(false);
-                }
-
-                // update ant orientation after moving moving ant on board
-                ant.setAntOrientation( updateOrientation( ant.getCurrentRowLocation(),
-                                                                   ant.getCurrentColLocation(),
-                                                                   ant.getAntOrientation() ) );
-
-
-                // move ant by getting getting new orientation from ant class and moving left
-                // or right   2nd switch stmt for moveAnt(  )
-                moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
-                ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
-                ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
-
-
-
-                // show current ant location, show board with ant, then replace ant
-                // add current ant location and update currentColor variable
-                addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-                // show updated board
-                showBoard();
-                // replace ant with prior space character
-                addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-
-                // display the steps taken by the ant
-                cout << endl << "Steps taken " << trackSteps << endl << endl;
-            }
+            moveAntOperations(trackSteps);
+//            for (int steps = 0; steps < getSteps(); steps++) {
+//                // total steps taken is increased by one for each step
+//                trackSteps++;
+//
+//                // update ant orientation for ant going out of bounds. If ant goes out of bounds,
+//                // behavior is to make ant turn around 180 degree and move 1 square in that new
+//                // direction
+//                if (checkWallHitVar()) {
+//                    ant.setAntOrientation( wallCheckOrientation() );
+//                    setCheckWallHitVar(false);
+//                }
+//
+//                // update ant orientation after moving moving ant on board
+//                ant.setAntOrientation( updateOrientation( ant.getCurrentRowLocation(),
+//                                                                   ant.getCurrentColLocation(),
+//                                                                   ant.getAntOrientation() ) );
+//
+//
+//                // move ant by getting getting new orientation from ant class and moving left
+//                // or right   2nd switch stmt for moveAnt(  )
+//                moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
+//                ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
+//                ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
+//
+//
+//                // show current ant location, show board with ant, then replace ant
+//                // add current ant location and update currentColor variable
+//                addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+//                // show updated board
+//                showBoard();
+//                // replace ant with prior space character
+//                addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+//
+//                // display the steps taken by the ant
+//                cout << endl << "Steps taken " << trackSteps << endl << endl;
+//            }
 
         } while ( playAgain(trackSteps) );
     }
     else {
-        // user quit the program in the main menu
+        // user quits the program in the main menu
         cout << "Goodbye\n";
     }
 }
@@ -616,6 +614,46 @@ bool Board::checkWallHitVar() {
 *********************************************************************/
 void Board::setCheckWallHitVar (bool val) {
     wallHit = val;
+}
+
+
+void Board::moveAntOperations(int trackSteps) {
+    for (int steps = 0; steps < getSteps(); steps++) {
+        // total steps taken is increased by one for each step
+        trackSteps++;
+
+        // update ant orientation for ant going out of bounds. If ant goes out of bounds,
+        // behavior is to make ant turn around 180 degree and move 1 square in that new
+        // direction
+        if (checkWallHitVar()) {
+            ant.setAntOrientation( wallCheckOrientation() );
+            setCheckWallHitVar(false);
+        }
+
+        // update ant orientation after moving moving ant on board
+        ant.setAntOrientation( updateOrientation( ant.getCurrentRowLocation(),
+                                                  ant.getCurrentColLocation(),
+                                                  ant.getAntOrientation() ) );
+
+
+        // move ant by getting getting new orientation from ant class and moving left
+        // or right   2nd switch stmt for moveAnt(  )
+        moveAnt( ant.getAntOrientation() );                // move and and update new coord in board
+        ant.setCurrentRowLocation( getAntCurrentRow() );   // update new row coord in ant class
+        ant.setCurrentColLocation( getAntCurrentCol() );   // update new col coord in ant class
+
+
+        // show current ant location, show board with ant, then replace ant
+        // add current ant location and update currentColor variable
+        addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+        // show updated board
+        showBoard();
+        // replace ant with prior space character
+        addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+        // display the steps taken by the ant
+        cout << endl << "Steps taken " << trackSteps << endl << endl;
+    }
 }
 
 /*********************************************************************

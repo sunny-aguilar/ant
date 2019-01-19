@@ -68,6 +68,7 @@ public:
     bool checkWallHitVar();
     void setCheckWallHitVar(bool val);
     void intTempHeading(int heading);
+    void moveAntOperations(int trackSteps);
     bool playAgain(int &steps);
 };
 
