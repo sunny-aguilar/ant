@@ -88,11 +88,11 @@ void Board::startAntSimulation() {
 **                  and columns
 *********************************************************************/
 void Board::setBoardSizes(int MIN_ROW, int MAX_ROW) {
-    // submenu - ask user to enter rows and columns for board and validate
+    // prompt user to enter rows and columns for board and validate
     menu.submenuRows();
-    setRows( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+    setRows( menu.validateNumber(MIN_ROW, MAX_ROW) );
     menu.submenuCols();
-    setCols( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+    setCols( menu.validateNumber(MIN_ROW, MAX_ROW) );
 }
 
 /*********************************************************************

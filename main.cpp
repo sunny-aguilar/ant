@@ -15,7 +15,7 @@
 #include "board.hpp"
 #include "menu.hpp"
 #include <iostream>
-#include <cstdlib>
+//#include <cstdlib>
 #include <ctime>
 
 int main() {
