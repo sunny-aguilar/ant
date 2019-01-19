@@ -16,10 +16,16 @@ void Menu::showStartMenu() {
          << "Choice: ";
 }
 
+/*********************************************************************
+** Description:     sets selection data member
+*********************************************************************/
 void Menu::setSelection(string select) {
     this->selection = select;
 }
 
+/*********************************************************************
+** Description:     gets selection data member
+*********************************************************************/
 string Menu::getSelection() {
     return selection;
 }
