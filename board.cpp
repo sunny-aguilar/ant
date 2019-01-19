@@ -5,7 +5,9 @@
 **                  maintain the board colors and move the ant. Works
 **                  together with the Ant class to pass data between
 **                  both in order to coordinate the ant location and
-**                  heading.
+**                  heading. EXTRA CREDIT - see function called
+**                  Board::setupStartLocation() for random start
+**                  location option.
 *********************************************************************/
 #include "board.hpp"
 
