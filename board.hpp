@@ -12,6 +12,9 @@
 #include <iostream>
 #include "ant.hpp"
 #include "menu.hpp"
+using std::cin;
+using std::cout;
+using std::endl;
 
 class Board {
 private:

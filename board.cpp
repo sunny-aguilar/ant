@@ -8,9 +8,6 @@
 **                  heading.
 *********************************************************************/
 #include "board.hpp"
-using std::cin;
-using std::cout;
-using std::endl;
 
 /*********************************************************************
 ** Description:     default constructor that initializes the pointer
@@ -34,13 +31,12 @@ Board::~Board() {
     delete [] ptrBoard;
 }
 
-
+/*********************************************************************
+** Description:     this function starts the ant simulation
+**                  that was allocated in the board class
+*********************************************************************/
 void Board::startAntSimulation() {
-    menu.showStartMenu();
-    menu.setSelection( menu.validateSelection() );
-
-
-    // create variables
+    // create constant variables
     bool playAgain = true;          // to control repeat games
     int trackSteps = 0;             // to track the steps the ant makes
     const int MIN_ROW = 1;          // to preset min number of rows and columns
@@ -48,6 +44,9 @@ void Board::startAntSimulation() {
     const int MIN_STEPS = 1;        // to preset min steps to move the ant
     const int MAX_STEPS = 20000;    // to preset max steps to move the ant
 
+    // show start menu & get player selection
+    menu.showStartMenu();
+    menu.setSelection( menu.validateSelection() );
 
     if (menu.getSelection() == "1") {
         // do while loop repeats the game if user wants to play again
@@ -153,11 +152,8 @@ void Board::startAntSimulation() {
                 addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
                 // show updated board
                 showBoard();
-                // delete ant
-//                antBoard.deletePriorLocation();
                 // replace ant with prior space character
                 addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-
 
                 cout << endl;
                 cout << "Steps taken " << trackSteps << endl;
@@ -185,12 +181,7 @@ void Board::startAntSimulation() {
         // user quit the program in the main menu
         cout << "Goodbye\n";
     }
-
-
 }
-
-
-
 
 /*********************************************************************
 ** Description:     takes an int parameter to set the total rows in
