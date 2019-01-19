@@ -37,6 +37,9 @@ public:
     Board();                                        // default constructor
     ~Board();                                       // destructor
     void startAntSimulation();
+    void setBoardSizes(int MIN_ROW, int MAX_ROW);
+    void setupSteps(int MIN_STEPS, int MAX_STEPS);
+    void setupStartLocation();
     void setRows(int row);                          // set board rows
     void setCols(int col);                          // set board columns
     void setSteps(int steps);

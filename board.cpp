@@ -51,30 +51,16 @@ void Board::startAntSimulation() {
     if (menu.getSelection() == "1") {
         // do while loop repeats the game if user wants to play again
         do {
-
-            // submenu - ask user to enter rows and columns for board and validate
-            menu.submenuRows();
-            setRows( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
-            menu.submenuCols();
-            setCols( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+            // set board row and column sizes
+            setBoardSizes(MIN_ROW, MAX_ROW);
 
             // submenu - ask user to enter steps and validate user input
-            menu.submenuSteps();
-            setSteps( menu.validateNumber(MIN_STEPS, MAX_STEPS) ); // valid numbers are 1 through 1000
+            setupSteps(MIN_STEPS, MAX_STEPS);
+
 
             // submenu - ask user to select the starting location for the ant
-            menu.submenuStartLocation();
-            if ( menu.validateSelection() == "1") {
-                // set custom starting location for the ant
-                setStartRow( menu.submenuRowStartLocation( getRows() ) );
-                setStartCol( menu.submenuColStartLocation( getCols() ) );
-            }
-            else {
-                // Extra Credit 5% ************************
-                // set random starting location for the ant
-                setStartRow( menu.setRandomLocation( getRows() ) );
-                setStartCol( menu.setRandomLocation( getCols() ) );
-            }
+            setupStartLocation();
+
 
             // submenu - ask user to set ant's starting orientation
             menu.submenuSetAntOrientation();
@@ -179,6 +165,47 @@ void Board::startAntSimulation() {
     else {
         // user quit the program in the main menu
         cout << "Goodbye\n";
+    }
+}
+
+/*********************************************************************
+** Description:     takes constant parameters to set the board rows
+**                  and columns
+*********************************************************************/
+void Board::setBoardSizes(int MIN_ROW, int MAX_ROW) {
+    // submenu - ask user to enter rows and columns for board and validate
+    menu.submenuRows();
+    setRows( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+    menu.submenuCols();
+    setCols( menu.validateNumber(MIN_ROW, MAX_ROW) ); // valid numbers are 1 through 100
+}
+
+/*********************************************************************
+** Description:     takes constant parameters to set the total steps
+*********************************************************************/
+void Board::setupSteps(int MIN_STEPS, int MAX_STEPS) {
+    // submenu - ask user to enter steps and validate user input
+    menu.submenuSteps();
+    setSteps( menu.validateNumber(MIN_STEPS, MAX_STEPS) ); // valid numbers are 1 through 1000
+}
+
+/*********************************************************************
+** Description:     EXTRA CREDIT - user can set a random starting
+**                  location or a custom user-picked location for
+**                  the ant
+*********************************************************************/
+void Board::setupStartLocation() {
+    menu.submenuStartLocation();
+    if ( menu.validateSelection() == "1") {
+        // set custom starting location for the ant
+        setStartRow( menu.submenuRowStartLocation( getRows() ) );
+        setStartCol( menu.submenuColStartLocation( getCols() ) );
+    }
+    else {
+        // Extra Credit 5% ************************
+        // set random starting location for the ant
+        setStartRow( menu.setRandomLocation( getRows() ) );
+        setStartCol( menu.setRandomLocation( getCols() ) );
     }
 }
 
