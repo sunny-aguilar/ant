@@ -10,7 +10,15 @@
 *********************************************************************/
 #ifndef MENU_HPP
 #define MENU_HPP
+
+#include <iostream>
 #include <string>
+#include <cctype>
+#include <cstring>
+#include <sstream>
+using std::cin;
+using std::cout;
+using std::endl;
 using std::string;
 
 class Menu {

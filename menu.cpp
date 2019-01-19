@@ -5,16 +5,10 @@
 **                  to validate user input. Input validation is done
 **                  using a generic validators where the ranges are
 **                  set as determined by the needs of main.cpp (thus
-**                  making it portable and re-usable.
+**                  making it portable and re-usable. Private function
+**                  is used for internal class purposes only.
 *********************************************************************/
 #include "menu.hpp"
-#include <iostream>
-#include <cctype>
-#include <cstring>
-#include <sstream>
-using std::cin;
-using std::cout;
-using std::endl;
 
 void Menu::showStartMenu() {
     cout << "1. Start Langston's Ant Simulation\n"
