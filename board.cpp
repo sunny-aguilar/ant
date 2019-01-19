@@ -37,7 +37,6 @@ Board::~Board() {
 *********************************************************************/
 void Board::startAntSimulation() {
     // create constant variables
-    bool playAgain = true;          // to control repeat games
     int trackSteps = 0;             // to track the steps the ant makes
     const int MIN_ROW = 1;          // to preset min number of rows and columns
     const int MAX_ROW = 120;        // to preset max number fo rows and columns
@@ -57,52 +56,21 @@ void Board::startAntSimulation() {
             // submenu - ask user to enter steps and validate user input
             setupSteps(MIN_STEPS, MAX_STEPS);
 
-
             // submenu - ask user to select the starting location for the ant
             setupStartLocation();
 
-
             // submenu - ask user to set ant's starting orientation
-            menu.submenuSetAntOrientation();
-            ant.setAntOrientation( menu.validateOrientation() );
+            setupOrientation();
 
             // show message initializing ant
             menu.submenuInitializeAntMessage();
 
             // initialize ant and board details
-            // set initial ant row and column; values received board class
-            ant.setCurrentRowLocation( getStartRow() );
-            ant.setCurrentColLocation( getStartCol() );
+            setupBoardDetails();
 
-            // send current ant location from ant class back to board class
-            setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+            // show initial starting board
+            showInitialBoardSetup();
 
-            // set board dimensions rows and columns by dynamically allocating 2D array
-            setBoardArrayDimensions();
-
-            // set initial board characters to white squares
-            setAllBoardCharacters();
-
-            // show initial board setup
-            cout << "\n\n********** Initial Board Set Up **********\n";
-
-            // add ant * in array and saves current color ant is on in a variable
-            addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-
-            // show board
-            showBoard();
-
-            // add current color back on board (replacing * in array)
-            addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
-
-            // ********* DEBUGGING - TOOL ************
-            // use this to pause between steps to help
-            // with debugging and for viewing initial
-            // baord set-up
-            cout << "The board has been initialized - Hit ENTER to continue\n";
-            cin.get();
-            cout << endl;
-            // ********* DEBUGGING - TOOL^^^ ************
 
 
             // Loop through the total steps the ant is to move
@@ -140,27 +108,11 @@ void Board::startAntSimulation() {
                 // replace ant with prior space character
                 addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
 
-                cout << endl;
-                cout << "Steps taken " << trackSteps << endl;
-                cout << endl;
-
-                // ********* DEBUGGING - TOOL ************
-                // cout << "Hit enter to continue\n";
-                // cin.get();
-                // ********* END DEBUGGING - TOOL **********
+                // display the steps taken by the ant
+                cout << endl << "Steps taken " << trackSteps << endl << endl;
             }
 
-            // end of simulation
-            // provide 2 choices: play again or quit
-            if (menu.submenuPlayAgain() == "2") {
-                playAgain = false;
-                cout << "Thanks for playing!\n";
-            }
-            else {
-                trackSteps = 0;
-            }
-
-        } while (playAgain);
+        } while ( playAgain(trackSteps) );
     }
     else {
         // user quit the program in the main menu
@@ -207,6 +159,64 @@ void Board::setupStartLocation() {
         setStartRow( menu.setRandomLocation( getRows() ) );
         setStartCol( menu.setRandomLocation( getCols() ) );
     }
+}
+
+/*********************************************************************
+** Description:     this function prompts user to pick the ant
+**                  orientation, validates input, and sets up
+**                  the orientation after valid input
+*********************************************************************/
+void Board::setupOrientation() {
+    menu.submenuSetAntOrientation();
+    ant.setAntOrientation( menu.validateOrientation() );
+}
+
+/*********************************************************************
+** Description:     this function sets up the game details on the
+**                  the ant object shc as its current location,
+**                  dynamically allocates the array, and sets the
+**                  board characters.
+*********************************************************************/
+void Board::setupBoardDetails() {
+    ant.setCurrentRowLocation( getStartRow() );
+    ant.setCurrentColLocation( getStartCol() );
+
+    // send current ant location from ant class back to board class
+    setNewAntcoor( ant.getCurrentRowLocation(), ant.getCurrentColLocation() );
+
+    // set board dimensions rows and columns by dynamically allocating 2D array
+    setBoardArrayDimensions();
+
+    // set initial board characters to white squares
+    setAllBoardCharacters();
+
+    // show initial board setup
+    cout << "\n\n********** Initial Board Set Up **********\n";
+
+    // add ant * in array and saves current color ant is on in a variable
+    addAntCharacter( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+}
+
+/*********************************************************************
+** Description:     this functions calls functions to display the
+**                  board on the screen. A debugging tool was kept
+**                  since it helps in pausing to view the initial
+**                  board set-up before the ant moves.
+*********************************************************************/
+void Board::showInitialBoardSetup() {
+    // display board on screen
+    showBoard();
+
+    // add current color back on board (replacing * in array)
+    addCurrentColor( ant.getCurrentRowLocation()-1, ant.getCurrentColLocation()-1 );
+
+    // ********* DEBUGGING - TOOL ************
+    // use this to pause for viewing initial
+    // baord set-up
+    cout << "The board has been initialized - Hit ENTER to continue\n";
+    cin.get();
+    cout << endl;
+    // ********* DEBUGGING - TOOL^^^ ************
 }
 
 /*********************************************************************
@@ -606,4 +616,24 @@ bool Board::checkWallHitVar() {
 *********************************************************************/
 void Board::setCheckWallHitVar (bool val) {
     wallHit = val;
+}
+
+/*********************************************************************
+** Description:     this function prompts the user whether they want to
+**                  play again or quit. A parameter is passed in as a
+**                  reference to update the number of steps the ant
+**                  has moved if the player decides to play again.
+*********************************************************************/
+bool Board::playAgain(int &steps) {
+    // to control repeat games
+    bool playAgain = true;
+    // provide 2 choices: play again or quit
+    if (menu.submenuPlayAgain() == "2") {
+        playAgain = false;
+        cout << "Thanks for playing!\n";
+    }
+    else {
+        steps = 0;
+    }
+    return playAgain;
 }

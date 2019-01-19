@@ -40,6 +40,9 @@ public:
     void setBoardSizes(int MIN_ROW, int MAX_ROW);
     void setupSteps(int MIN_STEPS, int MAX_STEPS);
     void setupStartLocation();
+    void setupOrientation();
+    void setupBoardDetails();
+    void showInitialBoardSetup();
     void setRows(int row);                          // set board rows
     void setCols(int col);                          // set board columns
     void setSteps(int steps);
@@ -65,6 +68,7 @@ public:
     bool checkWallHitVar();
     void setCheckWallHitVar(bool val);
     void intTempHeading(int heading);
+    bool playAgain(int &steps);
 };
 
 #endif
